@@ -5,13 +5,20 @@
     "license": "BSD-3-Clause",
     "autoload": {
         "psr-4": {
-            "Juanma386\\PhpAssistsClass\\": "src/"
+            "Juanma386\\PhpAssists\\": "src/"
         }
     },
     "authors": [
         {
             "name": "Villalba Juan Manuel Pedro",
-            "email": "support@hexome.cloud"
+            "email": "support@hexome.cloud",
+            "homepage": "http://hexome.cloud"
+        }
+    ],
+    "repositories": [
+        {
+        "type": "git",
+        "url": "https://github.com/juanma386/PHPAssists-Class"
         }
     ],
     "minimum-stability": "alpha",
