@@ -1,4 +1,6 @@
 <?php
+namespace PHPAssists/Shared; 
+
 class HelperMain {
     public function __construct() {
         spl_autoload_register([$this, 'autoload']);
