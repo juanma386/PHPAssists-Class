@@ -1,5 +1,5 @@
 <?php
-namespace PHPAssists/Shared/Entities; 
+namespace PHPAssists\Shared\Entities; 
 class User {
     private $id;
     private $username;
