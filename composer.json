@@ -1,0 +1,19 @@
+{
+    "name": "juanma386/php-assists-class",
+    "description": "PHPAssists/Class is a class aimed at simplifying the management of essential libraries required for multifunctional projects in PHP. It offers a unified and organized channel to load, manage, and access various basic libraries and functionalities needed in projects of diverse nature.",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "autoload": {
+        "psr-4": {
+            "Juanma386\\PhpAssistsClass\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Villalba Juan Manuel Pedro",
+            "email": "support@hexome.cloud"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {}
+}

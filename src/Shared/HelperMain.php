@@ -1,5 +1,5 @@
 <?php
-namespace PHPAssists/Shared; 
+namespace PHPAssists\Shared; 
 
 class HelperMain {
     public function __construct() {
