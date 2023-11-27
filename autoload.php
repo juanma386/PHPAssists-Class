@@ -1,7 +1,7 @@
 <?php
 spl_autoload_register(function ($className) {
     // Define the base directory for the "Shared" directory
-    $baseDir = __DIR__ . '/Shared/';
+    $baseDir = __DIR__ . '/src/Shared/';
 
     // Replace namespace separator with directory separator
     $className = str_replace('\\', '/', $className);
