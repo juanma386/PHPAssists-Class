@@ -1,5 +1,5 @@
 <?php
-namespace PHPAssists\Shared\Entities;
+namespace PHPAssists\Shared\Entities; 
 
 use PHPUnit\Framework\TestCase;
 
@@ -7,7 +7,12 @@ class UserTest extends TestCase
 {
     public function testSetUsername()
     {
-        $user = new User('1', 'oldusername', 'test@example.com', 'oldpassword');
+        $user_id = '1';
+        $user_name = 'oldusername';
+        $user_email = 'test@example.com';
+        $user_old_password = 'oldpassword';
+
+        $user = new User($user_id, $user_name, $user_email, $user_old_password);
 
         // Prueba para setUsername() con un valor válido
         $user->setUsername('newusername');
@@ -16,7 +21,13 @@ class UserTest extends TestCase
 
     public function testSetEmail()
     {
-        $user = new User('1', 'oldusername', 'test@example.com', 'oldpassword');
+
+        $user_id = '1';
+        $user_name = 'oldusername';
+        $user_email = 'test@example.com';
+        $user_old_password = 'oldpassword';
+
+        $user = new User($user_id, $user_name, $user_email, $user_old_password);
 
         // Prueba para setEmail() con un valor válido
         $user->setEmail('newemail@example.com');
@@ -25,7 +36,12 @@ class UserTest extends TestCase
 
     public function testSetPassword()
     {
-        $user = new User('1', 'oldusername', 'test@example.com', 'oldpassword');
+        $user_id = '1';
+        $user_name = 'oldusername';
+        $user_email = 'test@example.com';
+        $user_old_password = 'oldpassword';
+
+        $user = new User($user_id, $user_name, $user_email, $user_old_password);
 
         // Prueba para setPassword() con un valor válido
         $newPassword = 'newpassword123';
@@ -33,11 +49,19 @@ class UserTest extends TestCase
 
         // Verificar si el método getPassword() devuelve el hash de la nueva contraseña
         $this->assertTrue(password_verify($newPassword, $user->getPassword()));
+
+        $invalidPassword = 'invalidPassword123';
+        $this->assertFalse(password_verify($invalidPassword, $user->getPassword()));
     }
 
     public function testValidateUsername()
     {
-        $user = new User('1', 'oldusername', 'test@example.com', 'oldpassword');
+        $user_id = '1';
+        $user_name = 'oldusername';
+        $user_email = 'test@example.com';
+        $user_old_password = 'oldpassword';
+
+        $user = new User($user_id, $user_name, $user_email, $user_old_password);
 
         // Prueba para un nombre de usuario válido
         $this->assertTrue($user->validateUsername());
@@ -49,7 +73,12 @@ class UserTest extends TestCase
 
     public function testValidateEmail()
     {
-        $user = new User('1', 'oldusername', 'test@example.com', 'oldpassword');
+        $user_id = '1';
+        $user_name = 'oldusername';
+        $user_email = 'test@example.com';
+        $user_old_password = 'oldpassword';
+
+        $user = new User($user_id, $user_name, $user_email, $user_old_password);
 
         // Prueba para un correo electrónico válido
         $this->assertTrue($user->validateEmail());
@@ -61,7 +90,12 @@ class UserTest extends TestCase
 
     public function testValidatePassword()
     {
-        $user = new User('1', 'oldusername', 'test@example.com', 'oldpassword');
+        $user_id = '1';
+        $user_name = 'oldusername';
+        $user_email = 'test@example.com';
+        $user_old_password = 'oldpassword';
+
+        $user = new User($user_id, $user_name, $user_email, $user_old_password);
 
         // Prueba para una contraseña válida
         $validPassword = 'validPassword123';

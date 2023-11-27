@@ -19,47 +19,47 @@ class User {
         $this->password = $password;
     }
 
-    // Métodos para acceder y establecer los valores de las propiedades
-
-    public function getId() {
+    public function getId() : string {
         return $this->id;
     }
 
-    public function getUsername() {
+    public function getUsername() : string {
         return $this->username;
     }
 
-    public function getEmail() {
+    public function getEmail() : string {
         return $this->email;
     }
 
-    public function getPassword() {
+    public function getPassword() : string {
         return $this->password;
     }
 
-    public function setUsername($username) {
+    public function setUsername($username) : void {
         $this->username = $username;
     }
 
-    public function setEmail($email) {
+    public function setEmail($email) : void {
         $this->email = $email;
     }
 
-    public function setPassword($password) {
-        $this->password = $password;
+    public function setPassword($password) : void {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = $hashedPassword;
     }
+    
    
-    public function validateUsername() {
+    public function validateUsername() : bool {
         // Verificar si el username tiene una longitud válida
         return strlen($this->username) >= 3 && strlen($this->username) <= 50;
     }
 
-    public function validateEmail() {
+    public function validateEmail() : bool {
         // Verificar si el email es válido
         return filter_var($this->email, FILTER_VALIDATE_EMAIL) !== false;
     }
 
-    public function validatePassword($enteredPassword) {
+    public function validatePassword($enteredPassword) : bool {
         // Verificar si la contraseña ingresada coincide con la contraseña almacenada
         return password_verify($enteredPassword, $this->password);
     }
