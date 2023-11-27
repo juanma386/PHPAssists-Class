@@ -17,6 +17,4 @@ The files and utilities in this directory are intended to provide common functio
 
 Feel free to contribute by adding new helpful components or improving existing ones in this directory. Please follow the project's coding standards and guidelines.
 
-## License
 
-This project is licensed under the [License Name] License - see the [LICENSE](link-to-license-file) file for details.
