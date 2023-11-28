@@ -4,10 +4,10 @@ namespace PHPAssists\Shared\Entities;
 use PHPAssists\Shared\Core\ClassInvocationProcessor;
 
 class User extends ClassInvocationProcessor {
-    private $id;
-    private $username;
-    private $email;
-    private $password;
+    private $id         = null;
+    private $username   = null;
+    private $email      = null;
+    private $password   = null;
 
     protected $table              = 'users'; 
     protected $primaryKey         = 'user_id';
@@ -22,19 +22,19 @@ class User extends ClassInvocationProcessor {
     }
 
     public function getId()  : string | null {
-        return $this->id ?? null;
+        return $this->id;
     }
 
     public function getUsername()  : string | null {
-        return $this->username ?? null;
+        return $this->username;
     }
 
     public function getEmail()  : string | null {
-        return $this->email ?? null;
+        return $this->email;
     }
 
     public function getPassword()  : string | null {
-        return $this->password ?? null;
+        return $this->password;
     }
     
     public function setId($id) : void {
@@ -65,11 +65,11 @@ class User extends ClassInvocationProcessor {
     }
 
     public function validatePassword($enteredPassword) : bool {
-        return password_verify($enteredPassword, $this->password);
+        return isset($enteredPassword) && !empty($enteredPassword) ? password_verify($enteredPassword, $this->password) : false;
     }
 
     private function getHashPassword($password) : string | null {
-        return isset($password) ? password_hash($password, PASSWORD_DEFAULT) : null;
+        return isset($password) && !empty($password) ? password_hash($password, PASSWORD_DEFAULT) : null;
     }
 
 }
