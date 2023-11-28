@@ -15,9 +15,9 @@ class User extends ClassInvocationProcessor {
     protected $allowedFields      = ['username', 'email', 'password'];
   
     public function __construct($id, $username, $email, $password) {
-        $this->id = $id;
-        $this->username = $username;
-        $this->email = $email;
+        $this->setId($id);
+        $this->setUsername($username);
+        $this->setEmail($email);
         $this->password = $password;
     }
 
@@ -37,12 +37,17 @@ class User extends ClassInvocationProcessor {
         return $this->password;
     }
 
+    
+    public function setId($id) : void {
+        $this->id = $id;
+    }
+
     public function setUsername($username) : void {
-        $this->username = $username;
+        $this->username = $this->validateUsername() ? $username : null;
     }
 
     public function setEmail($email) : void {
-        $this->email = $email;
+        $this->email = $this->validateEmail() ? $email : null;
     }
 
     public function setPassword($password) : void {
