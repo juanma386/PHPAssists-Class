@@ -47,7 +47,8 @@ class User extends ClassInvocationProcessor {
     }
 
     public function setEmail($email) : void {
-        $this->email = $this->validateEmail() ? $email : null;
+        $this->email = $email;
+        !$this->validateEmail() ? [ $this->email = null ] : false;
     }
 
     public function setPassword($password) : void {
