@@ -18,7 +18,7 @@ class User extends ClassInvocationProcessor {
         $this->setId($id);
         $this->setUsername($username);
         $this->setEmail($email);
-        $this->password = $password;
+        $this->setPassword($password);
     }
 
     public function getId()  : string | null {
@@ -50,10 +50,6 @@ class User extends ClassInvocationProcessor {
         $this->email = $this->validateEmail() ? $email : null;
     }
 
-    public function getHashPassword($password) : string | null {
-        return isset($password) ? password_hash($password, PASSWORD_DEFAULT) : null;
-    }
-
     public function setPassword($password) : void {
         $hashedPassword = $this->getHashPassword($password);
         $this->password = $hashedPassword;
@@ -70,5 +66,10 @@ class User extends ClassInvocationProcessor {
     public function validatePassword($enteredPassword) : bool {
         return password_verify($enteredPassword, $this->password);
     }
+
+    private function getHashPassword($password) : string | null {
+        return isset($password) ? password_hash($password, PASSWORD_DEFAULT) : null;
+    }
+
 }
 ?>
