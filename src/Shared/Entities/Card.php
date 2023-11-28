@@ -36,11 +36,12 @@ class Card extends ClassInvocationProcessor {
     }
 
     public function setCardType($card_type) : void {
-        $this->card_type = $card_type;
+        $this->card_type = isset($card_type) && !empty($card_type) && is_string($card_type) && trim($card_type) !== '' ? $card_type : null;
     }
+    
 
     public function setLast4DigitsCard($last_4_digits_card) : void {
-        $this->last_4_digits_card = $last_4_digits_card;
+        $this->last_4_digits_card = isset($last_4_digits_card) && !empty($last_4_digits_card) ? $last_4_digits_card : null;
     }
 
     public function validateLast4DigitsCard() : bool {
