@@ -61,7 +61,7 @@ class User extends ClassInvocationProcessor {
     }
 
     public function validateEmail() : bool {
-        return filter_var($this->email, FILTER_VALIDATE_EMAIL) && !== false;
+        return filter_var($this->email, FILTER_VALIDATE_EMAIL) !== false;
     }
 
     public function validatePassword($enteredPassword) : bool {

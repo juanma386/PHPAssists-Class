@@ -36,7 +36,7 @@ class Card extends ClassInvocationProcessor {
     }
 
     public function setCardType($card_type) : void {
-        $this->card_type = isset($card_type) && !empty($card_type) && is_string($card_type) && trim($card_type) && !== '' ? $card_type : null;
+        $this->card_type = isset($card_type) && !empty($card_type) && is_string($card_type) && trim($card_type) !== '' ? $card_type : null;
     }
     
 
