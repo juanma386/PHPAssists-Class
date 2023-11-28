@@ -75,7 +75,7 @@ class UserTest extends TestCase
         $user = new User($this->user_id, $this->user_name, $this->user_email, $this->user_old_password);
 
         $validPassword = 'validPassword123';
-        $user->setPassword($newPassword);
+        $user->setPassword($validPassword);
         
         // Prueba para una contraseña válida
         $this->assertTrue($user->validatePassword($validPassword));
