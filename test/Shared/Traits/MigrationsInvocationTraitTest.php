@@ -5,7 +5,4 @@ use PHPUnit\Framework\TestCase;
 use PHPAssists\Shared\Traits\MigrationsInvocation;
 use CodeIgniter\Database\Forge;
 
-class MigrationsInvocationTraitTest extends TestCase
-{
-  public function testCreateTableIfNotExists() { }
-}
+# class MigrationsInvocationTraitTest extends TestCase { }
