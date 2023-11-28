@@ -50,10 +50,12 @@ class User extends ClassInvocationProcessor {
     public function setEmail($email) : void {
         $this->email = $this->validateEmail() ? $email : null;
     }
+    public function setHashPassword($password) : string | null {
+        return isset($password) ? password_hash($password, PASSWORD_DEFAULT) : null;
+    }
 
     public function setPassword($password) : void {
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $this->password = $hashedPassword;
+        $this->password = $password;
     }
    
     public function validateUsername() : bool {
