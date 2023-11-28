@@ -60,34 +60,34 @@ class Transaction extends ClassInvocationProcessor {
     }
     
     public function setId($id) : void {
-        $this->id = isset($id) !empty($id) ? $id : null;
+        $this->id = isset($id) && !empty($id) ? $id : null;
     }
 
     public function setAccountId($account_id) : void {
-        $this->account_id = isset($account_id) !empty($account_id) ? $account_id : null;
+        $this->account_id = isset($account_id) && !empty($account_id) ? $account_id : null;
     }
 
     public function setTransactionType($transaction_type) : void {
-        $this->transaction_type = isset($transaction_type) !empty($transaction_type) ? $transaction_type : null;
+        $this->transaction_type = isset($transaction_type) && !empty($transaction_type) ? $transaction_type : null;
     }
 
     public function setAmount($amount) : void {
-        $this->amount = isset($amount) !empty($amount) ? $amount : null;
+        $this->amount = isset($amount) && !empty($amount) ? $amount : null;
     }
 
     public function setTransactionDate($transaction_date) : void {
-        $this->transaction_date = isset($transaction_date) !empty($transaction_date) ? $transaction_date : null;
+        $this->transaction_date = isset($transaction_date) && !empty($transaction_date) ? $transaction_date : null;
     }
 
     public function setDescription($description) : void {
-        $this->description = isset($description) !empty($description) ? $description : null;
+        $this->description = isset($description) && !empty($description) ? $description : null;
     }
     
     public function setOriginId($origin_id) : void {
-        $this->origin_id = isset($origin_id) !empty($origin_id) ? $origin_id : null;
+        $this->origin_id = isset($origin_id) && !empty($origin_id) ? $origin_id : null;
     }
     public function setDestinationId($destination_id) : void {
-        $this->destination_id = isset($destination_id) !empty($destination_id) ? $destination_id : null;
+        $this->destination_id = isset($destination_id) && !empty($destination_id) ? $destination_id : null;
     }
 }
 ?>

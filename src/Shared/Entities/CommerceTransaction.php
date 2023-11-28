@@ -44,23 +44,23 @@ class CommerceTransaction extends ClassInvocationProcessor {
     }
     
     public function setId($id) : void {
-        $this->id = isset($id) !empty($id) ? $id : null;
+        $this->id = isset($id) && !empty($id) ? $id : null;
     }
 
     public function setTransactionId($transaction_id) : void {
-        $this->transaction_id = isset($transaction_id) !empty($transaction_id) ? $transaction_id : null;
+        $this->transaction_id = isset($transaction_id) && !empty($transaction_id) ? $transaction_id : null;
     }
 
     public function setCommerceName($commerce_name) : void {
-        $this->commerce_name = isset($commerce_name) !empty($commerce_name) ? $commerce_name : null;
+        $this->commerce_name = isset($commerce_name) && !empty($commerce_name) ? $commerce_name : null;
     }
 
     public function setCommerceLocation($commerce_location) : void {
-        $this->commerce_location = isset($commerce_location) !empty($commerce_location) ? $commerce_location : null;
+        $this->commerce_location = isset($commerce_location) && !empty($commerce_location) ? $commerce_location : null;
     }
 
     public function setTotalAmount($total_amount) : void {
-        $this->total_amount = isset($total_amount) !empty($total_amount) ? $total_amount : null;
+        $this->total_amount = isset($total_amount) && !empty($total_amount) ? $total_amount : null;
     }
 }
 ?>

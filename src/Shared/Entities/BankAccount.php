@@ -38,11 +38,11 @@ class BankAccount extends ClassInvocationProcessor {
     }
     
     public function setId($id) : void {
-        $this->id = isset($id) !empty($id) ? $id : null;
+        $this->id = isset($id) && !empty($id) ? $id : null;
     }
 
     public function setBank($bank) : void {
-        $this->bank = isset($bank) !empty($bank) ? $bank : null;
+        $this->bank = isset($bank) && !empty($bank) ? $bank : null;
     }
 
     public function setLast4DigitsCBU($last_4_digits_cbu) : void {
