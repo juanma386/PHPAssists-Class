@@ -6,12 +6,11 @@ class User {
     private $email;
     private $password;
 
-    protected $table              = 'users'; // Nombre de la tabla
+    protected $table              = 'users'; 
     protected $primaryKey         = 'user_id';
     protected $useAutoIncrement   = false;
     protected $allowedFields      = ['username', 'email', 'password'];
   
-    // Constructor de la clase
     public function __construct($id, $username, $email, $password) {
         $this->id = $id;
         $this->username = $username;
@@ -47,20 +46,16 @@ class User {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $this->password = $hashedPassword;
     }
-    
    
     public function validateUsername() : bool {
-        // Verificar si el username tiene una longitud válida
         return strlen($this->username) >= 3 && strlen($this->username) <= 50;
     }
 
     public function validateEmail() : bool {
-        // Verificar si el email es válido
         return filter_var($this->email, FILTER_VALIDATE_EMAIL) !== false;
     }
 
     public function validatePassword($enteredPassword) : bool {
-        // Verificar si la contraseña ingresada coincide con la contraseña almacenada
         return password_verify($enteredPassword, $this->password);
     }
 }
