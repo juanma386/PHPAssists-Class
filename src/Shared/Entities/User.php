@@ -1,7 +1,7 @@
 <?php
 namespace PHPAssists\Shared\Entities; 
 
-use Shared\Core\ClassInvocationProcessor;
+use  PHPAssists\Shared\Core\ClassInvocationProcessor;
 
 class User extends ClassInvocationProcessor {
     private $id;
