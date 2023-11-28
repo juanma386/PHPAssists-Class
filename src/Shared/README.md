@@ -1,13 +1,10 @@
-# Shared Components for BreadcrumbsPHPAssists/Class
+# Shared Components for PHPAssists
 
-This directory contains shared components and utilities used across various modules or libraries within the BreadcrumbsPHPAssists/Class project.
+This directory contains shared components and utilities used across various modules or libraries within the PHPAssists project.
 
 ## Directory Structure
 
 - `Helpers/`: Contains utility/helper functions used throughout the project.
-    - `Helper1.php`: Description of what Helper1 does.
-    - `Helper2.php`: Description of what Helper2 does.
-    - ...
 
 ## Usage
 
