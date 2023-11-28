@@ -74,5 +74,12 @@ class Transaction extends ClassInvocationProcessor {
     public function setDescription($description) : void {
         $this->description = $description;
     }
+    
+    public function setOriginId($origin_id) : void {
+        $this->origin_id = $origin_id;
+    }
+    public function setDestinationId($destination_id) : void {
+        $this->destination_id = $destination_id;
+    }
 }
 ?>
