@@ -57,7 +57,8 @@ class User extends ClassInvocationProcessor {
     }
    
     public function validateUsername() : bool {
-        return mb_strlen($this->username) >= 3 && mb_strlen($this->username) <= 50;
+        
+        return isset($this->username) && !empty($this->username) && mb_strlen($this->username) >= 3 && mb_strlen($this->username) <= 50;
     }
 
     public function validateEmail() : bool {
