@@ -1,7 +1,8 @@
 <?php
-namespace PHPAssists\Shared\Entities; 
+namespace PHPAssistsTest\Shared\Entities; 
 
 use PHPUnit\Framework\TestCase;
+use PHPAssists\Shared\Entities\User;
 
 class UserTest extends TestCase
 {

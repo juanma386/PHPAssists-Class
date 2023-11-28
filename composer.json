@@ -5,7 +5,8 @@
     "license": "BSD-3-Clause",
     "autoload": {
         "psr-4": {
-            "PHPAssists\\": "/"
+            "PHPAssists\\": "src/",
+            "PHPAssistsTest\\": "test/",
         }
     },
     "authors": [
