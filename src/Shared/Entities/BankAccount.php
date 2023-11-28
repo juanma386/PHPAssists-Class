@@ -46,11 +46,11 @@ class BankAccount extends ClassInvocationProcessor {
     }
 
     public function setLast4DigitsCBU($last_4_digits_cbu) : void {
-        $this->last_4_digits_cbu = $last_4_digits_cbu;
+        $this->last_4_digits_cbu = isset($last_4_digits_cbu) && !empty($last_4_digits_cbu) && is_numeric($last_4_digits_cbu) ? $last_4_digits_cbu : null;
     }
 
     public function setCurrentBalance($current_balance) : void {
-        $this->current_balance = $current_balance;
+        $this->current_balance = isset($current_balance) && !empty($current_balance) && is_numeric($current_balance) ? $current_balance : null;
     }
 
     public function validateLast4DigitsCBU() : bool {
