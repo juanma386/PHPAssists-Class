@@ -22,19 +22,19 @@ class User extends ClassInvocationProcessor {
     }
 
     public function getId() : string {
-        return $this->id ?? null;
+        return $this->id ?? "";
     }
 
     public function getUsername() : string {
-        return $this->username ?? null;
+        return $this->username ?? "";
     }
 
     public function getEmail() : string {
-        return $this->email ?? null;
+        return $this->email ?? "";
     }
 
     public function getPassword() : string {
-        return $this->password ?? null;
+        return $this->password ?? "";
     }
 
     
