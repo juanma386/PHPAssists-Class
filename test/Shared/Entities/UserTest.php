@@ -36,7 +36,7 @@ class UserTest extends TestCase
 
         // Prueba para setPassword() con un valor válido
         $newPassword = 'newpassword123';
-        $user->setPassword($user->getHashPassword($newPassword));
+        $user->setPassword($newPassword);
 
         // Verificar si el método getPassword() devuelve el hash de la nueva contraseña
         $this->assertTrue(password_verify($newPassword, $user->getPassword()));
@@ -75,7 +75,7 @@ class UserTest extends TestCase
         $user = new User($this->user_id, $this->user_name, $this->user_email, $this->user_old_password);
 
         $validPassword = 'validPassword123';
-        $user->setPassword($user->getHashPassword($newPassword));
+        $user->setPassword($newPassword);
         
         // Prueba para una contraseña válida
         $this->assertTrue($user->validatePassword($validPassword));
