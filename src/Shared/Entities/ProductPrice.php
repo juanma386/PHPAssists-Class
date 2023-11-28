@@ -4,10 +4,10 @@ namespace PHPAssists\Shared\Entities;
 use PHPAssists\Shared\Core\ClassInvocationProcessor;
 
 class ProductPrice extends ClassInvocationProcessor {
-    private $id = null;
-    private $transaction_id = null;
-    private $product_id = null;
-    private $product_cost = null;
+    private $id                   = null;
+    private $transaction_id       = null;
+    private $product_id           = null;
+    private $product_cost         = null;
 
     protected $table              = 'product_prices'; 
     protected $primaryKey         = 'product_price_id';
@@ -38,19 +38,19 @@ class ProductPrice extends ClassInvocationProcessor {
     }
     
     public function setId($id) : void {
-        $this->id = isset($id) ? $id : null;
+        $this->id = isset($id) && !empty($id) ? ? $id : null;
     }
 
     public function setTransactionId($transaction_id) : void {
-        $this->transaction_id = $transaction_id;
+        $this->transaction_id = isset($transaction_id) && !empty($transaction_id) ? $transaction_id : null;
     }
 
     public function setProductId($product_id) : void {
-        $this->product_id = $product_id;
+        $this->product_id = isset($product_id) && !empty($product_id) ? $product_id : null;
     }
 
     public function setProductCost($product_cost) : void {
-        $this->product_cost = $product_cost;
+        $this->product_cost = isset($product_cost) && !empty($product_cost) ? $product_cost : null;
     }
 }
 ?>

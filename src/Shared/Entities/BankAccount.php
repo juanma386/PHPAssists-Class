@@ -4,10 +4,10 @@ namespace PHPAssists\Shared\Entities;
 use PHPAssists\Shared\Core\ClassInvocationProcessor;
 
 class BankAccount extends ClassInvocationProcessor {
-    private $id = null;
-    private $bank = null;
-    private $last_4_digits_cbu = null;
-    private $current_balance = null;
+    private $id                   = null;
+    private $bank                 = null;
+    private $last_4_digits_cbu    = null;
+    private $current_balance      = null;
 
     protected $table              = 'bank_accounts'; 
     protected $primaryKey         = 'account_id';
@@ -38,11 +38,11 @@ class BankAccount extends ClassInvocationProcessor {
     }
     
     public function setId($id) : void {
-        $this->id = isset($id) ? $id : null;
+        $this->id = isset($id) !empty($id) ? $id : null;
     }
 
     public function setBank($bank) : void {
-        $this->bank = $bank;
+        $this->bank = isset($bank) !empty($bank) ? $bank : null;
     }
 
     public function setLast4DigitsCBU($last_4_digits_cbu) : void {

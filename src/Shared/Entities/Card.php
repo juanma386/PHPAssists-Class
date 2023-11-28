@@ -32,7 +32,7 @@ class Card extends ClassInvocationProcessor {
     }
     
     public function setId($id) : void {
-        $this->id = isset($id) ? $id : null;
+        $this->id = isset($id) !empty($id) ? $id : null;
     }
 
     public function setCardType($card_type) : void {
