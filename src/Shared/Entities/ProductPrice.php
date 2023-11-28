@@ -38,7 +38,7 @@ class ProductPrice extends ClassInvocationProcessor {
     }
     
     public function setId($id) : void {
-        $this->id = isset($id) && !empty($id) ? ? $id : null;
+        $this->id = isset($id) && !empty($id) ? $id : null;
     }
 
     public function setTransactionId($transaction_id) : void {
