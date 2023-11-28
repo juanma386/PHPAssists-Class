@@ -21,22 +21,22 @@ class User extends ClassInvocationProcessor {
         $this->password = $password;
     }
 
-    public function getId() : string | null  {
+    public function getId() : string {
         return $this->id ?? null;
     }
 
-    public function getUsername() : string | null {
+    public function getUsername() : string {
         return $this->username ?? null;
     }
 
-    public function getEmail() : string | null  {
+    public function getEmail() : string {
         return $this->email ?? null;
     }
 
-    public function getPassword() : string | null {
+    public function getPassword() : string {
         return $this->password ?? null;
     }
-
+    
     public function setId($id) : void {
         $this->id = isset($id) ? $id : null;
     }
@@ -49,12 +49,14 @@ class User extends ClassInvocationProcessor {
     public function setEmail($email) : void {
         $this->email = $this->validateEmail() ? $email : null;
     }
-    public function setHashPassword($password) : string | null {
+
+    public function getHashPassword($password) : string | null {
         return isset($password) ? password_hash($password, PASSWORD_DEFAULT) : null;
     }
 
     public function setPassword($password) : void {
-        $this->password = $password;
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = $hashedPassword;
     }
    
     public function validateUsername() : bool {
