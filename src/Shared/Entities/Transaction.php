@@ -39,6 +39,10 @@ class Transaction extends ClassInvocationProcessor {
         return $this->origin_id;
     }
 
+    public function getDestinationId() : string | null {
+        return $this->destination_id;
+    }
+
     public function getTransactionType() : string | null {
         return $this->transaction_type;
     }
