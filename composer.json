@@ -26,7 +26,7 @@
     "require": {},
     "require-dev": {
         "phpunit/phpunit": "^5.5",
-        "codeigniter/framework": "^4.4.3"
+        "codeigniter4/framework": "^4.4"
     },
     "scripts": {
         "test": "phpunit"
