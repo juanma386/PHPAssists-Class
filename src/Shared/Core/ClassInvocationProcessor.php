@@ -1,5 +1,5 @@
 <?php
-namespace Shared\Core;
+namespace PHPAssists\Shared\Core;
 
 class ClassInvocationProcessor {
     public function __construct() {
