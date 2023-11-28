@@ -57,7 +57,6 @@ class User extends ClassInvocationProcessor {
     }
    
     public function validateUsername() : bool {
-        
         return isset($this->username) && !empty($this->username) && mb_strlen($this->username) >= 3 && mb_strlen($this->username) <= 50;
     }
 
