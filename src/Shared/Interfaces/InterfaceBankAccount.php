@@ -8,8 +8,8 @@
  * @link       https://hexome.com.ar
  * @since      1.0.0
  *
- * @package    PHPAssosts
- * @subpackage PHPAssists\Shared\Core\Interfaces
+ * @package    PHPAssists
+ * @subpackage PHPAssists\Shared\Interfaces
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
 

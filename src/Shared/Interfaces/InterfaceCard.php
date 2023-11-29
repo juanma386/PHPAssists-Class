@@ -10,7 +10,7 @@
  * @since      1.0.0
  *
  * @package    PHPAssosts
- * @subpackage PHPAssosts\Shared\Core\Interfaces
+ * @subpackage PHPAssists\Shared\Interfaces
  *
  * @author     Hexome Cloud <hi@hexome.cloud>
  */

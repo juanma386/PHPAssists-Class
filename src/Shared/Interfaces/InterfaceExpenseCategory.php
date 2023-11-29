@@ -11,7 +11,7 @@ namespace PHPAssists\Shared\Interfaces;
  * @since      1.0.0
  *
  * @package    PHPAssists
- * @subpackage PHPAssists\Shared\Abstract
+ * @subpackage PHPAssists\Shared\Interfaces
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
 interface InterfaceExpenseCategory {
