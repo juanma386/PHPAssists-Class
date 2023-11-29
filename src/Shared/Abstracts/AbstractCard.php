@@ -103,7 +103,7 @@
       *
       * @return void
       */
-     abstract public function setLast4DigitsCard(?string $last_4_digits_card): void;
+     abstract public function setLast4DigitsCard(?int $last_4_digits_card): void;
  
      /**
       * Abstract method for validating the last four digits of the credit card number.
