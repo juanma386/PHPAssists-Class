@@ -65,11 +65,11 @@ class AbstractExpense extends ClassInvocationProcessor {
      * @param ?string $expense_date The date of the expense.
      */
     public function __construct(?string $id, ?string $category_id, ?string $description, ?float $amount, ?string $expense_date) {
-        $this->setId(?string $id);
-        $this->setCategoryId(?string $category_id);
-        $this->setDescription(?string $description);
-        $this->setAmount(?float $amount);
-        $this->setExpenseDate(?string $expense_date);
+        $this->setId((string) $id);
+        $this->setCategoryId((string) $category_id);
+        $this->setDescription((string) $description);
+        $this->setAmount((float) $amount);
+        $this->setExpenseDate((string) $expense_date);
     }
 
     // Getters
