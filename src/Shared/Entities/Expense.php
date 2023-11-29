@@ -16,7 +16,7 @@ use PHPAssists\Shared\Interfaces\InterfaceExpense;
  * @subpackage PHPAssists\Shared\Entities
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
-class Expense extends AbstractExpense implements AbstractExpense {
+class Expense extends AbstractExpense implements IntefaceExpense {
     
     // Properties
 
