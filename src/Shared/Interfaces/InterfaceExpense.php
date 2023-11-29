@@ -14,7 +14,7 @@ namespace PHPAssists\Shared\Interfaces;
  * @subpackage PHPAssists\Shared\Abstract
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
-interface AbstractExpense {
+interface InterfaceExpense {
     
     // Properties
 
