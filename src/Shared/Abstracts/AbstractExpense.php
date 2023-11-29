@@ -1,22 +1,22 @@
 <?php
 namespace PHPAssists\Shared\Entities; 
 
-use PHPAssists\Shared\Abstracts\AbstractExpense;
-use PHPAssists\Shared\Interfaces\InterfaceExpense;
+use PHPAssists\Shared\Core\ClassInvocationProcessor;
+
 /**
- * PHPAssists Expense Entity
+ * PHPAssists Expense Abstract
  *
- * This class represents individual expense entities within the PHPAssists framework.
+ * This class represents individual expense abstract within the PHPAssists framework.
  * It manages information related to expenses.
  *
  * @link       https://hexome.com.ar
  * @since      1.0.0
  *
  * @package    PHPAssists
- * @subpackage PHPAssists\Shared\Entities
+ * @subpackage PHPAssists\Shared\Abstract
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
-class Expense extends AbstractExpense implements AbstractExpense {
+class AbstractExpense extends ClassInvocationProcessor {
     
     // Properties
 
@@ -79,45 +79,35 @@ class Expense extends AbstractExpense implements AbstractExpense {
      *
      * @return ?string The expense identifier or null if not set.
      */
-    public function getId() : ?string {
-        return $this->id;
-    }
+    abstract public function getId() : ?string;
 
     /**
      * Retrieves the category identifier for the expense.
      *
      * @return ?string The category identifier or null if not set.
      */
-    public function getCategoryId() : ?string {
-        return $this->category_id;
-    }
+    abstract public function getCategoryId() : ?string;
 
     /**
      * Retrieves the description of the expense.
      *
      * @return ?string The expense description or null if not set.
      */
-    public function getDescription() : ?string {
-        return $this->description;
-    }
+    abstract public function getDescription() : ?string;
 
     /**
      * Retrieves the amount of the expense.
      *
      * @return float|null The expense amount or null if not set.
      */
-    public function getAmount() : ? float {
-        return $this->amount;
-    }
+    abstract public function getAmount() : ? float;
 
     /**
      * Retrieves the date of the expense.
      *
      * @return ?string The expense date or null if not set.
      */
-    public function getExpenseDate() : ?string {
-        return $this->expense_date;
-    }
+    abstract public function getExpenseDate() : ?string;
 
     // Setters
 
@@ -128,9 +118,7 @@ class Expense extends AbstractExpense implements AbstractExpense {
      *
      * @return void
      */
-    public function setId(?string $id): void {
-        $this->id = isset($id) && !empty($id) ? $id : null;
-    }
+    abstract public function setId(?string $id): void;
 
     /**
      * Sets the category identifier for the expense.
@@ -139,9 +127,7 @@ class Expense extends AbstractExpense implements AbstractExpense {
      *
      * @return void
      */
-    public function setCategoryId(?string $category_id): void {
-        $this->category_id = isset($category_id) && !empty($category_id) ? $category_id : null;
-    }
+    abstract public function setCategoryId(?string $category_id): void;
 
     /**
      * Sets the description of the expense.
@@ -150,9 +136,7 @@ class Expense extends AbstractExpense implements AbstractExpense {
      *
      * @return void
      */
-    public function setDescription(?string $description): void {
-        $this->description = isset($description) && !empty($description) ? $description : null;
-    }
+    abstract public function setDescription(?string $description): void;
 
     /**
      * Sets the amount of the expense.
@@ -161,9 +145,7 @@ class Expense extends AbstractExpense implements AbstractExpense {
      *
      * @return void
      */
-    public function setAmount(?float $amount): void {
-        $this->amount = isset($amount) && is_numeric($amount) ? $amount : null;
-    }
+    abstract public function setAmount(?float $amount): void;
 
     /**
      * Sets the date of the expense.
@@ -172,9 +154,6 @@ class Expense extends AbstractExpense implements AbstractExpense {
      *
      * @return void
      */
-    public function setExpenseDate(?string $expense_date): void {
-        // Here additional validation can be added to check the date and time format if necessary.
-        $this->expense_date = isset($expense_date) ? $expense_date : null;
-    }
+    abstract public function setExpenseDate(?string $expense_date): void;
 }
 ?>

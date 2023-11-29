@@ -10,12 +10,12 @@ use PHPAssists\Shared\Interfaces\InterfaceCard;
  * This class represents individual card entities within the PHPAssists framework.
  * It manages information related to credit or debit cards.
  *
- * @link       https://yourlink.com
+  * @link       https://hexome.com.ar
  * @since      1.0.0
  *
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Entities
- * @author     Your Name
+ * @author     Hexome Cloud <hi@hexome.cloud>
  */
 class Card extends AbstractCard implements InterfaceCard {
     
