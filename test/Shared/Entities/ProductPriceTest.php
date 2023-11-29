@@ -1,4 +1,17 @@
 <?php
+/**
+ * PHPAssists ProductPrice API Test
+ *
+ * This class defines the possible Functions for the PHPAssists ProductPrice API Test.
+ *
+ * @link       https://hexome.com.ar
+ * @since      1.0.0
+ *
+ * @package    PHPAssistsTest
+ * @subpackage PHPAssistsTest\Shared\Entities
+ *
+ * @author     Hexome Cloud <hi@hexome.cloud>
+ */
 namespace PHPAssistsTest\Shared\Entities;
 
 use PHPUnit\Framework\TestCase;

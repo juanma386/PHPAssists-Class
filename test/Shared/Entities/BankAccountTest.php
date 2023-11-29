@@ -1,10 +1,23 @@
 <?php
+/**
+ * PHPAssists BankAccount API Test
+ *
+ * This class defines the possible Functions for the PHPAssists BankAccount API Test.
+ *
+ * @link       https://hexome.com.ar
+ * @since      1.0.0
+ *
+ * @package    PHPAssistsTest
+ * @subpackage PHPAssistsTest\Shared\Entities
+ *
+ * @author     Hexome Cloud <hi@hexome.cloud>
+ */
 namespace PHPAssistsTest\Shared\Entities;
 
 use PHPUnit\Framework\TestCase;
 use PHPAssists\Shared\Entities\BankAccount;
 
-class BankAccountTest extends TestCase
+class BankAccountTest extends TestCase 
 {
     private $account_id = '1';
     private $bank = 'Bank of XYZ';

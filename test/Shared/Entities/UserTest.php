@@ -1,4 +1,17 @@
 <?php
+/**
+ * PHPAssists User API Test
+ *
+ * This class defines the possible Functions for the PHPAssists User API Test.
+ *
+ * @link       https://hexome.com.ar
+ * @since      1.0.0
+ *
+ * @package    PHPAssistsTest
+ * @subpackage PHPAssistsTest\Shared\Entities
+ *
+ * @author     Hexome Cloud <hi@hexome.cloud>
+ */
 namespace PHPAssistsTest\Shared\Entities; 
 
 use PHPUnit\Framework\TestCase;
@@ -14,7 +27,6 @@ class UserTest extends TestCase
     {
         $user = new User($this->user_id, $this->user_name, $this->user_email, $this->user_old_password);
 
-        // Prueba para setUsername() con un valor válido
         $user->setUsername('newusername');
         $this->assertEquals('newusername', $user->getUsername());
     }
@@ -24,7 +36,6 @@ class UserTest extends TestCase
 
         $user = new User($this->user_id, $this->user_name, $this->user_email, $this->user_old_password);
 
-        // Prueba para setEmail() con un valor válido
         $user->setEmail('newemail@example.com');
         $this->assertEquals('newemail@example.com', $user->getEmail());
     }
@@ -34,11 +45,9 @@ class UserTest extends TestCase
 
         $user = new User($this->user_id, $this->user_name, $this->user_email, $this->user_old_password);
 
-        // Prueba para setPassword() con un valor válido
         $newPassword = 'newpassword123';
         $user->setPassword($newPassword);
 
-        // Verificar si el método getPassword() devuelve el hash de la nueva contraseña
         $this->assertTrue(password_verify($newPassword, $user->getPassword()));
 
         $invalidPassword = 'invalidPassword123';
@@ -49,11 +58,9 @@ class UserTest extends TestCase
     {
         $user = new User($this->user_id, $this->user_name, $this->user_email, $this->user_old_password);
 
-        // Prueba para un nombre de usuario válido
         $this->assertTrue($user->validateUsername());
 
-        // Prueba para un nombre de usuario inválido
-        $user->setUsername('a'); // Establece un nombre de usuario inválido
+        $user->setUsername('a'); 
         $this->assertFalse($user->validateUsername());
     }
 
@@ -62,11 +69,9 @@ class UserTest extends TestCase
 
         $user = new User($this->user_id, $this->user_name, $this->user_email, $this->user_old_password);
 
-        // Prueba para un correo electrónico válido
         $this->assertTrue($user->validateEmail());
 
-        // Prueba para un correo electrónico inválido
-        $user->setEmail('invalid-email'); // Establece un correo electrónico inválido
+        $user->setEmail('invalid-email'); 
         $this->assertFalse($user->validateEmail());
     }
 
@@ -77,9 +82,7 @@ class UserTest extends TestCase
         $validPassword = 'validPassword123';
         $user->setPassword($validPassword);
         
-        // Prueba para una contraseña válida
         $this->assertTrue($user->validatePassword($validPassword));
-        // Prueba para una contraseña inválida
         $invalidPassword = 'invalidPassword123';
         $this->assertFalse($user->validatePassword($invalidPassword));
     }
