@@ -17,7 +17,7 @@ use PHPAssists\Shared\Interfaces\InterfaceExpenseCategory;
  * @subpackage PHPAssists\Shared\Entities
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
-class ExpenseCategory extends ClassInvocationProcessor {
+class ExpenseCategory extends AbstractExpenseCategory implements InterfaceExpenseCategory {
 
     // Getters
 
