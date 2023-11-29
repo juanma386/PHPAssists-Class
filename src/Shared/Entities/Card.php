@@ -1,79 +1,95 @@
 <?php
+namespace PHPAssists\Shared\Entities; 
+
+use PHPAssists\Shared\Abstracts\AbstractCard;
+use PHPAssists\Shared\Interfaces\InterfaceCard;
+
 /**
- * PHPAssists BankAccount API
+ * PHPAssists Card Entity
  *
- * This class represents the BankAccount entity and implements functionalities defined in the InterfaceBankAccount.
- * It manages bank account information within the PHPAssists framework.
+ * This class represents individual card entities within the PHPAssists framework.
+ * It manages information related to credit or debit cards.
  *
- * @link       https://hexome.com.ar
+ * @link       https://yourlink.com
  * @since      1.0.0
  *
- * @package    PHPAssosts
- * @subpackage PHPAssists\Shared\Core\Entities
- * @author     Hexome Cloud <hi@hexome.cloud>
+ * @package    PHPAssists
+ * @subpackage PHPAssists\Shared\Entities
+ * @author     Your Name
  */
+class Card extends AbstractCard implements InterfaceCard {
+    
+    // Properties
 
-namespace PHPAssists\Shared\Entities;
-
-use PHPAssists\Shared\Abstracts\AbstractBankAccount;
-use PHPAssists\Shared\Interfaces\InterfaceBankAccount;
-
-/**
- * Class BankAccount
- *
- * This class extends AbstractBankAccount and implements InterfaceBankAccount to manage bank account-related information.
- */
-class BankAccount extends AbstractBankAccount implements InterfaceBankAccount {
-    private $id                   = null;
-    private $bank                 = null;
-    private $last_4_digits_cbu    = null;
-    private $current_balance      = null;
-
-    protected $table              = 'bank_accounts'; 
-    protected $primaryKey         = 'account_id';
-    protected $useAutoIncrement   = false;
-    protected $allowedFields      = ['bank', 'last_4_digits_cbu', 'current_balance'];
-  
     /**
-     * Retrieves the ID of the bank account.
+     * Unique identifier for the card entity.
      *
-     * @return ?string The bank account ID or null if not set.
+     * @var ?string
+     */
+    private $id;
+
+    /**
+     * Type of the card (e.g., Visa, Mastercard, etc.).
+     *
+     * @var ?string
+     */
+    private $card_type;
+
+    /**
+     * Last four digits of the card number.
+     *
+     * @var ?string
+     */
+    private $last_4_digits_card;
+
+    /**
+     * Constructor for the Card class.
+     *
+     * @param ?string $id The unique identifier for the card.
+     * @param ?string $card_type The type of the card.
+     * @param ?string $last_4_digits_card The last four digits of the card number.
+     */
+    public function __construct(?string $id, ?string $card_type, ?string $last_4_digits_card) {
+        $this->setId($id);
+        $this->setCardType($card_type);
+        $this->setLast4DigitsCard($last_4_digits_card);
+    }
+
+    // Getters
+
+    /**
+     * Retrieves the unique identifier for the card entity.
+     *
+     * @return ?string The card identifier or null if not set.
      */
     public function getId() : ?string {
         return $this->id;
     }
 
     /**
-     * Retrieves the bank associated with the account.
+     * Retrieves the type of the card.
      *
-     * @return ?string The bank name or null if not set.
+     * @return ?string The card type or null if not set.
      */
-    public function getBank() : ?string {
-        return $this->bank;
+    public function getCardType() : ?string {
+        return $this->card_type;
     }
 
     /**
-     * Retrieves the last 4 digits of the Clave Bancaria Uniforme (CBU).
+     * Retrieves the last four digits of the card number.
      *
-     * @return ?string The last 4 digits of CBU or null if not set.
+     * @return ?string The last four digits of the card number or null if not set.
      */
-    public function getLast4DigitsCBU() : ?string {
-        return $this->last_4_digits_cbu;
+    public function getLast4DigitsCard() : ?string {
+        return $this->last_4_digits_card;
     }
 
+    // Setters
+
     /**
-     * Retrieves the current balance in the account.
+     * Sets the unique identifier for the card entity.
      *
-     * @return ?float The current balance or null if not set.
-     */
-    public function getCurrentBalance() : ? float {
-        return $this->current_balance;
-    }
-    
-    /**
-     * Sets the ID of the bank account.
-     *
-     * @param ?string $id The bank account ID.
+     * @param ?string $id The card identifier.
      *
      * @return void
      */
@@ -82,45 +98,36 @@ class BankAccount extends AbstractBankAccount implements InterfaceBankAccount {
     }
 
     /**
-     * Sets the bank associated with the account.
+     * Sets the type of the card.
      *
-     * @param ?string $bank The bank name.
-     *
-     * @return void
-     */
-    public function setBank(?string $bank) : void {
-        $this->bank = isset($bank) && !empty($bank) ? $bank : null;
-    }
-
-    /**
-     * Sets the last 4 digits of the Clave Bancaria Uniforme (CBU).
-     *
-     * @param ?int $last_4_digits_cbu The last 4 digits of CBU.
+     * @param ?string $card_type The card type.
      *
      * @return void
      */
-    public function setLast4DigitsCBU(?int $last_4_digits_cbu) : void {
-        $this->last_4_digits_cbu = isset($last_4_digits_cbu) && !empty($last_4_digits_cbu) && is_numeric($last_4_digits_cbu) ? $last_4_digits_cbu : null;
+    public function setCardType(?string $card_type) : void {
+        $this->card_type = isset($card_type) && !empty($card_type) && is_string($card_type) && trim($card_type) !== '' ? $card_type : null;
     }
 
     /**
-     * Sets the current balance in the account.
+     * Sets the last four digits of the card number.
      *
-     * @param ?float $current_balance The current balance.
+     * @param ?int $last_4_digits_card The last four digits of the card number.
      *
      * @return void
      */
-    public function setCurrentBalance(?float $current_balance) : void {
-        $this->current_balance = isset($current_balance) && !empty($current_balance) && is_numeric($current_balance) ? $current_balance : null;
+    public function setLast4DigitsCard(?int $last_4_digits_card) : void {
+        $this->last_4_digits_card = isset($last_4_digits_card) && !empty($last_4_digits_card) ? $last_4_digits_card : null;
     }
 
     /**
-     * Validates the last 4 digits of the Clave Bancaria Uniforme (CBU).
+     * Abstract method for validating the last four digits of the card number.
      *
-     * @return bool True if the last 4 digits are valid, false otherwise.
+     * This method checks if the last four digits follow the expected format for a card.
+     *
+     * @return bool True if the last four digits are valid, false otherwise.
      */
-    public function validateLast4DigitsCBU() : bool {
-        return isset($this->last_4_digits_cbu) && !empty($this->last_4_digits_cbu) && preg_match('/^\d{4}$/', $this->last_4_digits_cbu);
+    public function validateLast4DigitsCard() : bool {
+        return isset($this->last_4_digits_card) && !empty($this->last_4_digits_card) && preg_match('/^\d{4}$/', $this->last_4_digits_card);
     }
 }
 ?>
