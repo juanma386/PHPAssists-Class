@@ -4,10 +4,10 @@ namespace PHPAssists\Shared\Abstracts;
 use PHPAssists\Shared\Core\ClassInvocationProcessor;
 
 abstract class AbstractBankAccount extends ClassInvocationProcessor {
-    protected $id                   = null;
-    protected $bank                 = null;
-    protected $last_4_digits_cbu    = null;
-    protected $current_balance      = null;
+    private $id                   = null;
+    private $bank                 = null;
+    private $last_4_digits_cbu    = null;
+    private $current_balance      = null;
 
     protected $table                = 'bank_accounts'; 
     protected $primaryKey           = 'account_id';
