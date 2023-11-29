@@ -1,5 +1,5 @@
 <?php
-namespace PHPAssists\Shared\Entities; 
+namespace PHPAssists\Shared\Abstract; 
 
 use PHPAssists\Shared\Core\ClassInvocationProcessor;
 
