@@ -91,7 +91,7 @@ abstract class AbstractCard extends ClassInvocationProcessor {
      *
      * @return string The last four digits of the card number.
      */
-    abstract public function getLast4DigitsCard(): string;
+    abstract public function getLast4DigitsCard(): ?string;
 
     /**
      * Sets the last four digits of the credit card number.
