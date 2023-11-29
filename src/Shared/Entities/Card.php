@@ -1,9 +1,11 @@
 <?php
 namespace PHPAssists\Shared\Entities; 
 
-use PHPAssists\Shared\Core\ClassInvocationProcessor;
+use PHPAssists\Shared\Abstracts\AbstractCard;
+use PHPAssists\Shared\Interfaces\InterfaceCard;
 
-class Card extends ClassInvocationProcessor {
+
+class Card extends AbstractCard implements InterfaceCard {
     private $id                   = null;
     private $card_type            = null;
     private $last_4_digits_card   = null;
@@ -12,12 +14,6 @@ class Card extends ClassInvocationProcessor {
     protected $primaryKey         = 'card_id';
     protected $useAutoIncrement   = false;
     protected $allowedFields      = ['card_type', 'last_4_digits_card'];
-    
-    public function __construct(?string $id, ?string $card_type, $last_4_digits_card) {
-        $this->setId($id);
-        $this->setCardType($card_type);
-        $this->setLast4DigitsCard($last_4_digits_card);
-    }
 
     public function getId() : ?string {
         return $this->id;
@@ -40,7 +36,7 @@ class Card extends ClassInvocationProcessor {
     }
     
 
-    public function setLast4DigitsCard($last_4_digits_card) : void {
+    public function setLast4DigitsCard(?int $last_4_digits_card) : void {
         $this->last_4_digits_card = isset($last_4_digits_card) && !empty($last_4_digits_card) ? $last_4_digits_card : null;
     }
 

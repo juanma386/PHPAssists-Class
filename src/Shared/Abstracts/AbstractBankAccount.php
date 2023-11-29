@@ -8,7 +8,7 @@
  * @since      1.0.0
  *
  * @package    PHPAssosts
- * @subpackage PHPAssists\Shared\Core\Abstracts
+ * @subpackage PHPAssists\Shared\Abstracts
  *
  * @author     Hexome Cloud <hi@hexome.cloud>
  */

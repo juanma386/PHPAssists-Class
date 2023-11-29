@@ -19,9 +19,9 @@ use PHPAssists\Shared\Entities\Card;
 
 class CardTest extends TestCase
 {
-    private $card_id = '1';
-    private $card_type = 'Visa';
-    private $last_4_digits_card = '1234';
+    private string  $card_id            = '1';
+    private string  $card_type          = 'Visa';
+    private int     $last_4_digits_card = 1234;
 
     public function testGetters()
     {
@@ -51,11 +51,11 @@ class CardTest extends TestCase
         $card = new Card($this->card_id, $this->card_type, $this->last_4_digits_card);
 
         // Prueba para setLast4DigitsCard() con un valor válido
-        $card->setLast4DigitsCard('5678');
-        $this->assertEquals('5678', $card->getLast4DigitsCard());
+        $card->setLast4DigitsCard(5678);
+        $this->assertEquals(5678, $card->getLast4DigitsCard());
 
         // Prueba para setLast4DigitsCard() con un valor inválido (cadena vacía)
-        $card->setLast4DigitsCard('');
+        $card->setLast4DigitsCard(null);
         $this->assertNull($card->getLast4DigitsCard());
     }
 
@@ -67,7 +67,7 @@ class CardTest extends TestCase
         $this->assertTrue($card->validateLast4DigitsCard());
 
         // Prueba para validateLast4DigitsCard() con un valor inválido
-        $card->setLast4DigitsCard('123'); // Establece un valor inválido de 3 dígitos
+        $card->setLast4DigitsCard(123); // Establece un valor inválido de 3 dígitos
         $this->assertFalse($card->validateLast4DigitsCard());
     }
 }
