@@ -1,4 +1,17 @@
 <?php
+/**
+ * PHPAssists BankAccount API
+ *
+ * This class defines the possible Abstractions for the PHPAssists BankAccount API.
+ *
+ * @link       https://hexome.com.ar
+ * @since      1.0.0
+ *
+ * @package    PHPAssosts
+ * @subpackage PHPAssists\Shared\Core\Abstracts
+ *
+ * @author     Hexome Cloud <hi@hexome.cloud>
+ */
 namespace PHPAssists\Shared\Abstracts; 
 
 use PHPAssists\Shared\Core\ClassInvocationProcessor;
@@ -29,13 +42,13 @@ abstract class AbstractBankAccount extends ClassInvocationProcessor {
 
     abstract public function getCurrentBalance() : ?float;
     
-    abstract public function setId($id) : void;
+    abstract public function setId(?string $id) : void;
 
-    abstract public function setBank($bank) : void;
+    abstract public function setBank(?string $bank) : void;
 
-    abstract public function setLast4DigitsCBU($last_4_digits_cbu) : void;
+    abstract public function setLast4DigitsCBU(?int $last_4_digits_cbu) : void;
 
-    abstract public function setCurrentBalance($current_balance) : void;
+    abstract public function setCurrentBalance(?float $current_balance) : void;
 
     abstract public function validateLast4DigitsCBU() : bool;
 }
