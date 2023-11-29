@@ -1,7 +1,8 @@
 <?php 
 namespace PHPAssists\Shared\Entities; 
 
-use PHPAssists\Shared\Core\ClassInvocationProcessor;
+use PHPAssists\Shared\Abstracts\AbstractPaymentMethod;
+use PHPAssists\Shared\Interfaces\InterfacePaymentMethod;
 
 /**
  * PHPAssists Payment Method Entity
@@ -16,7 +17,7 @@ use PHPAssists\Shared\Core\ClassInvocationProcessor;
  * @subpackage PHPAssists\Shared\Entities
  * @author     Your Name
  */
-class PaymentMethod extends ClassInvocationProcessor {
+class PaymentMethod extends AbstractPaymentMethod implements InterfacePaymentMethod {
  
 
     // Getters
