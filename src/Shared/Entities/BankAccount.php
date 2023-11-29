@@ -1,7 +1,7 @@
 <?php
 namespace PHPAssists\Shared\Entities; 
 
-use PHPAssists\Shared\Abstract\AbstractBankAccount;
+use PHPAssists\Shared\Abstracts\AbstractBankAccount;
 
 class BankAccount extends AbstractBankAccount {
     private $id                   = null;
