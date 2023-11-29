@@ -46,5 +46,9 @@ class BankAccount extends AbstractBankAccount {
         $this->current_balance = isset($current_balance) && !empty($current_balance) && is_numeric($current_balance) ? $current_balance : null;
     }
 
+    public function validateLast4DigitsCBU() : bool {
+        return isset($this->last_4_digits_cbu) && !empty($this->last_4_digits_cbu) && preg_match('/^\d{4}$/', $this->last_4_digits_cbu);
+    }
+    
 }
 ?>

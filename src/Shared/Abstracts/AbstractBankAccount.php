@@ -37,8 +37,6 @@ abstract class AbstractBankAccount extends ClassInvocationProcessor {
 
     abstract public function setCurrentBalance($current_balance) : void;
 
-    public function validateLast4DigitsCBU() : bool {
-        return isset($this->last_4_digits_cbu) && !empty($this->last_4_digits_cbu) && preg_match('/^\d{4}$/', $this->last_4_digits_cbu);
-    }
+    abstract public function validateLast4DigitsCBU() : bool;
 }
 ?>
