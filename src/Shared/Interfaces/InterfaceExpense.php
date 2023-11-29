@@ -16,43 +16,7 @@ namespace PHPAssists\Shared\Interfaces;
  */
 interface InterfaceExpense {
     
-    // Properties
-
-    /**
-     * Unique identifier for the expense entity.
-     *
-     * @var ?string
-     */
-    private ?string $id;
-
-    /**
-     * Category identifier for the expense.
-     *
-     * @var ?string
-     */
-    private ?string $category_id;
-
-    /**
-     * Description of the expense.
-     *
-     * @var ?string
-     */
-    private ?string $description;
-
-    /**
-     * Amount of the expense.
-     *
-     * @var ?float
-     */
-    private ?float $amount;
-
-    /**
-     * Date of the expense.
-     *
-     * @var ?string
-     */
-    private ?string $expense_date;
-
+    
     // Getters
 
     /**
