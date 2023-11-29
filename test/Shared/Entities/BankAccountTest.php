@@ -19,10 +19,10 @@ use PHPAssists\Shared\Entities\BankAccount;
 
 class BankAccountTest extends TestCase 
 {
-    private $account_id = '1';
-    private $bank = 'Bank of XYZ';
-    private $last_4_digits_cbu = '7890';
-    private $current_balance = 5000.00;
+    private string $account_id          = '1';
+    private string $bank                = 'Bank of XYZ';
+    private int    $last_4_digits_cbu   = 7890;
+    private float  $current_balance     = 5000.00;
 
     public function testGetters()
     {
@@ -68,8 +68,8 @@ class BankAccountTest extends TestCase
         );
 
         // Prueba para setLast4DigitsCBU() con un valor válido
-        $bankAccount->setLast4DigitsCBU('1234');
-        $this->assertEquals('1234', $bankAccount->getLast4DigitsCBU());
+        $bankAccount->setLast4DigitsCBU((int) 1234);
+        $this->assertEquals((int)1234, $bankAccount->getLast4DigitsCBU());
 
         // Prueba para setLast4DigitsCBU() con un valor inválido (cadena vacía)
         $bankAccount->setLast4DigitsCBU('');
@@ -107,7 +107,7 @@ class BankAccountTest extends TestCase
         $this->assertTrue($bankAccount->validateLast4DigitsCBU());
 
         // Prueba para validateLast4DigitsCBU() con un valor inválido
-        $bankAccount->setLast4DigitsCBU('123'); // Establece un valor inválido de 3 dígitos
+        $bankAccount->setLast4DigitsCBU((int)123); // Establece un valor inválido de 3 dígitos
         $this->assertFalse($bankAccount->validateLast4DigitsCBU());
     }
 }
