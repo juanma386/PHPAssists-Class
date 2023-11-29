@@ -21,19 +21,19 @@ class ProductPrice extends ClassInvocationProcessor {
         $this->setProductCost($product_cost);
     }
 
-    public function getId() : string | null {
+    public function getId() : ?string {
         return $this->id;
     }
 
-    public function getTransactionId() : string | null {
+    public function getTransactionId() : ?string {
         return $this->transaction_id;
     }
 
-    public function getProductId() : string | null {
+    public function getProductId() : ?string {
         return $this->product_id;
     }
 
-    public function getProductCost() : float | null {
+    public function getProductCost() : ? float  {
         return $this->product_cost;
     }
     

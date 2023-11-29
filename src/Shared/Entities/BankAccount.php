@@ -21,19 +21,19 @@ class BankAccount extends ClassInvocationProcessor {
         $this->setCurrentBalance($current_balance);
     }
 
-    public function getId() : string | null {
+    public function getId() : ?string {
         return $this->id;
     }
 
-    public function getBank() : string | null {
+    public function getBank() : ?string {
         return $this->bank;
     }
 
-    public function getLast4DigitsCBU() : string | null {
+    public function getLast4DigitsCBU() : ?string {
         return $this->last_4_digits_cbu;
     }
 
-    public function getCurrentBalance() : float | null {
+    public function getCurrentBalance() : ? float {
         return $this->current_balance;
     }
     

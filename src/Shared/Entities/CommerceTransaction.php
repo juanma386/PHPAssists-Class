@@ -23,23 +23,23 @@ class CommerceTransaction extends ClassInvocationProcessor {
         $this->setTotalAmount($total_amount);
     }
 
-    public function getId() : string | null {
+    public function getId() : ?string {
         return $this->id;
     }
 
-    public function getTransactionId() : string | null {
+    public function getTransactionId() : ?string {
         return $this->transaction_id;
     }
 
-    public function getCommerceName() : string | null {
+    public function getCommerceName() : ?string {
         return $this->commerce_name;
     }
 
-    public function getCommerceLocation() : string | null {
+    public function getCommerceLocation() : ?string {
         return $this->commerce_location;
     }
 
-    public function getTotalAmount() : float | null {
+    public function getTotalAmount() : ? float {
         return $this->total_amount;
     }
     

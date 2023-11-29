@@ -27,51 +27,51 @@ class Transaction extends ClassInvocationProcessor {
         $this->setDescription($description);
     }
 
-    public function getId() : string | null {
+    public function getId() : ?string {
         return $this->id;
     }
 
-    public function getAccountId() : string | null {
+    public function getAccountId() : ?string {
         return $this->account_id;
     }
 
-    public function getOriginId() : string | null {
+    public function getOriginId() : ?string {
         return $this->origin_id;
     }
 
-    public function getDestinationId() : string | null {
+    public function getDestinationId() : ?string {
         return $this->destination_id;
     }
 
-    public function getTransactionType() : string | null {
+    public function getTransactionType() : ?string {
         return $this->transaction_type;
     }
 
-    public function getAmount() : float | null {
+    public function getAmount() : ? float {
         return $this->amount;
     }
 
-    public function getTransactionDate() : string | null {
+    public function getTransactionDate() : ?string {
         return $this->transaction_date;
     }
 
-    public function getDescription() : string | null {
+    public function getDescription() : ?string {
         return $this->description;
     }
     
-    public function setId($id) : void {
+    public function setId(?string $id) : void {
         $this->id = isset($id) && !empty($id) ? $id : null;
     }
 
-    public function setAccountId($account_id) : void {
+    public function setAccountId(?string $account_id) : void {
         $this->account_id = isset($account_id) && !empty($account_id) ? $account_id : null;
     }
 
-    public function setTransactionType($transaction_type) : void {
+    public function setTransactionType(?string $transaction_type) : void {
         $this->transaction_type = isset($transaction_type) && !empty($transaction_type) ? $transaction_type : null;
     }
 
-    public function setAmount($amount) : void {
+    public function setAmount(?float $amount) : void {
         $this->amount = isset($amount) && !empty($amount) ? $amount : null;
     }
 
@@ -79,14 +79,14 @@ class Transaction extends ClassInvocationProcessor {
         $this->transaction_date = isset($transaction_date) && !empty($transaction_date) ? $transaction_date : null;
     }
 
-    public function setDescription($description) : void {
+    public function setDescription(?string $description) : void {
         $this->description = isset($description) && !empty($description) ? $description : null;
     }
     
-    public function setOriginId($origin_id) : void {
+    public function setOriginId(?string $origin_id) : void {
         $this->origin_id = isset($origin_id) && !empty($origin_id) ? $origin_id : null;
     }
-    public function setDestinationId($destination_id) : void {
+    public function setDestinationId(?string $destination_id) : void {
         $this->destination_id = isset($destination_id) && !empty($destination_id) ? $destination_id : null;
     }
 }
