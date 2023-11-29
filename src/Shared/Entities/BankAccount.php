@@ -1,9 +1,9 @@
 <?php
 namespace PHPAssists\Shared\Entities; 
 
-use PHPAssists\Shared\Core\ClassInvocationProcessor;
+use PHPAssists\Shared\Abstract\AbstractBankAccount;
 
-class BankAccount extends ClassInvocationProcessor {
+class BankAccount extends AbstractBankAccount {
     private $id                   = null;
     private $bank                 = null;
     private $last_4_digits_cbu    = null;
@@ -14,13 +14,6 @@ class BankAccount extends ClassInvocationProcessor {
     protected $useAutoIncrement   = false;
     protected $allowedFields      = ['bank', 'last_4_digits_cbu', 'current_balance'];
   
-    public function __construct($id, $bank, $last_4_digits_cbu, $current_balance) {
-        $this->setId($id);
-        $this->setBank($bank);
-        $this->setLast4DigitsCBU($last_4_digits_cbu);
-        $this->setCurrentBalance($current_balance);
-    }
-
     public function getId() : ?string {
         return $this->id;
     }
@@ -53,9 +46,5 @@ class BankAccount extends ClassInvocationProcessor {
         $this->current_balance = isset($current_balance) && !empty($current_balance) && is_numeric($current_balance) ? $current_balance : null;
     }
 
-    public function validateLast4DigitsCBU() : bool {
-        return isset($this->last_4_digits_cbu) && !empty($this->last_4_digits_cbu) && preg_match('/^\d{4}$/', $this->last_4_digits_cbu);
-    }
-    
 }
 ?>
