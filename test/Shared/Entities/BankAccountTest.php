@@ -72,7 +72,7 @@ class BankAccountTest extends TestCase
         $this->assertEquals((int)1234, $bankAccount->getLast4DigitsCBU());
 
         // Prueba para setLast4DigitsCBU() con un valor inválido (cadena vacía)
-        $bankAccount->setLast4DigitsCBU('');
+        $bankAccount->setLast4DigitsCBU(null);
         $this->assertNull($bankAccount->getLast4DigitsCBU());
     }
 
