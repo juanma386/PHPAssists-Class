@@ -64,7 +64,7 @@ interface InterfaceProductPrice {
      *
      * @return void
      */
-    public function setTransactionId($transaction_id) : void;
+    public function setTransactionId(?string $transaction_id) : void;
 
     /**
      * Sets the product identifier related to the product price.
@@ -73,7 +73,7 @@ interface InterfaceProductPrice {
      *
      * @return void
      */
-    public function setProductId($product_id) : void;
+    public function setProductId(?string $product_id) : void;
 
     /**
      * Sets the cost of the product.
@@ -82,6 +82,6 @@ interface InterfaceProductPrice {
      *
      * @return void
      */
-    public function setProductCost($product_cost) : void;
+    public function setProductCost(?float $product_cost) : void;
 }
 ?>
