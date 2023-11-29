@@ -55,7 +55,7 @@ interface InterfaceProductPrice {
      *
      * @return void
      */
-    public function setId($id) : void;
+    public function setId(?string $id) : void;
 
     /**
      * Sets the transaction identifier related to the product price.
