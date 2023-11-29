@@ -24,14 +24,14 @@ class AbstractPaymentMethod extends ClassInvocationProcessor {
      *
      * @var ?string
      */
-    private ?string $id;
+    private ?string $id = null;
 
     /**
      * Name of the payment method.
      *
      * @var ?string
      */
-    private ?string $method_name;
+    private ?string $method_name = null;
 
     /**
      * Constructor for the PaymentMethod class.

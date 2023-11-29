@@ -10,12 +10,12 @@ use PHPAssists\Shared\Interfaces\InterfacePaymentMethod;
  * This class represents individual payment methods within the PHPAssists framework.
  * It manages information related to payment methods used by the system.
  *
- * @link       https://yourlink.com
+* @link       https://hexome.com.ar
  * @since      1.0.0
  *
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Entities
- * @author     Your Name
+ * @author     Hexome Cloud <hi@hexome.cloud>
  */
 class PaymentMethod extends AbstractPaymentMethod implements InterfacePaymentMethod {
  

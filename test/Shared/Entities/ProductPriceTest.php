@@ -19,10 +19,10 @@ use PHPAssists\Shared\Entities\ProductPrice;
 
 class ProductPriceTest extends TestCase
 {
-    private $product_price_id = '1';
-    private $transaction_id = '100';
-    private $product_id = '200';
-    private $product_cost = 50.00;
+    private ?string $product_price_id   = '1';
+    private ?string $transaction_id     = '100';
+    private ?string $product_id         = '200';
+    private ?float  $product_cost       = 50.00;
 
     public function testGetters()
     {
