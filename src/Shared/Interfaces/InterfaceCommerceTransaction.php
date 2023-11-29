@@ -1,23 +1,20 @@
 <?php
-namespace PHPAssists\Shared\Entities;
-
-use PHPAssists\Shared\Abstracts\AbstractCommerceTransaction;
-use PHPAssists\Shared\Interfaces\InterfaceCommerceTransaction;
+namespace PHPAssists\Shared\Interfaces; 
 
 /**
- * PHPAssists Commerce Transaction Entity
+ * PHPAssists CommerceTransaction Abstract
  *
- * This class represents individual commerce transactions within the PHPAssists framework.
- * It manages information related to financial transactions made at commerce locations.
+ * This class represents individual CommerceTransaction abstract within the PHPAssists framework.
+ * It manages information related to CommerceTransactions.
  *
  * @link       https://hexome.com.ar
  * @since      1.0.0
  *
- * @package    PHPAssosts
- * @subpackage PHPAssosts\Shared\Core\Entities
+ * @package    PHPAssists
+ * @subpackage PHPAssists\Shared\Abstract
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
-class CommerceTransaction extends AbstractCommerceTransaction implements InterfaceCommerceTransaction {
+interface InterfaceCommerceTransaction {
     // Getters
 
     /**
@@ -25,45 +22,35 @@ class CommerceTransaction extends AbstractCommerceTransaction implements Interfa
      *
      * @return ?string The commerce transaction identifier or null if not set.
      */
-    public function getId(): ?string {
-        return $this->id;
-    }
+    public function getId(): ?string;
 
     /**
      * Retrieves the unique transaction identifier.
      *
      * @return ?string The transaction identifier or null if not set.
      */
-    public function getTransactionId(): ?string {
-        return $this->transaction_id;
-    }
+    public function getTransactionId(): ?string;
 
     /**
      * Retrieves the name of the commerce establishment where the transaction occurred.
      *
      * @return ?string The commerce name or null if not set.
      */
-    public function getCommerceName(): ?string {
-        return $this->commerce_name;
-    }
+    public function getCommerceName(): ?string;
 
     /**
      * Retrieves the specific location of the commerce establishment where the transaction occurred.
      *
      * @return ?string The commerce location or null if not set.
      */
-    public function getCommerceLocation(): ?string {
-        return $this->commerce_location;
-    }
+    public function getCommerceLocation(): ?string;
 
     /**
      * Retrieves the total amount of the commerce transaction.
      *
      * @return ?float The transaction amount or null if not set.
      */
-    public function getTotalAmount(): ?float {
-        return $this->total_amount;
-    }
+    public function getTotalAmount(): ?float;
 
     // Setters
 
@@ -74,9 +61,7 @@ class CommerceTransaction extends AbstractCommerceTransaction implements Interfa
      *
      * @return void
      */
-    public function setId($id): void {
-        $this->id = isset($id) && !empty($id) ? $id : null;
-    }
+    public function setId(?string $id): void;
 
     /**
      * Sets the unique transaction identifier.
@@ -85,9 +70,7 @@ class CommerceTransaction extends AbstractCommerceTransaction implements Interfa
      *
      * @return void
      */
-    public function setTransactionId($transaction_id): void {
-        $this->transaction_id = isset($transaction_id) && !empty($transaction_id) ? $transaction_id : null;
-    }
+    public function setTransactionId(?string $transaction_id): void;
 
     /**
      * Sets the name of the commerce establishment where the transaction occurred.
@@ -96,9 +79,7 @@ class CommerceTransaction extends AbstractCommerceTransaction implements Interfa
      *
      * @return void
      */
-    public function setCommerceName($commerce_name): void {
-        $this->commerce_name = isset($commerce_name) && !empty($commerce_name) ? $commerce_name : null;
-    }
+    public function setCommerceName(?string $commerce_name): void;
 
     /**
      * Sets the specific location of the commerce establishment where the transaction occurred.
@@ -107,9 +88,7 @@ class CommerceTransaction extends AbstractCommerceTransaction implements Interfa
      *
      * @return void
      */
-    public function setCommerceLocation($commerce_location): void {
-        $this->commerce_location = isset($commerce_location) && !empty($commerce_location) ? $commerce_location : null;
-    }
+    public function setCommerceLocation(?string $commerce_location): void;
 
     /**
      * Sets the total amount of the commerce transaction.
@@ -118,8 +97,5 @@ class CommerceTransaction extends AbstractCommerceTransaction implements Interfa
      *
      * @return void
      */
-    public function setTotalAmount($total_amount): void {
-        $this->total_amount = isset($total_amount) && !empty($total_amount) ? $total_amount : null;
-    }
+    public function setTotalAmount(?float $total_amount): void;
 }
-?>
