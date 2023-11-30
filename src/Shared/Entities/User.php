@@ -19,7 +19,7 @@ namespace PHPAssists\Shared\Entities;
  use PHPAssists\Shared\Abstracts\AbstractUser;
  use PHPAssists\Shared\Interfaces\InterfaceUser;
 
-class User extends ClassInvocationProcessor {
+class User extends AbstractUser implements InterfaceUser {
 
     /**
      * Get the ID of the user.
