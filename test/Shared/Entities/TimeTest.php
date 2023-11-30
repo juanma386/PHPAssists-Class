@@ -49,24 +49,25 @@ class TimeTest extends TestCase
         $this->assertEquals('UTC', $time->getTimezone());
     }
 
-    /**
-     * Test getting the current date and time in a specific timezone.
-     */
-    public function testGetCurrentDateTime()
-    {
-        $time = new Time('Asia/Tokyo');
-        $currentDateTime = $time->getCurrentDateTime();
-        $this->assertNotNull($currentDateTime);
-    
-        // Check if the current date and time has the correct format 'Y-m-d H:i:s'
-        $this->assertRegExp('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $currentDateTime);
-    
-        // Verify if the current date and time correspond to the specified timezone 'Asia/Tokyo'
-        $dateTime = new \DateTime($currentDateTime, new DateTimeZone('Asia/Tokyo'));
-        $this->assertEquals('Asia/Tokyo', $dateTime->getTimezone()->getName());
-    
-        // Verify if the current date and time is close to the actual system date and time
-        $this->assertLessThanOrEqual(2, abs(time() - $dateTime->getTimestamp()));
-    }
+/**
+ * Test getting the current date and time in a specific timezone.
+ */
+public function testGetCurrentDateTime()
+{
+    $time = new Time('Asia/Tokyo');
+    $currentDateTime = $time->getCurrentDateTime();
+    $this->assertNotNull($currentDateTime);
+
+    // Check if the current date and time has the correct format 'Y-m-d H:i:s'
+    $this->assertMatchesRegularExpression('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $currentDateTime);
+
+    // Verify if the current date and time correspond to the specified timezone 'Asia/Tokyo'
+    $dateTime = new \DateTime($currentDateTime, new DateTimeZone('Asia/Tokyo'));
+    $this->assertEquals('Asia/Tokyo', $dateTime->getTimezone()->getName());
+
+    // Verify if the current date and time is close to the actual system date and time
+    $this->assertLessThanOrEqual(2, abs(time() - $dateTime->getTimestamp()));
+}
+
 }
 ?>
