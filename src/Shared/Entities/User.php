@@ -58,16 +58,6 @@ class User extends AbstractUser implements InterfaceUser {
         return $this->password;
     }
 
-    /**
-     * Hash the provided password using the PASSWORD_DEFAULT algorithm.
-     *
-     * @param string|null $password The password to be hashed.
-     *
-     * @return string|null The hashed password or null if the provided password is empty or not set.
-     */
-    private function getHashPassword($password) : ?string {
-        return isset($password) && !empty($password) ? password_hash($password, PASSWORD_DEFAULT) : null;
-    }
 
 
     /**

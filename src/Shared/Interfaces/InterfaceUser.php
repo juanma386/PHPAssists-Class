@@ -46,23 +46,13 @@ interface InterfaceUser {
     public function getPassword()  : ?string;
 
     /**
-     * Hash the provided password using the PASSWORD_DEFAULT algorithm.
-     *
-     * @param string|null $password The password to be hashed.
-     *
-     * @return string|null The hashed password or null if the provided password is empty or not set.
-     */
-    private function getHashPassword($password) : ?string;
-
-
-    /**
      * Set the ID of the user.
      *
      * @param mixed $id The ID to set for the user.
      *
      * @return void
      */
-    public function setId($id) : void;
+    public function setId(?string $id) : void;
 
     /**
      * Set the username of the user.
@@ -72,7 +62,7 @@ interface InterfaceUser {
      *
      * @return void
      */
-    public function setUsername($username) : void;
+    public function setUsername(?string $username) : void;
 
     /**
      * Set the email of the user.
@@ -82,7 +72,7 @@ interface InterfaceUser {
      *
      * @return void
      */
-    public function setEmail($email) : void;
+    public function setEmail(?string $email) : void;
 
     /**
      * Set the hashed password of the user.
@@ -92,6 +82,6 @@ interface InterfaceUser {
      *
      * @return void
      */
-    public function setPassword($password) : void;
+    public function setPassword(?string $password) : void;
 
 }
