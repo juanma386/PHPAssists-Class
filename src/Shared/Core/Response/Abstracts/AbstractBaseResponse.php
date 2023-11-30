@@ -16,7 +16,7 @@ namespace PHPAssists\Shared\Core\Response\Abstracts;
  */
 
 use PHPAssists\Shared\Core\Response\Traits\TraitHttpResponse;
-
+use PHPAssists\Shared\Core\Response\Entities\HTTPEntity;
 
 abstract class AbstractBaseResponse {
 
