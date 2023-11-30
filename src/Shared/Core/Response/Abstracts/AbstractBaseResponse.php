@@ -15,12 +15,12 @@ namespace PHPAssists\Shared\Core\Response\Abstracts;
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
 
-use PHPAssists\Shared\Core\Response\Traits\HttpResponseCodes;
+use PHPAssists\Shared\Core\Response\Traits\TraitHttpResponse;
 
 
 abstract class AbstractBaseResponse {
 
-    use traitHttpResponseCodes;
+    use TraitHttpResponse;
 
     protected static int $SUCCESS = self::SUCCESS;
     protected static int $CREATED = self::CREATED;
