@@ -45,15 +45,14 @@ interface InterfaceUser {
      */
     public function getPassword()  : ?string;
 
-    /**
-     * Hash the provided password using the PASSWORD_DEFAULT algorithm.
-     *
-     * @param string|null $password The password to be hashed.
-     *
-     * @return string|null The hashed password or null if the provided password is empty or not set.
-     */
+   /**
+    * Hashes the provided password using the PHP password_hash function.
+    *
+    * @param string|null $password The password to be hashed.
+    *
+    * @return string|null Returns the hashed password string if a password is provided; otherwise, returns null.
+    */
     public function getHashPassword(?string $password) : ?string;
-
 
     /**
      * Set the ID of the user.
@@ -94,14 +93,6 @@ interface InterfaceUser {
      */
     public function setPassword(?string $password) : void;
 
-   /**
-    * Hashes the provided password using the PHP password_hash function.
-    *
-    * @param string|null $password The password to be hashed.
-    *
-    * @return string|null Returns the hashed password string if a password is provided; otherwise, returns null.
-    */
-    public function getHashPassword(?string $password) : ?string;
 
    /**
     * Validate the username.
