@@ -66,7 +66,7 @@ class TimeTest extends TestCase
         $this->assertEquals('Asia/Tokyo', $dateTime->getTimezone()->getName());
     
         // Verify if the current date and time is close to the actual system date and time
-        $this->assertLessThanOrEqual(time(), $dateTime->getTimestamp() + 1);
+        $this->assertLessThanOrEqual(2, abs(time() - $dateTime->getTimestamp()));
     }
 }
 ?>
