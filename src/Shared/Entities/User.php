@@ -58,8 +58,6 @@ class User extends AbstractUser implements InterfaceUser {
         return $this->password;
     }
 
-
-
     /**
      * Set the ID of the user.
      *
@@ -110,8 +108,33 @@ class User extends AbstractUser implements InterfaceUser {
         $this->password = $hashedPassword;
     }
 
+   /**
+    * Validate the username.
+    *
+    * @return bool Returns true if the username is valid; otherwise, false.
+    */      
+    public function validateUsername() : bool {
+        return isset($this->username) && !empty($this->username) && mb_strlen($this->username) >= 3 && mb_strlen($this->username) <= 50;
+    }
 
+   /**
+    * Validate the email.
+    *
+    * @return bool Returns true if the email is valid; otherwise, false.
+    */
+    public function validateEmail() : bool {
+        return filter_var($this->email, FILTER_VALIDATE_EMAIL) !== false;
+    }
 
-
+   /**
+    * Validate the entered password against the stored hashed password.
+    *
+    * @param string|null $enteredPassword The password entered by the user (plaintext).
+    *
+    * @return bool Returns true if the entered password matches the stored hashed password; otherwise, false.
+    */
+    public function validatePassword(?string $enteredPassword) : bool {
+        return isset($enteredPassword) && !empty($enteredPassword) ? password_verify($enteredPassword, $this->password) : false;
+    }
 }
 ?>
