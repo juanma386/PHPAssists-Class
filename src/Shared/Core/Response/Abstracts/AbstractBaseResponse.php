@@ -35,27 +35,27 @@ abstract class AbstractBaseResponse implements InterfaceHttpResponseCodes  {
     protected static int $PAYMENT_REQUIRED = self::PAYMENT_REQUIRED;
 
     protected static int $FORBIDDEN = self::FORBIDDEN;
-    protected static int $NOTFOUND = self::NOTFOUND;
-    protected static int $NOTALLOWED = self::NOTALLOWED;
+    protected static int $NOT_FOUND = self::NOT_FOUND;
+    protected static int $NOT_ALLOWED = self::NOT_ALLOWED;
     protected static int $REQUEST_TIMEOUT = self::REQUEST_TIMEOUT;
     protected static int $CONFLICT = self::CONFLICT;
-    protected static int $UNPROCESSABLE = self::UNPROCESSABLE;
-    protected static int $SERVERERROR = self::SERVERERROR;
+    protected static int $UNPROCESSABLE_ENTITY = self::UNPROCESSABLE_ENTITY;
+    protected static int $INTERNAL_SERVER_ERROR = self::INTERNAL_SERVER_ERROR;
 
     protected static int $GONE = self::GONE;
     protected static int $TEAPOT = self::TEAPOT;
     protected static int $FAILED_DEPENDENCY = self::FAILED_DEPENDENCY;
     protected static int $UPGRADE_REQUIRED = self::UPGRADE_REQUIRED;
 
-    protected static int $UNAVAILABLE_OF_LEGAL = self::UNAVAILABLE_OF_LEGAL;
+    protected static int $UNAVAILABLE_FOR_LEGAL = self::UNAVAILABLE_FOR_LEGAL;
     protected static int $NOT_IMPLEMENTED = self::NOT_IMPLEMENTED;
     protected static int $SERVICE_UNAVAILABLE = self::SERVICE_UNAVAILABLE;
-    protected static int $GATEWAY_UNAVAILABLE = self::GATEWAY_UNAVAILABLE;
+    protected static int $GATEWAY_TIMEOUT = self::GATEWAY_TIMEOUT;
 
     protected static int $NETWORK_AUTH_REQUIRED = self::NETWORK_AUTH_REQUIRED;
     protected static int $NOT_UPDATED = self::NOT_UPDATED;
     protected static int $VERSION_MISMATCH = self::VERSION_MISMATCH;
-    protected static int $BRANWIDTH_LIMIT_EXCEEDED = self::BRANWIDTH_LIMIT_EXCEEDED;
+    protected static int $BANDWIDTH_LIMIT_EXCEEDED = self::BANDWIDTH_LIMIT_EXCEEDED;
 
     protected static array $POSITIVE_CODES_STATUS = [];
     protected static array $RESPONSE_CODES_STATUS = [];
@@ -102,28 +102,33 @@ abstract class AbstractBaseResponse implements InterfaceHttpResponseCodes  {
             self::$MOVED_PERMANENTLY,
             self::$TEMPORARY_REDIRECT,
             self::$PERMANENT_REDIRECT,
+        
             self::$BAD_REQUEST,
             self::$UNAUTHORIZED,
             self::$PAYMENT_REQUIRED,
+        
             self::$FORBIDDEN,
-            self::$NOTFOUND,
-            self::$NOTALLOWED,
+            self::$NOT_FOUND,
+            self::$NOT_ALLOWED,
             self::$REQUEST_TIMEOUT,
             self::$CONFLICT,
-            self::$UNPROCESSABLE,
-            self::$SERVERERROR,
+            self::$UNPROCESSABLE_ENTITY,
+            self::$INTERNAL_SERVER_ERROR,
+        
             self::$GONE,
             self::$TEAPOT,
             self::$FAILED_DEPENDENCY,
             self::$UPGRADE_REQUIRED,
-            self::$UNAVAILABLE_OF_LEGAL,
+        
+            self::$UNAVAILABLE_FOR_LEGAL,
             self::$NOT_IMPLEMENTED,
             self::$SERVICE_UNAVAILABLE,
-            self::$GATEWAY_UNAVAILABLE,
+            self::$GATEWAY_TIMEOUT,
+        
             self::$NETWORK_AUTH_REQUIRED,
             self::$NOT_UPDATED,
             self::$VERSION_MISMATCH,
-            self::$BRANWIDTH_LIMIT_EXCEEDED,
+            self::$BANDWIDTH_LIMIT_EXCEEDED,
         ];
     }
 
