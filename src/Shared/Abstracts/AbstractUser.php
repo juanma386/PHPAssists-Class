@@ -49,7 +49,7 @@ class AbstractUser extends ClassInvocationProcessor {
      *
      * @return string|null The hashed password or null if the provided password is empty or not set.
      */
-    abstract protected function getHashPassword(?string $password) : ?string {
+    protected function getHashPassword(?string $password) : ?string {
         return isset($password) && !empty($password) ? password_hash($password, PASSWORD_DEFAULT) : null;
     }
 }
