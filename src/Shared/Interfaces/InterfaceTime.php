@@ -71,7 +71,7 @@ interface InterfaceTime {
      *
      * @return void
      */
-    public function setTimezone(?string $timezone): ? void;
+    public function setTimezone(?string $timezone): void;
 
 
 }

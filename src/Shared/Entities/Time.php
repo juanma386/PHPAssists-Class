@@ -92,7 +92,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return void
      */
-    public function setFormat(?string $format): ? void
+    public function setFormat(?string $format): void
     {
         $this->format = $format;
     }
