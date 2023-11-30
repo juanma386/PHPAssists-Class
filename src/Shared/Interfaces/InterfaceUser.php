@@ -94,4 +94,36 @@ interface InterfaceUser {
      */
     public function setPassword(?string $password) : void;
 
+   /**
+    * Hashes the provided password using the PHP password_hash function.
+    *
+    * @param string|null $password The password to be hashed.
+    *
+    * @return string|null Returns the hashed password string if a password is provided; otherwise, returns null.
+    */
+    public function getHashPassword(?string $password) : ?string;
+
+   /**
+    * Validate the username.
+    *
+    * @return bool Returns true if the username is valid; otherwise, false.
+    */
+    public function validateUsername() : bool;
+
+   /**
+    * Validate the email.
+    *
+    * @return bool Returns true if the email is valid; otherwise, false.
+    */
+    public function validateEmail() : bool;
+
+   /**
+    * Validate the entered password against the stored hashed password.
+    *
+    * @param string|null $enteredPassword The password entered by the user (plaintext).
+    *
+    * @return bool Returns true if the entered password matches the stored hashed password; otherwise, false.
+    */
+    public function validatePassword(?string $enteredPassword) : bool;
+
 }

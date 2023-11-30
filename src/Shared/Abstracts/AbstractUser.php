@@ -17,15 +17,15 @@ use PHPAssists\Shared\Core\ClassInvocationProcessor;
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
 class AbstractUser extends ClassInvocationProcessor {
-    private $id         = null;
-    private $username   = null;
-    private $email      = null;
-    private $password   = null;
+    private ?string $id                 = null;
+    private ?string $username           = null;
+    private ?string $email              = null;
+    private ?string $password           = null;
 
-    protected $table              = 'users'; 
-    protected $primaryKey         = 'user_id';
-    protected $useAutoIncrement   = false;
-    protected $allowedFields      = ['username', 'email', 'password'];
+    protected ?string $table            = 'users'; 
+    protected ?string $primaryKey       = 'user_id';
+    protected ?bool $useAutoIncrement   = false;
+    protected ?array $allowedFields     = ['username', 'email', 'password'];
 
    /**
     * Constructor for the User class.
@@ -35,7 +35,7 @@ class AbstractUser extends ClassInvocationProcessor {
     * @param ?string $email The identifier of the email account.
     * @param ?string $password The password of the user account.
     */
-    public function __construct($id, $username, $email, $password) {
+    public function __construct(?string $id,?string $username,?string $email,?string $password) {
         $this->setId($id);
         $this->setUsername($username);
         $this->setEmail($email);
@@ -62,7 +62,7 @@ class AbstractUser extends ClassInvocationProcessor {
         return filter_var($this->email, FILTER_VALIDATE_EMAIL) !== false;
     }
 
-    public function validatePassword($enteredPassword) : bool {
+    public function validatePassword(?string $enteredPassword) : bool {
         return isset($enteredPassword) && !empty($enteredPassword) ? password_verify($enteredPassword, $this->password) : false;
     }
 }
