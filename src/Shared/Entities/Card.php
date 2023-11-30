@@ -1,8 +1,8 @@
 <?php
 namespace PHPAssists\Shared\Entities; 
 
-use PHPAssists\Shared\Abstracts\AbstractCard;
-use PHPAssists\Shared\Interfaces\InterfaceCard;
+use PHPAssists\Shared\Entities\Abstracts\AbstractCard;
+use PHPAssists\Shared\Entities\Interfaces\InterfaceCard;
 
 /**
  * PHPAssists Card Entity

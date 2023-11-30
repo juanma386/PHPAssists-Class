@@ -1,8 +1,8 @@
 <?php
 namespace PHPAssists\Shared\Entities; 
 
-use PHPAssists\Shared\Abstracts\AbstractExpenseCategory;
-use PHPAssists\Shared\Interfaces\InterfaceExpenseCategory;
+use PHPAssists\Shared\Entities\Abstracts\AbstractExpenseCategory;
+use PHPAssists\Shared\Entities\Interfaces\InterfaceExpenseCategory;
 
 /**
  * PHPAssists Expense Category Entity

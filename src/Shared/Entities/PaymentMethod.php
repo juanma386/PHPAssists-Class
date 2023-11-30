@@ -1,8 +1,8 @@
 <?php 
 namespace PHPAssists\Shared\Entities; 
 
-use PHPAssists\Shared\Abstracts\AbstractPaymentMethod;
-use PHPAssists\Shared\Interfaces\InterfacePaymentMethod;
+use PHPAssists\Shared\Entities\Abstracts\AbstractPaymentMethod;
+use PHPAssists\Shared\Entities\Interfaces\InterfacePaymentMethod;
 
 /**
  * PHPAssists Payment Method Entity

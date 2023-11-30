@@ -16,8 +16,8 @@ namespace PHPAssists\Shared\Entities;
 
 
  // Necessary imports for the class
- use PHPAssists\Shared\Abstracts\AbstractTransaction;
- use PHPAssists\Shared\Interfaces\InterfaceTransaction;
+ use PHPAssists\Shared\Entities\Abstracts\AbstractTransaction;
+ use PHPAssists\Shared\Entities\Interfaces\InterfaceTransaction;
 
 class Transaction extends AbstractTransaction implements InterfaceTransaction {
 

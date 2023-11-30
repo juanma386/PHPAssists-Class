@@ -1,5 +1,5 @@
 <?php
-namespace PHPAssists\Shared\Interfaces; 
+namespace PHPAssists\Shared\Entities\Interfaces; 
 
 /**
  * PHPAssists Expense Abstract

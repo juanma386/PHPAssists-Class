@@ -13,7 +13,7 @@
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
 
-namespace PHPAssists\Shared\Interfaces;
+namespace PHPAssists\Shared\Entities\Interfaces;
 
 /**
  * Interface InterfaceBankAccount

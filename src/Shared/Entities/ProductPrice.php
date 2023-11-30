@@ -16,8 +16,8 @@ namespace PHPAssists\Shared\Entities;
  */
 
 // Necessary imports for the class
-use PHPAssists\Shared\Abstracts\AbstractProductPrice;
-use PHPAssists\Shared\Interfaces\InterfaceProductPrice;
+use PHPAssists\Shared\Entities\Abstracts\AbstractProductPrice;
+use PHPAssists\Shared\Entities\Interfaces\InterfaceProductPrice;
 
 // Definition of the ProductPrice class extending AbstractProductPrice and implementing InterfaceProductPrice
 class ProductPrice extends AbstractProductPrice implements InterfaceProductPrice {

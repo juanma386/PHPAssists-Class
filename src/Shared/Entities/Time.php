@@ -15,8 +15,8 @@ namespace PHPAssists\Shared\Entities;
  */
 
  // Necessary imports for the class
-use PHPAssists\Shared\Abstracts\AbstractTime;
-use PHPAssists\Shared\Interfaces\InterfaceTime;
+use PHPAssists\Shared\Entities\Abstracts\AbstractTime;
+use PHPAssists\Shared\Entities\Interfaces\InterfaceTime;
 
 use DateTimeZone;
 

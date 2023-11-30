@@ -1,8 +1,8 @@
 <?php
 namespace PHPAssists\Shared\Entities;
 
-use PHPAssists\Shared\Abstracts\AbstractCommerceTransaction;
-use PHPAssists\Shared\Interfaces\InterfaceCommerceTransaction;
+use PHPAssists\Shared\Entities\Abstracts\AbstractCommerceTransaction;
+use PHPAssists\Shared\Entities\Interfaces\InterfaceCommerceTransaction;
 
 /**
  * PHPAssists Commerce Transaction Entity

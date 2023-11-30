@@ -1,8 +1,8 @@
 <?php
 namespace PHPAssists\Shared\Entities; 
 
-use PHPAssists\Shared\Abstracts\AbstractExpense;
-use PHPAssists\Shared\Interfaces\InterfaceExpense;
+use PHPAssists\Shared\Entities\Abstracts\AbstractExpense;
+use PHPAssists\Shared\Entities\Interfaces\InterfaceExpense;
 /**
  * PHPAssists Expense Entity
  *

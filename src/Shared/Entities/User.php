@@ -16,8 +16,8 @@ namespace PHPAssists\Shared\Entities;
 
 
  // Necessary imports for the class
- use PHPAssists\Shared\Abstracts\AbstractUser;
- use PHPAssists\Shared\Interfaces\InterfaceUser;
+ use PHPAssists\Shared\Entities\Abstracts\AbstractUser;
+ use PHPAssists\Shared\Entities\Interfaces\InterfaceUser;
 
 class User extends AbstractUser implements InterfaceUser {
 

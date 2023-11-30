@@ -15,8 +15,8 @@
 
 namespace PHPAssists\Shared\Entities;
 
-use PHPAssists\Shared\Abstracts\AbstractBankAccount;
-use PHPAssists\Shared\Interfaces\InterfaceBankAccount;
+use PHPAssists\Shared\Entities\Abstracts\AbstractBankAccount;
+use PHPAssists\Shared\Entities\Interfaces\InterfaceBankAccount;
 
 /**
  * Class BankAccount
