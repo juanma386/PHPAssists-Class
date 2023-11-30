@@ -52,4 +52,17 @@ class AbstractUser extends ClassInvocationProcessor {
     public function getHashPassword(?string $password) : ?string {
         return isset($password) && !empty($password) ? password_hash($password, PASSWORD_DEFAULT) : null;
     }
+
+       
+    public function validateUsername() : bool {
+        return isset($this->username) && !empty($this->username) && mb_strlen($this->username) >= 3 && mb_strlen($this->username) <= 50;
+    }
+
+    public function validateEmail() : bool {
+        return filter_var($this->email, FILTER_VALIDATE_EMAIL) !== false;
+    }
+
+    public function validatePassword($enteredPassword) : bool {
+        return isset($enteredPassword) && !empty($enteredPassword) ? password_verify($enteredPassword, $this->password) : false;
+    }
 }
