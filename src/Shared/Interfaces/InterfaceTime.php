@@ -17,11 +17,18 @@ namespace PHPAssists\Shared\Interfaces;
 interface InterfaceTime {
 
     /**
+     * Get the current date and time based on the configured timezone.
+     *
+     * @return string The current date and time formatted according to the set format and timezone.
+     */
+    public function getCurrentDateTime() : ? string;
+
+    /**
      * Get the configured timezone.
      *
      * @return string|null The configured timezone or null if not set.
      */
-    public function getTimezone(): void;
+    public function getTimezone();
 
     /**
      * Set the timezone.
@@ -30,14 +37,21 @@ interface InterfaceTime {
      *
      * @return void
      */
-    public function setTimezone($timezone): void;
+    public function setTimezone($timezone);
+
+    /**
+     * Get the configured moment.
+     *
+     * @return string|null The configured moment or null if not set.
+     */
+    public function getMoment();
 
     /**
      * Get the configured format.
      *
      * @return string|null The configured format or null if not set.
      */
-    public function getFormat(): void;
+    public function getFormat();
 
     /**
      * Set the format.
@@ -49,13 +63,6 @@ interface InterfaceTime {
     public function setFormat($format): void;
 
     /**
-     * Get the configured moment.
-     *
-     * @return string|null The configured moment or null if not set.
-     */
-    public function getMoment(): void;
-
-    /**
      * Set the moment.
      *
      * @param string $moment The moment to set.
@@ -64,10 +71,5 @@ interface InterfaceTime {
      */
     public function setMoment($moment): void;
 
-    /**
-     * Get the current date and time based on the configured timezone.
-     *
-     * @return string The current date and time formatted according to the set format and timezone.
-     */
-    public function getCurrentDateTime() : ? string;
+
 }
