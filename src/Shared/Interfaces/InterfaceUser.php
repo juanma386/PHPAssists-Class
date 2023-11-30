@@ -1,52 +1,41 @@
 <?php
-namespace PHPAssists\Shared\Entities; 
+namespace PHPAssists\Shared\Interfaces; 
+
 /**
- * PHPAssists User API Test
+ * PHPAssists User API Abstract
  *
- * This class defines the possible Functions for the PHPAssists User API Test.
+ * This interface defines methods for individual User API within the PHPAssists framework.
+ * It outlines functionality related to User API management.
  *
  * @link       https://hexome.com.ar
  * @since      1.0.0
  *
- * @package    PHPAssistsTest
- * @subpackage PHPAssistsTest\Shared\Entities
- *
+ * @package    PHPAssists
+ * @subpackage PHPAssists\Shared\Interfaces
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
-
-
- // Necessary imports for the class
- use PHPAssists\Shared\Abstracts\AbstractUser;
- use PHPAssists\Shared\Interfaces\InterfaceUser;
-
-class User extends ClassInvocationProcessor {
-
+interface InterfaceUser {
+    
     /**
      * Get the ID of the user.
      *
      * @return string|null The user's ID or null if not set.
      */
-    public function getId()  : ?string {
-        return $this->id;
-    }
+    public function getId()  : ?string;
 
     /**
      * Get the username of the user.
      *
      * @return string|null The user's username or null if not set.
      */
-    public function getUsername()  : ?string {
-        return $this->username;
-    }
+    public function getUsername()  : ?string;
 
     /**
      * Get the email of the user.
      *
      * @return string|null The user's email or null if not set.
      */
-    public function getEmail()  : ?string {
-        return $this->email;
-    }
+    public function getEmail()  : ?string;
 
     /**
      * Get the hashed password of the user.
@@ -54,9 +43,7 @@ class User extends ClassInvocationProcessor {
      * @return string|null The user's hashed password or null if not set.
      *                    If the provided password is empty or not set, it returns null.
      */
-    public function getPassword()  : ?string {
-        return $this->password;
-    }
+    public function getPassword()  : ?string;
 
     /**
      * Hash the provided password using the PASSWORD_DEFAULT algorithm.
@@ -65,9 +52,7 @@ class User extends ClassInvocationProcessor {
      *
      * @return string|null The hashed password or null if the provided password is empty or not set.
      */
-    private function getHashPassword($password) : ?string {
-        return isset($password) && !empty($password) ? password_hash($password, PASSWORD_DEFAULT) : null;
-    }
+    private function getHashPassword($password) : ?string;
 
 
     /**
@@ -77,9 +62,7 @@ class User extends ClassInvocationProcessor {
      *
      * @return void
      */
-    public function setId($id) : void {
-        $this->id = isset($id) ? $id : null;
-    }
+    public function setId($id) : void;
 
     /**
      * Set the username of the user.
@@ -89,10 +72,7 @@ class User extends ClassInvocationProcessor {
      *
      * @return void
      */
-    public function setUsername($username) : void {
-        $this->username = $username;
-        !$this->validateUsername() ? [ $this->username = null ] : false;
-    }
+    public function setUsername($username) : void;
 
     /**
      * Set the email of the user.
@@ -102,10 +82,7 @@ class User extends ClassInvocationProcessor {
      *
      * @return void
      */
-    public function setEmail($email) : void {
-        $this->email = $email;
-        !$this->validateEmail() ? [ $this->email = null ] : false;
-    }
+    public function setEmail($email) : void;
 
     /**
      * Set the hashed password of the user.
@@ -115,13 +92,6 @@ class User extends ClassInvocationProcessor {
      *
      * @return void
      */
-    public function setPassword($password) : void {
-        $hashedPassword = $this->getHashPassword($password);
-        $this->password = $hashedPassword;
-    }
-
-
-
+    public function setPassword($password) : void;
 
 }
-?>
