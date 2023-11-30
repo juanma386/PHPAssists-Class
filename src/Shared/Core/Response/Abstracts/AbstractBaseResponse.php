@@ -100,7 +100,7 @@ abstract class AbstractBaseResponse {
         
         $response = new \HTTPEntity((int) $response_code, $data);
         $response->status = self::isResponse($response_code) ? $response_code : self::$NOT_IMPLEMENTED;
-        self::isPositiveResponse($response_code) ? [ $response->data = $data,  unset($response->error) ] : [ $response->error = $data,  unset($response->data) ];
+        self::isPositiveResponse($response_code) ? [ $response->data = $data,  isset($response->error) ? unset($response->error) : false ] : [ $response->error = $data,  isset($response->data) ? unset($response->data) : false ];
         return $response;
     }
     
