@@ -31,7 +31,7 @@ abstract class AbstractBaseResponse implements InterfaceHttpResponseCodes  {
     protected static int $PERMANENT_REDIRECT = self::PERMANENT_REDIRECT;
 
     protected static int $BAD_REQUEST = self::BAD_REQUEST;
-    protected static int $NOTAUTH = self::NOTAUTH;
+    protected static int $UNAUTHORIZED = self::UNAUTHORIZED;
     protected static int $PAYMENT_REQUIRED = self::PAYMENT_REQUIRED;
 
     protected static int $FORBIDDEN = self::FORBIDDEN;
@@ -103,7 +103,7 @@ abstract class AbstractBaseResponse implements InterfaceHttpResponseCodes  {
             self::$TEMPORARY_REDIRECT,
             self::$PERMANENT_REDIRECT,
             self::$BAD_REQUEST,
-            self::$NOTAUTH,
+            self::$UNAUTHORIZED,
             self::$PAYMENT_REQUIRED,
             self::$FORBIDDEN,
             self::$NOTFOUND,
