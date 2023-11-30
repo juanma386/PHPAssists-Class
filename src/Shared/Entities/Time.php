@@ -28,7 +28,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return string|null The configured timezone or null if not set.
      */
-    private function getTimezone()
+    public function getTimezone()
     {
         return $this->timezone;
     }
@@ -40,7 +40,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return void
      */
-    private function setTimezone($timezone)
+    public function setTimezone($timezone)
     {
         // Verify if the provided timezone is valid
         if (in_array($timezone, DateTimeZone::listIdentifiers())) {
@@ -53,7 +53,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return string|null The configured format or null if not set.
      */
-    private function getFormat()
+    public function getFormat()
     {
         return $this->format;
     }
@@ -65,7 +65,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return void
      */
-    private function setFormat($format)
+    public function setFormat($format)
     {
         $this->format = $format;
     }
@@ -75,7 +75,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return string|null The configured moment or null if not set.
      */
-    private function getMoment()
+    public function getMoment()
     {
         return $this->moment;
     }
@@ -87,7 +87,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return void
      */
-    private function setMoment($moment)
+    public function setMoment($moment)
     {
         $this->moment = $moment;
     }

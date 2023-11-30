@@ -21,7 +21,7 @@ interface InterfaceTime {
      *
      * @return string|null The configured timezone or null if not set.
      */
-    private function getTimezone(): void;
+    public function getTimezone(): void;
 
     /**
      * Set the timezone.
@@ -30,14 +30,14 @@ interface InterfaceTime {
      *
      * @return void
      */
-    private function setTimezone($timezone): void;
+    public function setTimezone($timezone): void;
 
     /**
      * Get the configured format.
      *
      * @return string|null The configured format or null if not set.
      */
-    private function getFormat(): void;
+    public function getFormat(): void;
 
     /**
      * Set the format.
@@ -46,14 +46,14 @@ interface InterfaceTime {
      *
      * @return void
      */
-    private function setFormat($format): void;
+    public function setFormat($format): void;
 
     /**
      * Get the configured moment.
      *
      * @return string|null The configured moment or null if not set.
      */
-    private function getMoment(): void;
+    public function getMoment(): void;
 
     /**
      * Set the moment.
@@ -62,7 +62,7 @@ interface InterfaceTime {
      *
      * @return void
      */
-    private function setMoment($moment): void;
+    public function setMoment($moment): void;
 
     /**
      * Get the current date and time based on the configured timezone.

@@ -17,7 +17,7 @@ use PHPAssists\Shared\Core\ClassInvocationProcessor;
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
 class AbstractTime extends ClassInvocationProcessor {
-    private ?string   $timezone = 'UTC'; // Default timezone is set to 'UTC'
+    private ?string $timezone = 'UTC'; // Default timezone is set to 'UTC'
 
     private ?string $format   = 'Y-m-d H:i:s'; // Default date-time format
 
