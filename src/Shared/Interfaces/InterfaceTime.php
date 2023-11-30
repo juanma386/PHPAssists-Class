@@ -28,7 +28,7 @@ interface InterfaceTime {
      *
      * @return string|null The configured timezone or null if not set.
      */
-    public function getTimezone();
+    public function getTimezone(): ? string;
 
     /**
      * Set the timezone.
@@ -37,21 +37,21 @@ interface InterfaceTime {
      *
      * @return void
      */
-    public function setTimezone($timezone);
+    public function setTimezone($timezone): ? string;
 
     /**
      * Get the configured moment.
      *
      * @return string|null The configured moment or null if not set.
      */
-    public function getMoment();
+    public function getMoment(): ? string;
 
     /**
      * Get the configured format.
      *
      * @return string|null The configured format or null if not set.
      */
-    public function getFormat();
+    public function getFormat(): ? string;
 
     /**
      * Set the format.

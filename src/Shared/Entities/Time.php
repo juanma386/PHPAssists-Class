@@ -28,7 +28,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return string|null The configured timezone or null if not set.
      */
-    public function getTimezone()
+    public function getTimezone(): ? string
     {
         return $this->timezone;
     }
@@ -40,7 +40,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return void
      */
-    public function setTimezone($timezone)
+    public function setTimezone($timezone): void
     {
         // Verify if the provided timezone is valid
         if (in_array($timezone, DateTimeZone::listIdentifiers())) {
@@ -53,7 +53,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return string|null The configured format or null if not set.
      */
-    public function getFormat()
+    public function getFormat(): ? string
     {
         return $this->format;
     }
@@ -65,7 +65,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return void
      */
-    public function setFormat($format)
+    public function setFormat($format): ? string
     {
         $this->format = $format;
     }
@@ -75,7 +75,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return string|null The configured moment or null if not set.
      */
-    public function getMoment()
+    public function getMoment(): ? string
     {
         return $this->moment;
     }
@@ -87,7 +87,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return void
      */
-    public function setMoment($moment)
+    public function setMoment($moment):void
     {
         $this->moment = $moment;
     }
@@ -97,7 +97,7 @@ class Time extends AbstractTime implements InterfaceTime
      *
      * @return string The current date and time formatted according to the set format and timezone.
      */
-    public function getCurrentDateTime()
+    public function getCurrentDateTime(): ? string
     {
         // Create a DateTime object with the configured moment and timezone
         $dateTime = new \DateTime($this->moment, new DateTimeZone($this->getTimezone()));
