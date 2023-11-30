@@ -66,7 +66,7 @@ abstract class AbstractBaseResponse {
     }
 
     public static function setResponse(?int $response_code, $data = null) {
-        $response = new \HTTPEntity((int) $response_code, $data);
+        $response = new HTTPEntity((int) $response_code, $data);
         $response->status = self::isResponse($response_code) ? $response_code : self::$NOT_IMPLEMENTED;
         self::isPositiveResponse($response_code) ? [ $response->data = $data ] : [ $response->error = $data ];
         return $response;
