@@ -16,6 +16,7 @@ namespace PHPAssistsTest\Shared\Entities;
 
 use PHPUnit\Framework\TestCase;
 use PHPAssists\Shared\Entities\Time;
+use DateTimeZone;
 
 class TimeTest extends TestCase
 {
