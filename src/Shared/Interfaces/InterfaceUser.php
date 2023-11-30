@@ -52,7 +52,7 @@ interface InterfaceUser {
      *
      * @return string|null The hashed password or null if the provided password is empty or not set.
      */
-    protected function getHashPassword(?string $password) : ?string;
+    public function getHashPassword(?string $password) : ?string;
 
 
     /**
