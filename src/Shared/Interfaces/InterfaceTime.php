@@ -30,14 +30,7 @@ interface InterfaceTime {
      */
     public function getTimezone(): ? string;
 
-    /**
-     * Set the timezone.
-     *
-     * @param string $timezone The timezone to set.
-     *
-     * @return void
-     */
-    public function setTimezone($timezone): ? string;
+
 
     /**
      * Get the configured moment.
@@ -60,7 +53,7 @@ interface InterfaceTime {
      *
      * @return void
      */
-    public function setFormat($format): void;
+    public function setFormat(?string $format): void;
 
     /**
      * Set the moment.
@@ -69,7 +62,16 @@ interface InterfaceTime {
      *
      * @return void
      */
-    public function setMoment($moment): void;
+    public function setMoment(?string $moment): void;
+
+    /**
+     * Set the timezone.
+     *
+     * @param string $timezone The timezone to set.
+     *
+     * @return void
+     */
+    public function setTimezone(?string $timezone): ? void;
 
 
 }

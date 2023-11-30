@@ -33,20 +33,7 @@ class Time extends AbstractTime implements InterfaceTime
         return $this->timezone;
     }
 
-    /**
-     * Set the timezone.
-     *
-     * @param string $timezone The timezone to set.
-     *
-     * @return void
-     */
-    public function setTimezone($timezone): void
-    {
-        // Verify if the provided timezone is valid
-        if (in_array($timezone, DateTimeZone::listIdentifiers())) {
-            $this->timezone = $timezone;
-        } 
-    }
+
 
     /**
      * Get the configured format.
@@ -58,17 +45,6 @@ class Time extends AbstractTime implements InterfaceTime
         return $this->format;
     }
 
-    /**
-     * Set the format.
-     *
-     * @param string $format The format to set.
-     *
-     * @return void
-     */
-    public function setFormat($format): ? string
-    {
-        $this->format = $format;
-    }
 
     /**
      * Get the configured moment.
@@ -78,18 +54,6 @@ class Time extends AbstractTime implements InterfaceTime
     public function getMoment(): ? string
     {
         return $this->moment;
-    }
-
-    /**
-     * Set the moment.
-     *
-     * @param string $moment The moment to set.
-     *
-     * @return void
-     */
-    public function setMoment($moment):void
-    {
-        $this->moment = $moment;
     }
 
     /**
@@ -104,5 +68,46 @@ class Time extends AbstractTime implements InterfaceTime
         // Format the date and time according to the configured format
         return $dateTime->format($this->format);
     }
+
+
+    /**
+     * Set the timezone.
+     *
+     * @param string $timezone The timezone to set.
+     *
+     * @return void
+     */
+    public function setTimezone(?string $timezone) : void
+    {
+        // Verify if the provided timezone is valid
+        if (in_array($timezone, DateTimeZone::listIdentifiers())) {
+            $this->timezone = $timezone;
+        } 
+    }
+
+    /**
+     * Set the format.
+     *
+     * @param string $format The format to set.
+     *
+     * @return void
+     */
+    public function setFormat(?string $format): ? void
+    {
+        $this->format = $format;
+    }
+
+    /**
+     * Set the moment.
+     *
+     * @param string $moment The moment to set.
+     *
+     * @return void
+     */
+    public function setMoment(?string $moment) : void
+    {
+        $this->moment = $moment;
+    }
+
 }
 ?>
