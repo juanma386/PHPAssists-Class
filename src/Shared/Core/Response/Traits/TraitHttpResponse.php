@@ -19,7 +19,7 @@ namespace PHPAssists\Shared\Core\Response\Traits;
 trait TraitHttpResponse {
     public static function ajaxResponse(?int $response_code, mixed $data = null,?bool $header = null) : string {
         $dataResponse = $data ?? null;
-        $response = self::setResponse($response_code, $dataResponse);
+        $response = HTTPResponse::setResponse($response_code, $dataResponse);
         return json_encode( $response, JSON_PRETTY_PRINT );
     }
 }
