@@ -1,4 +1,6 @@
 [![Patreon](https://img.shields.io/badge/Support-Patreon-orange.svg?style=flat&logo=patreon)](https://www.patreon.com/hexomecloud)
+[![PHPUnit](https://img.shields.io/github/workflow/status/tu_usuario/tu_repositorio/PHPUnit?label=PHPUnit&logo=php&style=flat-square)](https://github.com/juanma386/PHPAssists-Class/actions)
+
 # PHPAssists-Class
 PHPAssists/Class is a class aimed at simplifying the management of essential libraries required for multifunctional projects in PHP. It offers a unified and organized channel to load, manage, and access various basic libraries and functionalities needed in projects of diverse nature.
 
