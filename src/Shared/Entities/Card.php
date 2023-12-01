@@ -39,29 +39,6 @@ class Card extends AbstractCard implements InterfaceCard {
     */
     private ?string $last_4_digits_card;
   
-    // Properties
-
-   /**
-    * Unique identifier for the card entity.
-    *
-    * @var ?string
-    */
-    private $id;
-
-    /**
-     * Type of the card (e.g., Visa, Mastercard, etc.).
-     *
-     * @var ?string
-     */
-    private $card_type;
-
-    /**
-     * Last four digits of the card number.
-     *
-     * @var ?string
-     */
-    private $last_4_digits_card;
-
     /**
      * Constructor for the Card class.
      *
