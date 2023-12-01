@@ -67,8 +67,8 @@ abstract class AbstractBaseResponse implements InterfaceHttpResponseCodes  {
     }
 
     public static function setResponse(?int $response_code, $data = null) {
-        $response = new self((int) $response_code, $data);
-        $response->status = self::isResponse($response_code) ? $response_code : self::$NOT_IMPLEMENTED;
+        $response = new HTTPEntity((int) $response_code, $data);
+        $response->status = self::isResponse($response_code) ? $response_code : $response::$NOT_IMPLEMENTED;
         self::isPositiveResponse($response_code) ? [ $response->data = $data ] : [ $response->error = $data ];
         return $response;
     }
