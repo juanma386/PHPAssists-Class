@@ -15,12 +15,12 @@
  */
 
 namespace PHPAssists\Shared\Core\Response\Traits;
-use PHPAssists\Shared\Core\Response\HTTPResponse;
+use PHPAssists\Shared\Core\Response\Entities\HTTPEntity;
 
 trait TraitHttpResponse {
     public static function ajaxResponse(?int $response_code, mixed $data = null,?bool $header = null) : string {
         $dataResponse = $data ?? null;
-        $response = HTTPResponse::setResponse($response_code, $dataResponse);
+        $response = HTTPEntity::setResponse($response_code, $dataResponse);
         return json_encode( $response, JSON_PRETTY_PRINT );
     }
 }
