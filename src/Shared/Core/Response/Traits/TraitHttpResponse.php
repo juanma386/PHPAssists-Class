@@ -15,6 +15,7 @@
  */
 
 namespace PHPAssists\Shared\Core\Response\Traits;
+use PHPAssists\Shared\Core\Response\HTTPResponse;
 
 trait TraitHttpResponse {
     public static function ajaxResponse(?int $response_code, mixed $data = null,?bool $header = null) : string {
