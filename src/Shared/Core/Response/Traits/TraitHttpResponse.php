@@ -19,10 +19,10 @@ namespace PHPAssists\Shared\Core\Response\Traits;
 trait TraitHttpResponse {
 
 
-    public static function ajaxResponse(?int $response_code, $data = null, $header = false) : string {
+    public static function ajaxResponse(?int $response_code, $data = null,?bool $header = null) : string {
         $dataResponse = $data ?? null;
     
-        if ($header !== false) {
+        if ($header !== null) {
             http_response_code($response_code);
         }
 
