@@ -23,11 +23,6 @@ use PHPAssists\Shared\Core\ClassInvocationProcessor;
  * This abstract class defines essential properties and methods for handling bank accounts within the PHPAssists framework.
  */
 abstract class AbstractBankAccount extends ClassInvocationProcessor {
-    // Properties representing bank account information
-    private $id = null;
-    private $bank = null;
-    private $last_4_digits_cbu = null;
-    private $current_balance = null;
 
     // Database-related properties
     protected $table = 'bank_accounts';

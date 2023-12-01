@@ -23,27 +23,7 @@
   * This abstract class defines essential properties and methods for representing credit cards within the PHPAssists framework. It's intended to be extended by concrete credit card implementations.
   */
  abstract class AbstractCard extends ClassInvocationProcessor {
-     /**
-      * Unique identifier for the credit card.
-      *
-      * @var ?string
-      */
-     private ?string $id;
- 
-     /**
-      * Type of the credit card, such as Visa, Mastercard, or American Express.
-      *
-      * @var ?string
-      */
-     private ?string $card_type;
- 
-     /**
-      * Last four digits of the credit card number.
-      *
-      * @var ?string
-      */
-     private ?string $last_4_digits_card;
- 
+     
      /**
       * Constructor for the AbstractCard class.
       *

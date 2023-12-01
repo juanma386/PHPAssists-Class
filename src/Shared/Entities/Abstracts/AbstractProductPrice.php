@@ -17,36 +17,7 @@ use PHPAssists\Shared\Core\ClassInvocationProcessor;
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
 class AbstractProductPrice extends ClassInvocationProcessor {
-    // Properties
     
-    /**
-     * Unique identifier for the product price.
-     *
-     * @var ?string
-     */
-    private ?string $id = null;
-    
-    /**
-     * Transaction identifier related to the product price.
-     *
-     * @var ?string
-     */
-    private ?string $transaction_id = null;
-    
-    /**
-     * Product identifier related to the product price.
-     *
-     * @var ?string
-     */
-    private ?string $product_id = null;
-    
-    /**
-     * Cost of the product.
-     *
-     * @var ?float
-     */
-    private ?float $product_cost = null;
-
     // Database Configuration
     
     /**

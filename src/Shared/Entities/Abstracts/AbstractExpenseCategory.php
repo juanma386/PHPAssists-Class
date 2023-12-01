@@ -17,21 +17,6 @@ use PHPAssists\Shared\Core\ClassInvocationProcessor;
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
 class AbstractExpenseCategory extends ClassInvocationProcessor {
-    // Properties
-
-    /**
-     * Unique identifier for the expense category.
-     *
-     * @var ?string
-     */
-    private $id;
-
-    /**
-     * Name of the expense category.
-     *
-     * @var ?string
-     */
-    private $category_name;
 
     /**
      * Constructor for the ExpenseCategory class.

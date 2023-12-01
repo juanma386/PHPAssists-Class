@@ -18,43 +18,7 @@ use PHPAssists\Shared\Core\ClassInvocationProcessor;
  */
 class AbstractExpense extends ClassInvocationProcessor {
     
-    // Properties
-
-    /**
-     * Unique identifier for the expense entity.
-     *
-     * @var ?string
-     */
-    private ?string $id;
-
-    /**
-     * Category identifier for the expense.
-     *
-     * @var ?string
-     */
-    private ?string $category_id;
-
-    /**
-     * Description of the expense.
-     *
-     * @var ?string
-     */
-    private ?string $description;
-
-    /**
-     * Amount of the expense.
-     *
-     * @var ?float
-     */
-    private ?float $amount;
-
-    /**
-     * Date of the expense.
-     *
-     * @var ?string
-     */
-    private ?string $expense_date;
-
+    
     /**
      * Constructor for the Expense class.
      *

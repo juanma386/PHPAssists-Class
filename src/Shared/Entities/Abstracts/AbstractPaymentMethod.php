@@ -17,21 +17,7 @@ use PHPAssists\Shared\Core\ClassInvocationProcessor;
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
 class AbstractPaymentMethod extends ClassInvocationProcessor {
-     // Properties
 
-    /**
-     * Unique identifier for the payment method.
-     *
-     * @var ?string
-     */
-    private ?string $id = null;
-
-    /**
-     * Name of the payment method.
-     *
-     * @var ?string
-     */
-    private ?string $method_name = null;
 
     /**
      * Constructor for the PaymentMethod class.
