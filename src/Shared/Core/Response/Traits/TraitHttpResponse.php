@@ -21,13 +21,12 @@ trait TraitHttpResponse {
 
     public static function ajaxResponse(?int $response_code, mixed $data = null,?bool $header = null) : string {
         $dataResponse = $data ?? null;
-    
-        if ($header !== null) {
-            http_response_code($response_code);
+        ob_start();
+        $output = ob_get_contents();
+        if ($response_code !== null) {
+            header('HTTP/1.1 ' . $response_code);
         }
-
         $response = self::setResponse($response_code, $dataResponse);
-    
         return json_encode( $response, JSON_PRETTY_PRINT );
     }
 
