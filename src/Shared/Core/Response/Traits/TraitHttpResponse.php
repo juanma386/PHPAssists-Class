@@ -28,11 +28,6 @@ trait TraitHttpResponse {
 
         $response = self::setResponse($response_code, $dataResponse);
     
-        if ($data === null) {
-            $response["status"] = self::$BAD_REQUEST;
-            $response["data"] = false;
-        }
-    
         return json_encode( $response, JSON_PRETTY_PRINT );
     }
 
