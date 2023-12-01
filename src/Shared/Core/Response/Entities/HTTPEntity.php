@@ -39,7 +39,7 @@ class HTTPEntity implements InterfaceHttpResponseCodes, InterfaceHTTP {
     public mixed $error;
 
     public function setStatus(?int $status): void {
-        $this->status = isset($status) ? $status : self::$BAD_REQUEST;
+        $this->status = isset($status) && !empty($status) ? $status : self::$BAD_REQUEST;
     }
 
     public function setData(mixed $data): void {
@@ -69,10 +69,10 @@ class HTTPEntity implements InterfaceHttpResponseCodes, InterfaceHTTP {
      * @param mixed|null $data Data related to the response.
      * @param mixed|null $error Error information for the response.
      */
-    public function __construct(int $status, $data = null, $error = null) {
+    public function __construct(?int $status, mixed $data = null, mixed $error = null) {
         $this->setStatus($status);
-        $this->setData($data);
-        $this->setError($error);
+        if ($data){ $this->setData($data); }
+        if ($error){ $this->setError($error); }
     }
 
     public function validateStatus(): bool {
