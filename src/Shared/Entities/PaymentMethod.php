@@ -19,6 +19,21 @@ use PHPAssists\Shared\Entities\Interfaces\InterfacePaymentMethod;
  */
 class PaymentMethod extends AbstractPaymentMethod implements InterfacePaymentMethod {
  
+    // Properties
+
+    /**
+     * Unique identifier for the payment method.
+     *
+     * @var ?string
+     */
+    private ?string $id = null;
+
+    /**
+     * Name of the payment method.
+     *
+     * @var ?string
+     */
+    private ?string $method_name = null;
 
     // Getters
 

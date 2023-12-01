@@ -18,14 +18,34 @@ use PHPAssists\Shared\Entities\Interfaces\InterfaceCard;
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
 class Card extends AbstractCard implements InterfaceCard {
-    
+   /**
+    * Unique identifier for the credit card.
+    *
+    * @var ?string
+    */
+    private ?string $id;
+ 
+   /**
+    * Type of the credit card, such as Visa, Mastercard, or American Express.
+    *
+    * @var ?string
+    */
+    private ?string $card_type;
+  
+   /**
+    * Last four digits of the credit card number.
+    *
+    * @var ?string
+    */
+    private ?string $last_4_digits_card;
+  
     // Properties
 
-    /**
-     * Unique identifier for the card entity.
-     *
-     * @var ?string
-     */
+   /**
+    * Unique identifier for the card entity.
+    *
+    * @var ?string
+    */
     private $id;
 
     /**

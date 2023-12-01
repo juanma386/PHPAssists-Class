@@ -21,7 +21,66 @@ use PHPAssists\Shared\Entities\Interfaces\InterfaceProductPrice;
 
 // Definition of the ProductPrice class extending AbstractProductPrice and implementing InterfaceProductPrice
 class ProductPrice extends AbstractProductPrice implements InterfaceProductPrice {
-    // Methods to retrieve property values
+    // Properties
+    
+    /**
+     * Unique identifier for the product price.
+     *
+     * @var ?string
+     */
+    private ?string $id = null;
+    
+    /**
+     * Transaction identifier related to the product price.
+     *
+     * @var ?string
+     */
+    private ?string $transaction_id = null;
+    
+    /**
+     * Product identifier related to the product price.
+     *
+     * @var ?string
+     */
+    private ?string $product_id = null;
+    
+    /**
+     * Cost of the product.
+     *
+     * @var ?float
+     */
+    private ?float $product_cost = null;
+
+    // Database Configuration
+    
+    /**
+     * Name of the table storing product prices.
+     *
+     * @var ?string
+     */
+    protected ?string $table = 'product_prices'; 
+    
+    /**
+     * Primary key field for the product price table.
+     *
+     * @var ?string
+     */
+    protected ?string $primaryKey = 'product_price_id';
+    
+    /**
+     * Indicates whether auto-increment is used for the primary key.
+     *
+     * @var ?bool
+     */
+    protected ?bool $useAutoIncrement = false;
+    
+    /**
+     * Fields allowed to be manipulated.
+     *
+     * @var ?array
+     */
+    protected ?array $allowedFields = ['transaction_id', 'product_id', 'product_cost'];
+
 
     /**
      * Get the ID of the product price.

@@ -18,6 +18,21 @@ use PHPAssists\Shared\Entities\Interfaces\InterfaceExpenseCategory;
  * @author     Hexome Cloud <hi@hexome.cloud>
  */
 class ExpenseCategory extends AbstractExpenseCategory implements InterfaceExpenseCategory {
+    // Properties
+
+    /**
+     * Unique identifier for the expense category.
+     *
+     * @var ?string
+     */
+    private $id;
+
+    /**
+     * Name of the expense category.
+     *
+     * @var ?string
+     */
+    private $category_name;
 
     // Getters
 

@@ -20,6 +20,55 @@ namespace PHPAssists\Shared\Entities;
  use PHPAssists\Shared\Entities\Interfaces\InterfaceTransaction;
 
 class Transaction extends AbstractTransaction implements InterfaceTransaction {
+    /**
+     * Unique identifier for the transaction.
+     *
+     * @var ?string
+     */
+    private $id;
+
+    /**
+     * Type of transaction, such as payment, transfer, or withdrawal.
+     *
+     * @var ?string
+     */
+    private $transaction_type;
+
+    /**
+     * Identifier of the account where the transaction originated.
+     *
+     * @var ?string
+     */
+    private $origin_id;
+
+    /**
+     * Identifier of the account where the transaction was destined.
+     *
+     * @var ?string
+     */
+    private $destination_id;
+
+    /**
+     * Amount involved in the transaction.
+     *
+     * @var ?float
+     */
+    private $amount;
+
+    /**
+     * Date and time when the transaction was executed.
+     *
+     * @var ?string
+     */
+    private $transaction_date;
+
+    /**
+     * Optional description for the transaction.
+     *
+     * @var ?string
+     */
+    private $description;
+
 
    /**
     * Retrieves the unique identifier for the transaction.

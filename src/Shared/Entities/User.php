@@ -22,6 +22,34 @@ namespace PHPAssists\Shared\Entities;
 class User extends AbstractUser implements InterfaceUser {
 
     /**
+     * The unique identifier for the user.
+     *
+     * @var ?string|null $id
+     */
+    private ?string $id = null;
+
+    /**
+     * The username of the user.
+     *
+     * @var ?string|null $username
+     */
+    private ?string $username = null;
+
+    /**
+     * The email address of the user.
+     *
+     * @var ?string|null $email
+     */
+    private ?string $email = null;
+
+    /**
+     * The hashed password of the user.
+     *
+     * @var ?string|null $password
+     */
+    private ?string $password = null;
+
+    /**
      * Get the ID of the user.
      *
      * @return string|null The user's ID or null if not set.

@@ -22,7 +22,13 @@ use DateTimeZone;
 
 class Time extends AbstractTime implements InterfaceTime
 {
-    
+ 
+    private ?string $timezone = 'UTC'; // Default timezone is set to 'UTC'
+
+    private ?string $format   = 'Y-m-d H:i:s'; // Default date-time format
+
+    private ?string $moment   = 'now'; // Default moment is 'now'
+
     /**
      * Get the configured timezone.
      *
