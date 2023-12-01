@@ -26,17 +26,17 @@ class HTTPEntity implements InterfaceHttpResponseCodes, InterfaceHTTP {
      /**
      * @var int Status code for the response.
      */
-    private ?int $status;
+    public ?int $status;
 
     /**
      * @var mixed|null Data related to the response.
      */
-    private mixed $data;
+    public mixed $data;
 
     /**
      * @var mixed|null Error information for the response.
      */
-    private mixed $error;
+    public mixed $error;
 
     public function setStatus(?int $status): void {
         $this->status = isset($status) ? $status : self::$BAD_REQUEST;
