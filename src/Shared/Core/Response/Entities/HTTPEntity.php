@@ -15,14 +15,13 @@
  */
 
 namespace PHPAssists\Shared\Core\Response\Entities;
-use PHPAssists\Shared\Core\Response\Interfaces\InterfaceHttpResponseCodes;
+use PHPAssists\Shared\Core\Response\Interfaces\{
+    InterfaceHttpResponseCodes,
+    InterfaceHTTP,
+};
 
-class HTTPEntity implements InterfaceHttpResponseCodes {
-
-
-    static int $SUCCESS = self::SUCCESS;
+class HTTPEntity implements InterfaceHttpResponseCodes, InterfaceHTTP {
     static int $BAD_REQUEST = self::BAD_REQUEST;
-    
 
      /**
      * @var int Status code for the response.
@@ -43,11 +42,11 @@ class HTTPEntity implements InterfaceHttpResponseCodes {
         $this->status = isset($status) ? $status : self::$BAD_REQUEST;
     }
 
-    public function setData($data): void {
+    public function setData(?mixed $data): void {
         $this->data = isset($data) ? $data : null;
     }
 
-    public function setError($error): void {
+    public function setError(?mixed $error): void {
         $this->error = isset($error) ? $error : null;
     }
 
