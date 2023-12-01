@@ -20,8 +20,8 @@ use PHPAssists\Shared\Core\Response\Interfaces\InterfaceHttpResponseCodes;
 class HTTPEntity implements InterfaceHttpResponseCodes {
 
 
-    protected static int $SUCCESS = self::SUCCESS;
-    protected static int $BAD_REQUEST = self::BAD_REQUEST;
+    static int $SUCCESS = self::SUCCESS;
+    static int $BAD_REQUEST = self::BAD_REQUEST;
     
 
      /**

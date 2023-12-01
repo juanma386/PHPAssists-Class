@@ -23,42 +23,42 @@ abstract class AbstractBaseResponse implements InterfaceHttpResponseCodes  {
 
     use TraitHttpResponse;
 
-    protected static int $SUCCESS = self::SUCCESS;
-    protected static int $CREATED = self::CREATED;
-    protected static int $ACCEPTED = self::ACCEPTED;
-    protected static int $MOVED_PERMANENTLY = self::MOVED_PERMANENTLY;
-    protected static int $TEMPORARY_REDIRECT = self::TEMPORARY_REDIRECT;
-    protected static int $PERMANENT_REDIRECT = self::PERMANENT_REDIRECT;
+    static int $SUCCESS = self::SUCCESS;
+    static int $CREATED = self::CREATED;
+    static int $ACCEPTED = self::ACCEPTED;
+    static int $MOVED_PERMANENTLY = self::MOVED_PERMANENTLY;
+    static int $TEMPORARY_REDIRECT = self::TEMPORARY_REDIRECT;
+    static int $PERMANENT_REDIRECT = self::PERMANENT_REDIRECT;
 
-    protected static int $BAD_REQUEST = self::BAD_REQUEST;
-    protected static int $UNAUTHORIZED = self::UNAUTHORIZED;
-    protected static int $PAYMENT_REQUIRED = self::PAYMENT_REQUIRED;
+    static int $BAD_REQUEST = self::BAD_REQUEST;
+    static int $UNAUTHORIZED = self::UNAUTHORIZED;
+    static int $PAYMENT_REQUIRED = self::PAYMENT_REQUIRED;
 
-    protected static int $FORBIDDEN = self::FORBIDDEN;
-    protected static int $NOT_FOUND = self::NOT_FOUND;
-    protected static int $NOT_ALLOWED = self::NOT_ALLOWED;
-    protected static int $REQUEST_TIMEOUT = self::REQUEST_TIMEOUT;
-    protected static int $CONFLICT = self::CONFLICT;
-    protected static int $UNPROCESSABLE_ENTITY = self::UNPROCESSABLE_ENTITY;
-    protected static int $INTERNAL_SERVER_ERROR = self::INTERNAL_SERVER_ERROR;
+    static int $FORBIDDEN = self::FORBIDDEN;
+    static int $NOT_FOUND = self::NOT_FOUND;
+    static int $NOT_ALLOWED = self::NOT_ALLOWED;
+    static int $REQUEST_TIMEOUT = self::REQUEST_TIMEOUT;
+    static int $CONFLICT = self::CONFLICT;
+    static int $UNPROCESSABLE_ENTITY = self::UNPROCESSABLE_ENTITY;
+    static int $INTERNAL_SERVER_ERROR = self::INTERNAL_SERVER_ERROR;
 
-    protected static int $GONE = self::GONE;
-    protected static int $TEAPOT = self::TEAPOT;
-    protected static int $FAILED_DEPENDENCY = self::FAILED_DEPENDENCY;
-    protected static int $UPGRADE_REQUIRED = self::UPGRADE_REQUIRED;
+    static int $GONE = self::GONE;
+    static int $TEAPOT = self::TEAPOT;
+    static int $FAILED_DEPENDENCY = self::FAILED_DEPENDENCY;
+    static int $UPGRADE_REQUIRED = self::UPGRADE_REQUIRED;
 
-    protected static int $UNAVAILABLE_FOR_LEGAL = self::UNAVAILABLE_FOR_LEGAL;
-    protected static int $NOT_IMPLEMENTED = self::NOT_IMPLEMENTED;
-    protected static int $SERVICE_UNAVAILABLE = self::SERVICE_UNAVAILABLE;
-    protected static int $GATEWAY_TIMEOUT = self::GATEWAY_TIMEOUT;
+    static int $UNAVAILABLE_FOR_LEGAL = self::UNAVAILABLE_FOR_LEGAL;
+    static int $NOT_IMPLEMENTED = self::NOT_IMPLEMENTED;
+    static int $SERVICE_UNAVAILABLE = self::SERVICE_UNAVAILABLE;
+    static int $GATEWAY_TIMEOUT = self::GATEWAY_TIMEOUT;
 
-    protected static int $NETWORK_AUTH_REQUIRED = self::NETWORK_AUTH_REQUIRED;
-    protected static int $NOT_UPDATED = self::NOT_UPDATED;
-    protected static int $VERSION_MISMATCH = self::VERSION_MISMATCH;
-    protected static int $BANDWIDTH_LIMIT_EXCEEDED = self::BANDWIDTH_LIMIT_EXCEEDED;
+    static int $NETWORK_AUTH_REQUIRED = self::NETWORK_AUTH_REQUIRED;
+    static int $NOT_UPDATED = self::NOT_UPDATED;
+    static int $VERSION_MISMATCH = self::VERSION_MISMATCH;
+    static int $BANDWIDTH_LIMIT_EXCEEDED = self::BANDWIDTH_LIMIT_EXCEEDED;
 
-    protected static array $POSITIVE_CODES_STATUS = [];
-    protected static array $RESPONSE_CODES_STATUS = [];
+    static array $POSITIVE_CODES_STATUS = [];
+    static array $RESPONSE_CODES_STATUS = [];
 
     public function __construct()
     {
@@ -68,7 +68,7 @@ abstract class AbstractBaseResponse implements InterfaceHttpResponseCodes  {
 
     public static function setResponse(?int $response_code, $data = null) {
         $response = new HTTPEntity((int) $response_code, $data);
-        self::isResponse($response_code) ? $response->setStatus( $response_code ) : self::$NOT_IMPLEMENTED;
+        self::isResponse($response_code) ? $response->setStatus( $response_code) : self::$NOT_IMPLEMENTED;
         self::isPositiveResponse($response_code) ? [ $response->setData($data) ] : [ $response->setError($data) ];
         return $response;
     }
@@ -81,7 +81,7 @@ abstract class AbstractBaseResponse implements InterfaceHttpResponseCodes  {
         return in_array($response_code, self::$RESPONSE_CODES_STATUS);
     }
 
-    protected static function getPositiveCodesStatus(): array
+    static function getPositiveCodesStatus(): array
     {
         return [
             self::$SUCCESS,
@@ -93,7 +93,7 @@ abstract class AbstractBaseResponse implements InterfaceHttpResponseCodes  {
         ];
     }
 
-    protected static function isResponseCodesStatus(): array
+    static function isResponseCodesStatus(): array
     {
         return [
             self::$SUCCESS,
