@@ -20,5 +20,6 @@ use PHPAssists\Shared\Core\Response\Abstracts\AbstractBaseResponse;
 use PHPAssists\Shared\Core\Response\Interfaces\InterfaceHttpResponseCodes;
 
 class HTTPResponse extends AbstractBaseResponse  implements InterfaceHttpResponseCodes {
+    static int $BAD_REQUEST = self::BAD_REQUEST;
     use TraitHttpResponse;
 }

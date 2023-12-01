@@ -44,7 +44,6 @@ class HTTPResponseTest extends TestCase{
 
         $expected = json_encode([
             'status' => HTTPResponse::$BAD_REQUEST,
-            'data' => false
         ], JSON_PRETTY_PRINT);
 
         $this->assertEquals($expected, HTTPResponse::ajaxResponse($responseCode, $data, $header));

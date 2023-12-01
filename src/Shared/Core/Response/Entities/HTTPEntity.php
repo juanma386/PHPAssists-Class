@@ -15,6 +15,7 @@
  */
 
 namespace PHPAssists\Shared\Core\Response\Entities;
+use PHPAssists\Shared\Core\Response\Traits\TraitHttpResponse;
 use PHPAssists\Shared\Core\Response\Interfaces\{
     InterfaceHttpResponseCodes,
     InterfaceHTTP,
@@ -79,14 +80,14 @@ class HTTPEntity implements InterfaceHttpResponseCodes, InterfaceHTTP {
     /**
      * Constructor for the MyResponse class.
      *
-     * @param int $status The status code for the response.
+     * @param int $response_code The status code for the response.
      * @param mixed|null $data Data related to the response.
      * @param mixed|null $error Error information for the response.
      */
-    public function __construct(?int $status, mixed $data = null, mixed $error = null) {
+    public function __construct(?int $response_code, mixed $data = null, mixed $error = null) {
         self::$POSITIVE_CODES_STATUS = self::getPositiveCodesStatus();
         self::$RESPONSE_CODES_STATUS = self::isResponseCodesStatus();
-        $this->setStatus($status);
+        $this->setStatus($response_code);
         if ($data||$error) {
             if (self::isPositiveResponse($response_code)) {
                 if ($data){ $this->setData($data); }
