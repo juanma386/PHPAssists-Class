@@ -32,7 +32,7 @@ interface InterfaceHTTP {
      *
      * @return void
      */
-    public function setData(?mixed $data): void;
+    public function setData(mixed $data): void;
 
     /**
      * Sets the error for the HTTP response.
@@ -41,7 +41,7 @@ interface InterfaceHTTP {
      *
      * @return void
      */
-    public function setError(?mixed $error): void;
+    public function setError(mixed $error): void;
 
     /**
      * Retrieves the HTTP status.
@@ -55,14 +55,14 @@ interface InterfaceHTTP {
      *
      * @return ?mixed The data retrieved from the response.
      */
-    public function getData(): ?mixed;
+    public function getData(): mixed;
 
     /**
      * Retrieves the error from the HTTP response.
      *
      * @return ?mixed The error retrieved from the response.
      */
-    public function getError(): ?mixed;
+    public function getError(): mixed;
 
     /**
      * Validates the HTTP status.

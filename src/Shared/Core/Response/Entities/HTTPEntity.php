@@ -26,27 +26,27 @@ class HTTPEntity implements InterfaceHttpResponseCodes, InterfaceHTTP {
      /**
      * @var int Status code for the response.
      */
-    private $status;
+    private ?int $status;
 
     /**
      * @var mixed|null Data related to the response.
      */
-    private $data;
+    private mixed $data;
 
     /**
      * @var mixed|null Error information for the response.
      */
-    private $error;
+    private mixed $error;
 
     public function setStatus(?int $status): void {
         $this->status = isset($status) ? $status : self::$BAD_REQUEST;
     }
 
-    public function setData(?mixed $data): void {
+    public function setData(mixed $data): void {
         $this->data = isset($data) ? $data : null;
     }
 
-    public function setError(?mixed $error): void {
+    public function setError(mixed $error): void {
         $this->error = isset($error) ? $error : null;
     }
 
@@ -54,11 +54,11 @@ class HTTPEntity implements InterfaceHttpResponseCodes, InterfaceHTTP {
         return $this->status;
     }
 
-    public function getData() {
+    public function getData() : mixed {
         return $this->data;
     }
 
-    public function getError() {
+    public function getError() : mixed {
         return $this->error;
     }
 
