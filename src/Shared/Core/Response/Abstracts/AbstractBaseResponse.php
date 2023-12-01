@@ -132,5 +132,5 @@ abstract class AbstractBaseResponse implements InterfaceHttpResponseCodes  {
         ];
     }
 
-    abstract public static function ajaxResponse(?int $response_code, $data = null, $header = false) : string;
+    abstract public static function ajaxResponse(?int $response_code, $data = null, ?bool $header = null): string;
 }
