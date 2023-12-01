@@ -1,3 +1,4 @@
+[![Patreon](https://img.shields.io/badge/Support-Patreon-orange.svg?style=flat&logo=patreon)](https://www.patreon.com/hexomecloud)
 # PHPAssists-Class
 PHPAssists/Class is a class aimed at simplifying the management of essential libraries required for multifunctional projects in PHP. It offers a unified and organized channel to load, manage, and access various basic libraries and functionalities needed in projects of diverse nature.
 
@@ -73,3 +74,6 @@ Here's a guide to understanding and exploring the library through its testing su
 - If you encounter issues or have ideas to enhance the library, consider contributing to the repository. You can open issues if you discover bugs or add comments if you have suggestions for improvements.
 
 Exploring the tests is an excellent way to understand how the `juanma386/php-assists-class` library is meant to be utilized, as well as to discover its functionalities and capabilities. Additionally, contributing to the project can help improve and expand the library for the benefit of the PHP developer community.
+
+If you've ever found value or helpful solutions within our project, we extend our appreciation for your consideration to join our community on Patreon. Your modest support, if you so choose, fuels the passion that drives us to continuously innovate and offer valuable resources. We deeply value each contribution as it enables us to remain dedicated to developing ongoing meaningful solutions for our community. Your discreet, even modest, involvement is an invaluable endorsement of our work.
+
