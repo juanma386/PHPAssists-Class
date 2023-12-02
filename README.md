@@ -2,6 +2,7 @@
 [![PHPUnit](https://img.shields.io/github/actions/workflow/status/juanma386/PHPAssists-Class/.github/workflows/phpunit.yml?branch=main&label=PHPUnit&logo=php&style=flat-square
 )](https://github.com/juanma386/PHPAssists-Class/actions)
 [![Code Coverage](https://github.com/juanma386/PHPAssists-Class/actions/workflows/code-coverage.yml/badge.svg)](https://github.com/juanma386/PHPAssists-Class/actions/workflows/code-coverage.yml)
+[![Follow me on GitHub](https://img.shields.io/github/followers/juanma386?style=social)](https://github.com/juanma386)
 
 
 
