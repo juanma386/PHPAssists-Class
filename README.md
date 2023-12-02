@@ -1,7 +1,7 @@
 [![Patreon](https://img.shields.io/badge/Support-Patreon-orange.svg?style=flat&logo=patreon)](https://www.patreon.com/hexomecloud)
 [![PHPUnit](https://img.shields.io/github/actions/workflow/status/juanma386/PHPAssists-Class/.github/workflows/phpunit.yml?branch=main&label=PHPUnit&logo=php&style=flat-square
 )](https://github.com/juanma386/PHPAssists-Class/actions)
-[![codecov](https://codecov.io/gh/juanma386/PHPAssists-Class/graph/badge.svg?token=KUZ3XMYLFL)](https://codecov.io/gh/juanma386/PHPAssists-Class)
+
 
 
 # PHPAssists-Class
