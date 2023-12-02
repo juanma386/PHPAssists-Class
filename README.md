@@ -6,7 +6,7 @@
 
 
 
-# PHPAssists-Class
+# PHPAssists
 PHPAssists/Class is a class aimed at simplifying the management of essential libraries required for multifunctional projects in PHP. It offers a unified and organized channel to load, manage, and access various basic libraries and functionalities needed in projects of diverse nature.
 
 Here are the step-by-step instructions in English to install the `juanma386/php-assists-class` package using Composer:
