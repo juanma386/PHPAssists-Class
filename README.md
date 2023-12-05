@@ -3,6 +3,7 @@
 )](https://github.com/juanma386/PHPAssists-Class/actions)
 [![Code Coverage](https://github.com/juanma386/PHPAssists-Class/actions/workflows/code-coverage.yml/badge.svg)](https://github.com/juanma386/PHPAssists-Class/actions/workflows/code-coverage.yml)
 [![Follow me on GitHub](https://img.shields.io/github/followers/juanma386?style=social)](https://github.com/juanma386)
+![GitHub License](https://img.shields.io/github/license/juanma386/PHPAssists-Class)
 
 
 
