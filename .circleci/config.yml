@@ -1,0 +1,28 @@
+version: 2.1
+
+jobs:
+  run-phpunit:
+    docker:
+      - image: circleci/php:7.4 # Puedes cambiar la versión de PHP según tus necesidades
+      
+    steps:
+      - checkout
+      
+      # Instalación de dependencias con Composer
+      - run:
+          name: Install dependencies
+          command: composer install --prefer-dist --no-progress --no-suggest
+      
+      # Ejecución de PHPUnit y generación de informes de cobertura
+      - run:
+          name: Run PHPUnit
+          command: ./vendor/bin/phpunit --coverage-clover=coverage.xml
+      
+      # Almacenamiento de los informes generados como artefactos
+      - store_artifacts:
+          path: coverage.xml
+
+workflows:
+  run-phpunit-workflow:
+    jobs:
+      - run-phpunit

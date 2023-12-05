@@ -1,10 +1,12 @@
 [![Patreon](https://img.shields.io/badge/Support-Patreon-orange.svg?style=flat&logo=patreon)](https://www.patreon.com/hexomecloud)
 [![PHPUnit](https://img.shields.io/github/actions/workflow/status/juanma386/PHPAssists-Class/.github/workflows/phpunit.yml?branch=main&label=PHPUnit&logo=php&style=flat-square
 )](https://github.com/juanma386/PHPAssists-Class/actions)
-[![codecov](https://codecov.io/gh/juanma386/PHPAssists-Class/graph/badge.svg?token=KUZ3XMYLFL)](https://codecov.io/gh/juanma386/PHPAssists-Class)
+[![Code Coverage](https://github.com/juanma386/PHPAssists-Class/actions/workflows/code-coverage.yml/badge.svg)](https://github.com/juanma386/PHPAssists-Class/actions/workflows/code-coverage.yml)
+[![Follow me on GitHub](https://img.shields.io/github/followers/juanma386?style=social)](https://github.com/juanma386)
 
 
-# PHPAssists-Class
+
+# PHPAssists
 PHPAssists/Class is a class aimed at simplifying the management of essential libraries required for multifunctional projects in PHP. It offers a unified and organized channel to load, manage, and access various basic libraries and functionalities needed in projects of diverse nature.
 
 Here are the step-by-step instructions in English to install the `juanma386/php-assists-class` package using Composer:
