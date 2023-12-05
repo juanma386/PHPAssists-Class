@@ -100,7 +100,7 @@ trait TraitProcessor {
             ]);
         }
         
-        $client_lang = getDefaultLanguage();
+        $client_lang = $this->getDefaultLanguageHTML();
         $json_data_decode = json_decode($json_data, true);
         
         if (isset($json_data_decode[$client_lang])) {
@@ -188,7 +188,7 @@ trait TraitProcessor {
 
     private static function createFileIfNotExist(string $filePath, string $initialContent = ''): void {
         if (!file_exists($filePath)) {
-            $folderPath = dirname($filePath);
+            $folderPath = $filePath;
             file_put_contents($filePath, $initialContent);
         }
     }
@@ -222,8 +222,8 @@ trait TraitProcessor {
         self::initPath(); 
         $newLangFile = self::getFilePath(); // Ruta completa del archivo
         if (!file_exists($newLangFile)) {
-            if (!file_exists(dirname($newLangFile))) {
-                mkdir(dirname($newLangFile), 0777, true);
+            if (!file_exists($newLangFile)) {
+                mkdir($newLangFile, 0777, true);
             }
 
             // Copiar el archivo english.json de la ruta definida en setEnglishFilePath
@@ -314,13 +314,21 @@ trait TraitProcessor {
 
 
     public static function openJSONFile($language_code) : array  {
-        return (
-            [
-                self::setFileName($language_code),
-                self::initPath(),
-                $jsonString = self::readFile(self::getFilePath()),
-            ]
-        ) ? ( json_decode($jsonString, true) ?: [] ) : [];
+
+
+        try {
+            return (
+                [
+                    self::setFileName($language_code),
+                    self::initPath(),
+                    $jsonString = self::readFile(self::getFilePath()),
+                ]
+            ) ? ( json_decode($jsonString, true) ?: [] ) : [];
+        } catch (\RuntimeException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+
+        return [];
     }
 
     public function createTemporaryFile() {
@@ -352,7 +360,12 @@ trait TraitProcessor {
     }
 
     public static function readFile(?string $filePath) : string|false {
-     return  isset($filePath) && !empty($filePath) && !is_readable($filePath) ? ( throw new RuntimeException("File {$filePath} is not readable") ? false : false ) : file_get_contents($filePath);
+     return  isset($filePath) && !empty($filePath) && is_readable($filePath) ? file_get_contents($filePath)  : ( self::setError(500, "File {$filePath} is not readable") ? false : false );
     }
+
+    private static function setError($level, $message) { 
+        throw new \RuntimeException($message, $level);
+    }
+    
 
 }

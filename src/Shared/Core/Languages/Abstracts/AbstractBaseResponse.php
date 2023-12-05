@@ -37,35 +37,13 @@ abstract class AbstractBaseResponse implements InterfaceLanguageProcessor {
     abstract public function parseDefaultLanguage($http_accept, $deflang = null);
     abstract public function fetchTestFrontendLangData($frontendModel) : array;
     public function __construct(?string $APPPATH = null, ?string $folderDir = null) {
-        
         if($APPPATH) {
-            self::$APPPATH = dirname(dirname($APPPATH));
+            self::setAppPath( $APPPATH );
         } 
-
-        if ($folderDir) {
-            self::$folderDir = DIRECTORY_SEPARATOR . $folderDir;
-        }
-
-        if ($folderDir && $APPPATH) {
-            self::$ROOTPATH  = self::APPPATH . self::folderDir . DIRECTORY_SEPARATOR;
-            $appPath = self::$APPPATH;
-            $rootPath = self::$ROOTPATH;
-        }
-        
-        if (isset($appPath) && !empty($appPath) && !defined('APPPATH')) {
-            define('APPPATH', $appPath);
-        }
-        
-        if (isset($rootPath) && !empty($rootPath) && !defined('ROOTPATH')) {
-            define('ROOTPATH', $rootPath);
-        }
-
-
         if (isset(self::$APPPATH) && !empty(self::$APPPATH)) {
             self::initPath();    
         }
-        //echo var_dump($this->getFilePath());
-    }
+   }
 
     public static function initPath() : void {
         $fileName = self::getLanguageCode();
@@ -88,6 +66,10 @@ abstract class AbstractBaseResponse implements InterfaceLanguageProcessor {
     
     public static function getLanguageCode() : ? string {
         return self::$language_code;
+    }
+
+    public static function setAppPath( ? string $APPPATH ) : void {
+        self::$APPPATH = $APPPATH;
     }
     
     public static function setFileName( ? string $fileName ) : void {
