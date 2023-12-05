@@ -2,12 +2,11 @@ version: 2.1
 
 jobs:
   run-phpunit:
-    docker:
-      - image: circleci/php:8.3 # Puedes cambiar la versión de PHP según tus necesidades
-      
+     docker:
+      - image: cimg/php:8.3.0
     steps:
       - checkout
-      
+      - run: php --version
       # Instalación de dependencias con Composer
       - run:
           name: Install dependencies
