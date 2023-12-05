@@ -35,6 +35,7 @@ class LanguageProcessorTest extends TestCase {
         $this->languageProcessor = new LanguageProcessor($APPPATH, $folderDir);
         $this->languageProcessor->setROOTPath($APPPATH);
         $this->languageProcessor->init(); 
+        
     }
 
     public function testParseDefaultLanguageWithValidAcceptHeader() {
@@ -145,7 +146,72 @@ class LanguageProcessorTest extends TestCase {
         $this->assertEquals('Bonjour', $frontendLangData[LangEnum::fr->name]);
         $this->assertEquals('Ciao', $frontendLangData[LangEnum::it->name]);
     }
+
+    public function testEnumValues()
+    {
+        $this->assertEquals('English', LangEnum::en->value);
+        $this->assertEquals('Spanish', LangEnum::es->value);
+        $this->assertEquals('French', LangEnum::fr->value);
+        $this->assertEquals('German', LangEnum::de->value);
+        $this->assertEquals('Italian', LangEnum::it->value);
+        $this->assertEquals('Portuguese', LangEnum::pt->value);
+        $this->assertEquals('Chinese', LangEnum::zh->value);
+        $this->assertEquals('Japanese', LangEnum::ja->value);
+        $this->assertEquals('Russian', LangEnum::ru->value);
+        $this->assertEquals('Arabic', LangEnum::ar->value);
+        $this->assertEquals('Hindi', LangEnum::hi->value);
+        $this->assertEquals('Bengali', LangEnum::bn->value);
+        $this->assertEquals('Punjabi', LangEnum::pa->value);
+        // ... y así sucesivamente para los otros casos
+    }
+
+    public function testFrontendLangData()
+    {
+        $frontendLangData = [
+            LangEnum::en->name => 'Hello',
+            LangEnum::es->name => 'Hola',
+            LangEnum::fr->name => 'Bonjour',
+            LangEnum::de->name => 'Hallo',
+            LangEnum::it->name => 'Ciao',
+            LangEnum::pt->name => 'Olá',
+            LangEnum::zh->name => '你好',
+            LangEnum::ja->name => 'こんにちは',
+            LangEnum::ru->name => 'Привет',
+            LangEnum::ar->name => 'مرحبا',
+            LangEnum::hi->name => 'नमस्ते',
+            LangEnum::bn->name => 'হ্যালো',
+            LangEnum::pa->name => 'ਸਤ ਸ੍ਰੀ ਅਕਾਲ',
+            // ... y así sucesivamente para los otros casos
+        ];
+
+        $this->assertEquals('Hello', $frontendLangData[LangEnum::en->name]);
+        $this->assertEquals('Hola', $frontendLangData[LangEnum::es->name]);
+        $this->assertEquals('Bonjour', $frontendLangData[LangEnum::fr->name]);
+        $this->assertEquals('Hallo', $frontendLangData[LangEnum::de->name]);
+        $this->assertEquals('Ciao', $frontendLangData[LangEnum::it->name]);
+        $this->assertEquals('Olá', $frontendLangData[LangEnum::pt->name]);
+        $this->assertEquals('你好', $frontendLangData[LangEnum::zh->name]);
+        $this->assertEquals('こんにちは', $frontendLangData[LangEnum::ja->name]);
+        $this->assertEquals('Привет', $frontendLangData[LangEnum::ru->name]);
+        $this->assertEquals('مرحبا', $frontendLangData[LangEnum::ar->name]);
+        $this->assertEquals('नमस्ते', $frontendLangData[LangEnum::hi->name]);
+        $this->assertEquals('হ্যালো', $frontendLangData[LangEnum::bn->name]);
+        $this->assertEquals('ਸਤ ਸ੍ਰੀ ਅਕਾਲ', $frontendLangData[LangEnum::pa->name]);
+        // ... y así sucesivamente para los otros casos
+    }
    
+    public function testGetPhraseReturnsString()
+    {
+        $result = $this->languageProcessor->get_phrase('hello');
+        $this->assertIsString($result);
+    }
+
+    public function testGetPhraseReturnsExpectedOutput()
+    {
+        $result = $this->languageProcessor->get_phrase('hello');
+        $this->assertEquals('Hello', $result); // Modifica 'Hello' según tu lógica esperada
+    }
+
 
     public function testFileOperations() {
         $languageProcessor = new LanguageProcessor(); // Instancia de la clase principal

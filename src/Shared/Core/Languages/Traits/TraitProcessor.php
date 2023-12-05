@@ -282,7 +282,7 @@ trait TraitProcessor {
 
 
 
-    function get_phrase($phrase = '', $p = false) {
+    function get_phrase($phrase = '', $p = false) : ? string {
 
 		if ( !isset($language_code)){ 
 			try {
@@ -321,6 +321,7 @@ trait TraitProcessor {
                 [
                     self::setFileName($language_code),
                     self::initPath(),
+                    !self::detectFile(self::getFilePath()) ? touch(self::getFilePath()) : false,
                     $jsonString = self::readFile(self::getFilePath()),
                 ]
             ) ? ( json_decode($jsonString, true) ?: [] ) : [];
