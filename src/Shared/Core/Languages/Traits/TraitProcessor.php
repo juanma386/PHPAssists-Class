@@ -326,7 +326,7 @@ trait TraitProcessor {
                 ]
             ) ? ( json_decode($jsonString, true) ?: [] ) : [];
         } catch (\RuntimeException $e) {
-            echo "Error: " . $e->getMessage();
+            die("Error: " . $e->getMessage());
         }
 
         return [];
