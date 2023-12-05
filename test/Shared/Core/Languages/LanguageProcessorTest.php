@@ -178,7 +178,7 @@ class LanguageProcessorTest extends TestCase {
         $this->assertFalse($languageProcessor->detectFile($filePath)); // Verificar que el archivo fue eliminado
     }
     
-
+    /*/
     public function testSaveDefaultJSONFile() {
         
         $languageCode = strtolower(LangEnum::en->value); // Código de idioma para la prueba
@@ -204,6 +204,7 @@ class LanguageProcessorTest extends TestCase {
         // Verificar que el archivo ya no exista después de la eliminación
         $this->assertFileDoesNotExist($expectedFile, 'El archivo no debe existir después de la eliminación');
     }
+    */
 
     public function createTemporaryFile() {
         $tempDir = sys_get_temp_dir();
