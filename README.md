@@ -19,7 +19,7 @@ Access your command-line interface or terminal application.
 Execute the following command to add the `juanma386/php-assists-class` package to your PHP project. Ensure you are in the root directory of your project when running this command.
 
 ```bash
-composer require juanma386/php-assists-class
+composer require juanma386/php-assists-class:dev-main
 ```
 
 ### 3. Wait for Composer to Install Dependencies
