@@ -280,25 +280,29 @@ trait TraitProcessor {
         self::$ROOTPATH = $ROOTPATH;
     }
 
+    public function delPhrase($key): bool
+    {
+        $languageCode = $this->getBrowserLanguage();
+        $key = strtolower(preg_replace('/\s+/', '_', $key));
+        $langArray = $this->openJSONFile($languageCode);
+        if (array_key_exists($key, $langArray)) {
+            unset($langArray[$key]);
+            $jsonData = json_encode($langArray, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            file_put_contents(self::getFilePath(), stripslashes($jsonData));
+            return true; 
+        }
+        return false; 
+    }
+
 
     public function setPhrase($key, $value): ?string
     {
-        // Tu lógica para actualizar la frase aquí
         $languageCode = $this->getBrowserLanguage();
         $key = strtolower(preg_replace('/\s+/', '_', $key));
-        
-        // Abre el archivo JSON correspondiente al idioma
         $langArray = $this->openJSONFile($languageCode);
-        
-        // Actualiza la frase con la nueva clave y valor
         $langArray[$key] = $value;
-        
-        // Convierte el array a formato JSON
         $jsonData = json_encode($langArray, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        
         file_put_contents(self::getFilePath(), stripslashes($jsonData));
-        
-        // Retorna el valor actualizado
         return $value;
     }
 
@@ -334,8 +338,6 @@ trait TraitProcessor {
 
 
     public static function openJSONFile($language_code) : array  {
-
-
         try {
             return (
                 [

@@ -217,10 +217,22 @@ class LanguageProcessorTest extends TestCase {
         echo ($this->languageProcessor::$APPPATH);
         $expected = "Hola";
         $result = $this->languageProcessor->setPhrase('hello',$expected);
-        echo $result;
         $this->assertEquals($expected, $result);
     }
 
+    public function testDelPhraseRemovesPhraseIfExists()
+    {
+        $keyToRemove = 'hello';
+        $result = $this->languageProcessor->delPhrase($keyToRemove);
+        $this->assertTrue($result);
+    }
+
+    public function testDelPhraseReturnsFalseForNonExistentKey()
+    {
+        $nonExistentKey = 'non_existent_key';
+        $result = $this->languageProcessor->delPhrase($nonExistentKey);
+        $this->assertFalse($result);
+    }
 
     public function testFileOperations() {
         $languageProcessor = new LanguageProcessor(); // Instancia de la clase principal
