@@ -178,15 +178,15 @@ class LanguageProcessorTest extends TestCase {
         $this->assertFalse($languageProcessor->detectFile($filePath)); // Verificar que el archivo fue eliminado
     }
     
-    /*/
+    
     public function testSaveDefaultJSONFile() {
         
         $languageCode = strtolower(LangEnum::en->value); // Código de idioma para la prueba
-        $tempFilePath = $this->createTemporaryFile(); // Crear archivo temporal
+        $tempFilePath = $this->languageProcessor->createTemporaryFile(); // Crear archivo temporal
         
         // Configurar el archivo english.json esperado
-        $expectedFile = $this->languageProcessor::$ROOTPATH .  DIRECTORY_SEPARATOR .  $languageCode . '.json';
-    
+        $expectedFile = $this->languageProcessor->getFilePath();
+
         // Reemplazar la ruta del archivo english.json en el método saveDefaultJSONFile con el archivo temporal
         $this->languageProcessor->setEnglishFilePath($tempFilePath);
         
@@ -204,14 +204,9 @@ class LanguageProcessorTest extends TestCase {
         // Verificar que el archivo ya no exista después de la eliminación
         $this->assertFileDoesNotExist($expectedFile, 'El archivo no debe existir después de la eliminación');
     }
-    */
+    
 
-    public function createTemporaryFile() {
-        $tempDir = sys_get_temp_dir();
-        $tempFilePath = tempnam($tempDir, 'test_');
-        file_put_contents($tempFilePath, '{"test_key":"test_value"}');
-        return $tempFilePath;
-    }
+    
     
     // ...
 }

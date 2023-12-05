@@ -37,7 +37,7 @@ abstract class AbstractBaseResponse implements InterfaceLanguageProcessor {
     abstract public function parseDefaultLanguage($http_accept, $deflang = null);
     abstract public function fetchTestFrontendLangData($frontendModel) : array;
     public function __construct(?string $APPPATH = null, ?string $folderDir = null) {
-
+        
         if($APPPATH) {
             self::$APPPATH = dirname(dirname($APPPATH));
         } 
@@ -61,23 +61,33 @@ abstract class AbstractBaseResponse implements InterfaceLanguageProcessor {
         }
 
 
-        if (!empty(self::$ROOTPATH) && !file_exists(self::$ROOTPATH)) {
-            
+        if (isset(self::$APPPATH) && !empty(self::$APPPATH)) {
+            self::initPath();    
         }
+        //echo var_dump($this->getFilePath());
+    }
 
-        $fileName = self::$language_code . '.json';
-        $this->setFileName($fileName);
-        $filePath = self::$APPPATH .  DIRECTORY_SEPARATOR . strtolower($this->getFileName()); 
-        $this->setFilePath($filePath);
-      //  echo var_dump($this->getFilePath());
+    public static function initPath() : void {
+        $fileName = self::getLanguageCode();
+        self::setFileName($fileName);
+        $filePath = self::getFilePath(); 
+        self::setFilePath($filePath);
     }
 
     public static function getFileName() : ? string {
         return self::$fileName;
     }
 
+    public static function getPath() : ? string {
+        return self::$APPPATH;
+    }
+    
     public static function getFilePath() : ? string {
         return self::$filePath;
+    }
+    
+    public static function getLanguageCode() : ? string {
+        return self::$language_code;
     }
     
     public static function setFileName( ? string $fileName ) : void {
@@ -85,7 +95,7 @@ abstract class AbstractBaseResponse implements InterfaceLanguageProcessor {
     }
 
     public static function setFilePath( ? string $filePath ) : void {
-        self::$filePath = $filePath .  DIRECTORY_SEPARATOR . self::getFileName();
+        self::$filePath = self::getPath() .  DIRECTORY_SEPARATOR . self::getFileName();
     }
 
     

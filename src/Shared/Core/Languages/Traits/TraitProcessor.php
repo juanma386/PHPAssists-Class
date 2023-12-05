@@ -141,8 +141,9 @@ trait TraitProcessor {
 
     function saveJSONFile($language_code, $updating_key, $updating_value)
     {
-        $fileName =  DIRECTORY_SEPARATOR . $language_code . '.json'; // Nombre del archivo
-        $filePath = self::$ROOTPATH . $fileName; // Ruta completa del archivo
+        self::setFileName($language_code);
+        self::initPath(); 
+        $filePath = self::getFilePath(); // Ruta completa del archivo
 
         $jsonString = [];
     
@@ -217,8 +218,9 @@ trait TraitProcessor {
     // Método saveDefaultJSONFile actualizado para usar la ruta del archivo english.json definida
     public function saveDefaultJSONFile($language_code) {
         self::inicializate((string) $language_code);
-        self::$language_code = strtolower($language_code);
-        $newLangFile = self::$ROOTPATH . DIRECTORY_SEPARATOR . self::$language_code . '.json';
+        self::setFileName($language_code);
+        self::initPath(); 
+        $newLangFile = self::getFilePath(); // Ruta completa del archivo
         if (!file_exists($newLangFile)) {
             if (!file_exists(dirname($newLangFile))) {
                 mkdir(dirname($newLangFile), 0777, true);
@@ -244,8 +246,9 @@ trait TraitProcessor {
 
     public function deleteFileIfExists(string $language_code): bool {
         self::inicializate((string) $language_code);
-        self::$language_code = strtolower($language_code);
-        $deleteLangFile = self::$ROOTPATH . DIRECTORY_SEPARATOR . self::$language_code . '.json';
+        self::setFileName($language_code);
+        self::initPath(); 
+        $deleteLangFile = self::getFilePath(); // Ruta completa del archivo
         
         if (file_exists($deleteLangFile)) {
             unlink($deleteLangFile);
@@ -258,22 +261,18 @@ trait TraitProcessor {
 
 
     private static function inicializate(?string $language_code): void {
-        if (isset($language_code) && !empty($language_code)) 
-            { self::$language_code = strtolower($language_code); } 
-        else 
-            { self::$language_code = strtolower(LangEnum::en->value); }
-            
-            $fileName = self::$language_code;
-            self::setFileName($fileName);
-            $filePath = self::$APPPATH .  DIRECTORY_SEPARATOR . strtolower(self::getFileName()); 
-            self::setFilePath($filePath);
-            $folderPath = self::getFilePath();
-            
-            $filePath = $folderPath .  DIRECTORY_SEPARATOR . self::getFileName();
+        self::setFileName($language_code);
+        self::initPath(); 
+        $inicializateLangFile = self::getFilePath(); // Ruta completa del archivo
 
-        touch($filePath);
+        if (isset($language_code) && !empty($language_code)) 
+            {  self::setFileName($language_code); } 
+        else 
+            { self::setFileName(strtolower(LangEnum::en->value)); }
+        $folderPath = self::getPath();
+        touch($inicializateLangFile);
         self::createDirectoryIfNotExists((string) $folderPath);
-        self::createFileIfNotExist((string)$filePath, '{}');
+        self::createFileIfNotExist((string)$inicializateLangFile, '{}');
     }
     
     function setROOTPath( ? string $ROOTPATH) : void {
@@ -289,17 +288,16 @@ trait TraitProcessor {
 			try {
 				foreach ((new \App\Models\SettingModel())->findAll() as $row) { 
 					if ($row["type"] == "language"):
-						self::$language_code = $row["description"]; 
+                        self::setFileName($row["description"]);
 					endif;
 				}
 			} catch (\Throwable $th) {
 				//throw $th;
-				self::$language_code = "spanish"; 
-
+				self::setFileName("english");
 			}
-			
+			self::initPath(); 
         }
-		//$client_language = json_decode($json_data[$client_language], true);
+
 		self::$language_code = $this->getBrowserLanguage();
 		
 		$key = strtolower(preg_replace('/\s+/', '_', $phrase));
@@ -319,24 +317,19 @@ trait TraitProcessor {
         return (
             [
                 self::setFileName($language_code),
-                $filePath = self::$APPPATH .  DIRECTORY_SEPARATOR . strtolower(self::getFileName()),
-                self::setFilePath($filePath),
+                self::initPath(),
                 $jsonString = self::readFile(self::getFilePath()),
             ]
         ) ? ( json_decode($jsonString, true) ?: [] ) : [];
     }
+
+    public function createTemporaryFile() {
+        $tempDir = sys_get_temp_dir();
+        $tempFilePath = tempnam($tempDir, 'test_');
+        file_put_contents($tempFilePath, '{"test_key":"test_value"}');
+        return $tempFilePath;
+    }
  
-/*-
-    function openJSONFile($language_code)
-	{
-		$jsonString = [];
-		if (file_exists(self::$ROOTPATH . $language_code.'.json')) {
-			$jsonString = file_get_contents(self::$ROOTPATH . DIRECTORY_SEPARATOR . $language_code . '.json');
-			$jsonString = json_decode($jsonString, true);
-		}
-		return $jsonString;
-	}
-*/
 
     public static function detectFolder(?string $folderPath) : bool {
         return isset($folderPath) && !empty($folderPath) && is_dir($folderPath) ? true : false;
