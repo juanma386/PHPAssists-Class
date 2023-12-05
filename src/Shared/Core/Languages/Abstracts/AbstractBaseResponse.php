@@ -80,5 +80,6 @@ abstract class AbstractBaseResponse implements InterfaceLanguageProcessor {
         self::$filePath = self::getPath() .  DIRECTORY_SEPARATOR . self::getFileName();
     }
 
-    abstract function get_phrase($phrase = '', $p = false) : ? string;
+    abstract public function getPhrase($phrase = '', $p = false) : ? string;
+    abstract public function setPhrase($key, $value) : ? string;
 }

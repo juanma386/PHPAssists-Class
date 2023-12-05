@@ -202,14 +202,23 @@ class LanguageProcessorTest extends TestCase {
    
     public function testGetPhraseReturnsString()
     {
-        $result = $this->languageProcessor->get_phrase('hello');
+        $result = $this->languageProcessor->getPhrase('hello');
         $this->assertIsString($result);
     }
 
     public function testGetPhraseReturnsExpectedOutput()
     {
-        $result = $this->languageProcessor->get_phrase('hello');
-        $this->assertEquals('Hello', $result); // Modifica 'Hello' según tu lógica esperada
+        $result = $this->languageProcessor->getPhrase('hello');
+        $this->assertEquals('Hello', $result); 
+    }
+
+    public function testSetPhraseReturnsExpectedOutput()
+    {
+        echo ($this->languageProcessor::$APPPATH);
+        $expected = "Hola";
+        $result = $this->languageProcessor->setPhrase('hello',$expected);
+        echo $result;
+        $this->assertEquals($expected, $result);
     }
 
 

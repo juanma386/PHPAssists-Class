@@ -281,8 +281,28 @@ trait TraitProcessor {
     }
 
 
+    public function setPhrase($key, $value): ?string
+    {
+        // Tu lógica para actualizar la frase aquí
+        $languageCode = $this->getBrowserLanguage();
+        $key = strtolower(preg_replace('/\s+/', '_', $key));
+        
+        // Abre el archivo JSON correspondiente al idioma
+        $langArray = $this->openJSONFile($languageCode);
+        
+        // Actualiza la frase con la nueva clave y valor
+        $langArray[$key] = $value;
+        
+        // Convierte el array a formato JSON
+        $jsonData = json_encode($langArray, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        
+        file_put_contents(self::getFilePath(), stripslashes($jsonData));
+        
+        // Retorna el valor actualizado
+        return $value;
+    }
 
-    function get_phrase($phrase = '', $p = false) : ? string {
+    public function getPhrase($phrase = '', $p = false) : ? string {
 
 		if ( !isset($language_code)){ 
 			try {
