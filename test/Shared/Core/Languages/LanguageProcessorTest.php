@@ -6,7 +6,7 @@
  * This PHPUnit class defines the possible Languages API codes for the PHPAssistsTest Languages API.
  *
  * @link       https://hexome.com.ar
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    PHPAssistsTest
  * @subpackage PHPAssistsTest\Shared\Core\Languages

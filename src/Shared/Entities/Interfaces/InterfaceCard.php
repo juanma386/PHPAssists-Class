@@ -7,7 +7,7 @@
  * It provides a standardized structure for handling credit card information and ensures consistency across the application.
  *
  * @link       https://hexome.com.ar
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    PHPAssosts
  * @subpackage PHPAssists\Shared\Interfaces

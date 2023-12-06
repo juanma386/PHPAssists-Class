@@ -5,7 +5,7 @@
  * This interface defines methods related to HTTP status, data, and error handling for the PHPAssists HTTP API.
  *
  * @link       https://hexome.com.ar
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Core\Response\Interfaces

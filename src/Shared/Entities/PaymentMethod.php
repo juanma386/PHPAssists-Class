@@ -11,7 +11,7 @@ use PHPAssists\Shared\Entities\Interfaces\InterfacePaymentMethod;
  * It manages information related to payment methods used by the system.
  *
 * @link       https://hexome.com.ar
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Entities

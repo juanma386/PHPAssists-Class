@@ -6,7 +6,7 @@ namespace PHPAssistsTest\Shared\Core\Response;
  * This class defines the possible Functions for the PHPAssists Response API Test.
  *
  * @link       https://hexome.com.ar
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    PHPAssistsTest
  * @subpackage PHPAssistsTest\Shared\Core\Response

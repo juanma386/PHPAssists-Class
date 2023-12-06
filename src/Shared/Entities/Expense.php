@@ -10,7 +10,7 @@ use PHPAssists\Shared\Entities\Interfaces\InterfaceExpense;
  * It manages information related to expenses.
  *
  * @link       https://hexome.com.ar
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Entities

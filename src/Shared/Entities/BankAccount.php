@@ -6,7 +6,7 @@
  * It manages bank account information within the PHPAssists framework.
  *
  * @link       https://hexome.com.ar
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    PHPAssosts
  * @subpackage PHPAssists\Shared\Core\Entities

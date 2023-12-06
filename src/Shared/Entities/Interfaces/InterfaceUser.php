@@ -8,7 +8,7 @@ namespace PHPAssists\Shared\Entities\Interfaces;
  * It outlines functionality related to User API management.
  *
  * @link       https://hexome.com.ar
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Interfaces

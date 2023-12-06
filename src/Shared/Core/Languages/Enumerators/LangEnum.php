@@ -6,7 +6,7 @@
  * This class defines the possible Languages API codes for the PHPAssists Languages API.
  *
  * @link       https://hexome.com.ar
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Core\Languages\Enumerators

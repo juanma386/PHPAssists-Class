@@ -7,7 +7,7 @@ namespace PHPAssists\Shared\Core\Response\Abstracts;
  * This class defines the possible HTTP API codes for the PHPAssists HTTP API.
  *
  * @link       https://hexome.com.ar
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Core\Response\Abstracts

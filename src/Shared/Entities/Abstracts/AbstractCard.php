@@ -5,7 +5,7 @@
  * This abstract class serves as a foundation for implementing concrete credit card classes. It defines the core functionalities and properties required for representing credit cards in the PHPAssists framework.
  *
  * @link       https://hexome.com.ar
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    PHPAssosts
  * @subpackage PHPAssosts\Shared\Abstracts

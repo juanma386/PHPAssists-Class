@@ -10,7 +10,7 @@ use PHPAssists\Shared\Core\ClassInvocationProcessor;
  * It manages information related to PaymentMethod.
  *
  * @link       https://hexome.com.ar
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Abstract
