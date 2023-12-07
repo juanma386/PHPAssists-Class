@@ -23,19 +23,54 @@ class AbstractUser extends ClassInvocationProcessor {
     protected ?bool $useAutoIncrement   = false;
     protected ?array $allowedFields     = ['username', 'email', 'password'];
 
-   /**
-    * Constructor for the User class.
-    *
-    * @param ?string $id The unique identifier for the User.
-    * @param ?string $username.
-    * @param ?string $email The identifier of the email account.
-    * @param ?string $password The password of the user account.
-    */
-    public function __construct(?string $id,?string $username,?string $email,?string $password) {
-        $this->setId($id);
-        $this->setUsername($username);
-        $this->setEmail($email);
-        $this->setPassword($password);
+    /**
+     * Constructor for the UserEntity class.
+     *
+     * @param ?string $id The unique identifier for the User.
+     * @param ?string $username The username of the User.
+     * @param ?string $email The email address of the User.
+     * @param ?string $password The password of the User account.
+     * @param ?object $metadata Optional. Additional metadata for the User.
+     * @param ?string $firstName Optional. The first name of the User.
+     * @param ?string $lastName Optional. The last name of the User.
+     * @param ?string $address Optional. The address of the User.
+     * @param ?string $website Optional. The website of the User.
+     * @param ?string $social Optional. Social details of the User.
+     * @param ?string $phone Optional. The phone number of the User.
+     * @param ?string $whatsapp Optional. The WhatsApp number of the User.
+     * @param ?string $createdAt Optional. The creation date of the User.
+     * @param ?string $status Optional. The status of the User.
+     */
+    public function __construct(
+        ?string $id,
+        ?string $username,
+        ?string $email,
+        ?string $password,
+        ?object $metadata = null,
+        ?string $firstName = null,
+        ?string $lastName = null,
+        ?string $Address = null,
+        ?string $Website = null,
+        ?string $Social = null,
+        ?string $Phone = null,
+        ?string $Whatsapp = null,
+        ?string $CreatedAt = null,
+        ?string $Status = null
+        ) {
+            $this->setId($id);
+            $this->setUsername($username);
+            $this->setEmail($email);
+            $this->setPassword($password);
+            $this->setMetadata($metadata);
+            $this->setFirstName($firstName);
+            $this->setLastName($lastName); 
+            $this->setAddress($Address); 
+            $this->setWebsite($Website); 
+            $this->setSocial($Social); 
+            $this->setPhone($Phone); 
+            $this->setWhatsapp($Whatsapp);
+            $this->setCreatedAt($CreatedAt);
+            $this->setStatus($Status); 
     }
 
     /**

@@ -6,7 +6,7 @@ namespace PHPAssists\Shared\Entities;
  * This class defines the possible Functions for the PHPAssists User API Test.
  *
  * @link       https://hexome.com.ar
- * @since      0.0.1
+ * @since      0.0.3
  *
  * @package    PHPAssistsTest
  * @subpackage PHPAssistsTest\Shared\Entities
@@ -24,30 +24,95 @@ class User extends AbstractUser implements InterfaceUser {
     /**
      * The unique identifier for the user.
      *
-     * @var ?string|null $id
+     * @var ?string $id
      */
     private ?string $id = null;
 
     /**
      * The username of the user.
      *
-     * @var ?string|null $username
+     * @var ?string $username
      */
     private ?string $username = null;
 
     /**
      * The email address of the user.
      *
-     * @var ?string|null $email
+     * @var ?string $email
      */
     private ?string $email = null;
 
     /**
      * The hashed password of the user.
      *
-     * @var ?string|null $password
+     * @var ?string $password
      */
     private ?string $password = null;
+
+    /**
+     * The unique identifier for the user.
+     *
+     * @var ?string $status
+     */
+    private ?object $metadata = null;
+ 
+    /**
+     * The unique identifier for the user.
+     *
+     * @var ?string $status
+     */
+     private ?string $firstName = null;
+ 
+    /**
+     * The unique identifier for the user.
+     *
+     * @var ?string $status
+     */
+     private ?string $lastName = null;
+ 
+    /**
+     * The unique identifier for the user.
+     *
+     * @var ?string $status
+     */
+     private ?string $address = null;
+ 
+    /**
+     * The unique identifier for the user.
+     *
+     * @var ?string $status
+     */
+     private ?string $website = null;
+ 
+    /**
+     * The unique identifier for the user.
+     *
+     * @var ?string $status
+     */
+     private ?string $social = null;
+ 
+    /**
+     * The unique identifier for the user.
+     *
+     * @var ?string $status
+     */
+     private ?string $phone = null;
+ 
+    /**
+     * The unique identifier for the user.
+     *
+     * @var ?string $status
+     */
+     private ?string $whatsapp = null;
+ 
+    /**
+     * The unique identifier for the user.
+     *
+     * @var ?int $status
+     */
+     private ?int $createdAt = null;
+
+    // Getters
 
     /**
      * Get the ID of the user.
@@ -87,25 +152,117 @@ class User extends AbstractUser implements InterfaceUser {
     }
 
     /**
+     * Get the metadata for the user.
+     *
+     * @return mixed The user's metadata.
+     */
+    public function getMetadata() : ?object {
+        return $this->metadata;
+    }
+
+    /**
+     * Get the first name of the user.
+     *
+     * @return mixed The user's first name.
+     */
+    public function getFirstName()  : ?string {
+        return $this->firstName;
+    }
+
+    /**
+     * Get the last name of the user.
+     *
+     * @return mixed The user's last name.
+     */
+    public function getLastName()  : ?string {
+        return $this->lastName;
+    }
+
+    /**
+     * Get the address of the user.
+     *
+     * @return mixed The user's address.
+     */
+    public function getAddress()  : ?string {
+        return $this->address;
+    }
+
+    /**
+     * Get the website of the user.
+     *
+     * @return mixed The user's website.
+     */
+    public function getWebsite()  : ?string {
+        return $this->website;
+    }
+
+    /**
+     * Get the social details of the user.
+     *
+     * @return mixed The user's social details.
+     */
+    public function getSocial()  : ?string {
+        return $this->social;
+    }
+
+    /**
+     * Get the phone number of the user.
+     *
+     * @return mixed The user's phone number.
+     */
+    public function getPhone()  : ?string {
+        return $this->phone;
+    }
+
+    /**
+     * Get the WhatsApp number of the user.
+     *
+     * @return mixed The user's WhatsApp number.
+     */
+    public function getWhatsapp()  : ?string {
+        return $this->whatsapp;
+    }
+
+    /**
+     * Get the creation date of the user.
+     *
+     * @return mixed The user's creation date.
+     */
+    public function getCreatedAt()  : ?string {
+        return $this->createdAt;
+    }
+
+    /**
+     * Get the status of the user.
+     *
+     * @return mixed The user's status.
+     */
+    public function getStatus()  : ?string {
+        return $this->status;
+    }
+
+    // Setters
+
+    /**
      * Set the ID of the user.
      *
-     * @param mixed $id The ID to set for the user.
+     * @param ?string $id The ID to set for the user.
      *
      * @return void
      */
-    public function setId($id) : void {
+    public function setId(?string $id) : void {
         $this->id = isset($id) ? $id : null;
     }
 
     /**
      * Set the username of the user.
      *
-     * @param string|null $username The username to set for the user.
+     * @param ?string $username The username to set for the user.
      *                              If the username doesn't pass validation, it will be set to null.
      *
      * @return void
      */
-    public function setUsername($username) : void {
+    public function setUsername(?string $username) : void {
         $this->username = $username;
         !$this->validateUsername() ? [ $this->username = null ] : false;
     }
@@ -113,12 +270,12 @@ class User extends AbstractUser implements InterfaceUser {
     /**
      * Set the email of the user.
      *
-     * @param string|null $email The email to set for the user.
+     * @param ?string $email The email to set for the user.
      *                           If the email doesn't pass validation, it will be set to null.
      *
      * @return void
      */
-    public function setEmail($email) : void {
+    public function setEmail(?string $email) : void {
         $this->email = $email;
         !$this->validateEmail() ? [ $this->email = null ] : false;
     }
@@ -126,15 +283,107 @@ class User extends AbstractUser implements InterfaceUser {
     /**
      * Set the hashed password of the user.
      *
-     * @param string|null $password The password to set for the user (plaintext).
+     * @param ?string $password The password to set for the user (plaintext).
      *                              It gets hashed before being set.
      *
      * @return void
      */
-    public function setPassword($password) : void {
+    public function setPassword(?string $password) : void {
         $hashedPassword = $this->getHashPassword($password);
         $this->password = $hashedPassword;
     }
+
+    /**
+     * Set the metadata for the user.
+     *
+     * @param mixed $metadata The metadata to set for the user.
+     */
+    public function setMetadata(?object $metadata) : void {
+        $this->metadata = $metadata;
+    }
+
+    /**
+     * Set the first name of the user.
+     *
+     * @param ?string $firstName The first name to set for the user.
+     */
+    public function setFirstName(?string $firstName) : void {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * Set the last name of the user.
+     *
+     * @param ?string $lastName The last name to set for the user.
+     */
+    public function setLastName(?string $lastName) : void {
+        $this->lastName = $lastName;
+    }
+
+    /**
+     * Set the address for the user.
+     *
+     * @param ?string $address The address to set for the user.
+     */
+    public function setAddress(?string $address) : void {
+        $this->address = $address;
+    }
+
+    /**
+     * Set the website for the user.
+     *
+     * @param ?string $website The website to set for the user.
+     */
+    public function setWebsite(?string $website) : void {
+        $this->website = $website;
+    }
+
+    /**
+     * Set the social details for the user.
+     *
+     * @param ?string $social The social details to set for the user.
+     */
+    public function setSocial(?string $social) : void {
+        $this->social = $social;
+    }
+
+    /**
+     * Set the phone number for the user.
+     *
+     * @param ?string $phone The phone number to set for the user.
+     */
+    public function setPhone(?string $phone) : void {
+        $this->phone = $phone;
+    }
+
+    /**
+     * Set the WhatsApp number for the user.
+     *
+     * @param ?string $whatsapp The WhatsApp number to set for the user.
+     */
+    public function setWhatsapp(?string $whatsapp) : void {
+        $this->whatsapp = $whatsapp;
+    }
+
+    /**
+     * Set the creation date for the user.
+     *
+     * @param ?string $createdAt The creation date to set for the user.
+     */
+    public function setCreatedAt(?string $createdAt) : void {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * Set the status for the user.
+     *
+     * @param mixed $status The status to set for the user.
+     */
+    public function setStatus($status) : void {
+        $this->status = $status;
+    }
+
+    // Properties and methods...
 
    /**
     * Validate the username.
