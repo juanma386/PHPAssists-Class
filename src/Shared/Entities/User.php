@@ -6,7 +6,7 @@ namespace PHPAssists\Shared\Entities;
  * This class defines the possible Functions for the PHPAssists User API Test.
  *
  * @link       https://hexome.com.ar
- * @since      0.0.3
+ * @since      0.0.4
  *
  * @package    PHPAssistsTest
  * @subpackage PHPAssistsTest\Shared\Entities
@@ -27,6 +27,14 @@ class User extends AbstractUser implements InterfaceUser {
      * @var ?string $id
      */
     private ?string $id = null;
+
+    /**
+     * The unique identifier for the role.
+     *
+     * @var ?string $role_id
+     */
+    private ?string $role_id = null;
+    
 
     /**
      * The username of the user.
@@ -232,6 +240,15 @@ class User extends AbstractUser implements InterfaceUser {
         return $this->createdAt;
     }
 
+     /**
+     * Get the role of the user.
+     *
+     * @return mixed The user's role_id.
+     */
+    public function getRole()  : ?string {
+        return $this->role_id;
+    }
+
     /**
      * Get the status of the user.
      *
@@ -239,6 +256,28 @@ class User extends AbstractUser implements InterfaceUser {
      */
     public function getStatus()  : ?string {
         return $this->status;
+    }
+
+    public function getInsertData() : ? array {
+        return [
+            self::user_id => $this->getId(),
+            "role_id"      => $this->getRole(),
+            "metadata" => json_encode(
+                $this->getMetadata()
+            ),
+            "FirstName" => $this->getFirstName(),
+            "LastName" => $this->getLastName(),
+            "Address" => $this->getAddress(),
+            "WebSite" => $this->getWebsite(),
+            "Social" => json_encode(
+                $this->getSocial()
+            ),
+            "Phone" => $this->getPhone(),
+            "Whatsapp" => $this->getWhatsapp(),
+            "UserEmail" => $this->getEmail(),
+            "created_at" => $this->getCreatedAt(),
+            "status" => $this->getStatus(),
+        ];
     }
 
     // Setters
@@ -374,6 +413,17 @@ class User extends AbstractUser implements InterfaceUser {
         $this->createdAt = $createdAt;
     }
 
+
+     /**
+     * Set the role of the user.
+     *
+     * @return ?string The user's role_id.
+     */
+    public function setRole(?string $role_id)  : void {
+        $this->role_id = $role_id;
+    }
+
+
     /**
      * Set the status for the user.
      *
@@ -413,5 +463,7 @@ class User extends AbstractUser implements InterfaceUser {
     public function validatePassword(?string $enteredPassword) : bool {
         return isset($enteredPassword) && !empty($enteredPassword) ? password_verify($enteredPassword, $this->password) : false;
     }
+
+
 }
 ?>

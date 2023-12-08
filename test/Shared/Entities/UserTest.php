@@ -5,7 +5,7 @@
  * This class defines the possible Functions for the PHPAssists User API Test.
  *
  * @link       https://hexome.com.ar
- * @since      0.0.3
+ * @since      0.0.4
  *
  * @package    PHPAssistsTest
  * @subpackage PHPAssistsTest\Shared\Entities
@@ -20,6 +20,7 @@ use PHPAssists\Shared\Entities\User;
 class UserTest extends TestCase
 {
     private $user_id = '1';
+    private $role_id = '1';
     private $user_name = 'oldusername';
     private $user_email = 'test@example.com';
     private $user_old_password = 'oldpassword';
@@ -29,7 +30,14 @@ class UserTest extends TestCase
 
     protected function setUp(): void {
         parent::setUp();
-        $this->user = new User($this->user_id, $this->user_name, $this->user_email, $this->user_old_password);
+        $this->user = new User($this->user_id, $this->role_id, $this->user_name, $this->user_email, $this->user_old_password);
+    }
+
+    public function testSetRole()
+    {
+        $this->user->setRole("2");
+        $this->assertNotEquals($this->role_id, $this->user->getRole());
+        $this->assertEquals("2", $this->user->getRole());
     }
 
     public function testSetUsername()

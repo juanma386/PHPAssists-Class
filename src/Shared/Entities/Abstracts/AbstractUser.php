@@ -10,7 +10,7 @@ use PHPAssists\Shared\Core\ClassInvocationProcessor;
  * It manages information related to User API.
  *
  * @link       https://hexome.com.ar
- * @since      0.0.3
+ * @since      0.0.4
  *
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Abstract
@@ -27,6 +27,7 @@ class AbstractUser extends ClassInvocationProcessor {
      * Constructor for the UserEntity class.
      *
      * @param ?string $id The unique identifier for the User.
+     * @param ?string $role_id The unique identifier for the Role User.
      * @param ?string $username The username of the User.
      * @param ?string $email The email address of the User.
      * @param ?string $password The password of the User account.
@@ -43,6 +44,7 @@ class AbstractUser extends ClassInvocationProcessor {
      */
     public function __construct(
         ?string $id,
+        ?string $role_id,
         ?string $username,
         ?string $email,
         ?string $password,
@@ -58,6 +60,7 @@ class AbstractUser extends ClassInvocationProcessor {
         ?string $Status = null
         ) {
             $this->setId($id);
+            $this->setRole($role_id);
             $this->setUsername($username);
             $this->setEmail($email);
             $this->setPassword($password);

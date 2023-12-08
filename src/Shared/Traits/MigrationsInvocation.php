@@ -1,4 +1,17 @@
 <?php
+/**
+ * PHPAssists Migrations API
+ *
+ * This class defines the possible Functions for the PHPAssists Migrations API.
+ *
+ * @link       https://hexome.com.ar
+ * @since      0.0.1
+ *
+ * @package    PHPAssists
+ * @subpackage PHPAssists\Shared\Traits
+ *
+ * @author     Hexome Cloud <hi@hexome.cloud>
+ */
 namespace PHPAssists\Shared\Traits;
 
 trait MigrationsInvocation {
