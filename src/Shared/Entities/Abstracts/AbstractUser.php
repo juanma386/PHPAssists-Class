@@ -36,7 +36,7 @@ class AbstractUser extends ClassInvocationProcessor {
      * @param ?string $lastName Optional. The last name of the User.
      * @param ?string $address Optional. The address of the User.
      * @param ?string $website Optional. The website of the User.
-     * @param ?string $social Optional. Social details of the User.
+     * @param ?array  $social Optional. Social details of the User.
      * @param ?string $phone Optional. The phone number of the User.
      * @param ?string $whatsapp Optional. The WhatsApp number of the User.
      * @param ?string $createdAt Optional. The creation date of the User.
@@ -53,7 +53,7 @@ class AbstractUser extends ClassInvocationProcessor {
         ?string $lastName = null,
         ?string $Address = null,
         ?string $Website = null,
-        ?string $Social = null,
+        ?array $Social = null,
         ?string $Phone = null,
         ?string $Whatsapp = null,
         ?string $CreatedAt = null,
