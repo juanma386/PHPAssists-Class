@@ -10,7 +10,7 @@ use PHPAssists\Shared\Core\ClassInvocationProcessor;
  * It manages information related to User API.
  *
  * @link       https://hexome.com.ar
- * @since      0.0.1
+ * @since      0.0.3
  *
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Abstract

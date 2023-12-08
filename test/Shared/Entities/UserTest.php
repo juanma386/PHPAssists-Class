@@ -5,7 +5,7 @@
  * This class defines the possible Functions for the PHPAssists User API Test.
  *
  * @link       https://hexome.com.ar
- * @since      0.0.1
+ * @since      0.0.3
  *
  * @package    PHPAssistsTest
  * @subpackage PHPAssistsTest\Shared\Entities
