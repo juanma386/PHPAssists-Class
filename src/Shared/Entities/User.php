@@ -118,7 +118,14 @@ class User extends AbstractUser implements InterfaceUser {
      *
      * @var ?int $status
      */
-     private ?int $createdAt = null;
+    private ?int $createdAt = null;
+
+    /**
+     * The unique identifier for the user.
+     *
+     * @var ?string $status
+     */
+    private ?string $status = null;
 
     // Getters
 
