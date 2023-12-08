@@ -1,8 +1,8 @@
 <?php
 /**
- * PHPAssists Migrations API
+ * PHPAssists API
  *
- * This class defines the possible Functions for the PHPAssists Migrations API.
+ * This class defines the possible Functions for the PHPAssists gAPI.
  *
  * @link       https://hexome.com.ar
  * @since      0.0.1
