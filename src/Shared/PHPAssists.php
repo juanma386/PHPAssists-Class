@@ -1,4 +1,17 @@
 <?php
+/**
+ * PHPAssists Migrations API
+ *
+ * This class defines the possible Functions for the PHPAssists Migrations API.
+ *
+ * @link       https://hexome.com.ar
+ * @since      0.0.1
+ *
+ * @package    PHPAssists
+ * @subpackage PHPAssists\Shared
+ *
+ * @author     Hexome Cloud <hi@hexome.cloud>
+ */
 
 namespace PHPAssists\Shared;
 
@@ -8,23 +21,16 @@ class PHPAssists
 {
     public function __construct()
     {
-        $directory = __dir__; // Reemplaza con la ruta de tu directorio
-
-        // Obtiene todos los archivos del directorio
+        $directory = __dir__;
         $files = scandir($directory);
 
         foreach ($files as $file) {
-            // Verifica si es un archivo PHP
             if (pathinfo($file, PATHINFO_EXTENSION) === 'php') {
                 $class = pathinfo($file, PATHINFO_FILENAME);
                 $className = "PHPAssists\\Shared\\$class";
-
-                // Verifica si la clase es una subclase de PHPAssists
                 if (is_subclass_of($className, 'PHPAssists\Shared')) {
                     $reflection = new ReflectionClass($className);
                     $constructor = $reflection->getConstructor();
-
-                    // Si tiene constructor, llama al constructor
                     if ($constructor !== null) {
                         $constructor->invoke($this);
                     }
@@ -33,7 +39,6 @@ class PHPAssists
         }
     }
 
-    // Método para obtener todas las subclases de PHPAssists
     private function getSubClasses()
     {
         $subClasses = [];
@@ -44,7 +49,6 @@ class PHPAssists
                 $subClasses[] = $class;
             }
         }
-
         return $subClasses;
     }
 
