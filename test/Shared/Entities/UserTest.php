@@ -121,9 +121,15 @@ class UserTest extends TestCase
 
     public function testSetSocial()
     {
-        $social = 'facebook';
+        $social = [
+            "facebook" => "joedoe",
+            "instagram" => "joedoe",
+            "twitter" => "joedoe",
+            "linkedin" => "joedoe",
+            "somesocial" => "joedoe",
+        ];
         $this->user->setSocial($social);
-        $this->assertEquals($social, $this->user->getSocial());
+        $this->assertEquals(json_decode('{"facebook":"joedoe","instagram":"joedoe","twitter":"joedoe","linkedin":"joedoe","somesocial":"joedoe"}'), $this->user->getSocial());
     }
 
     public function testSetPhone()
@@ -153,5 +159,53 @@ class UserTest extends TestCase
         $this->user->setStatus($status);
         $this->assertEquals($status, $this->user->getStatus());
     }
+
+    public function testGetInsertData()
+{
+    // Set up the initial values for the User
+    $this->user->setId('123');
+    $this->user->setRole('2');
+    $metadata = new \stdClass();
+    $metadata->key = 'value';
+    $this->user->setMetadata($metadata);
+    $this->user->setFirstName('John');
+    $this->user->setLastName('Doe');
+    $this->user->setAddress('123 Main St');
+    $this->user->setWebsite('https://example.com');
+    $social = [
+        "facebook" => "joedoe",
+        "instagram" => "joedoe",
+        "twitter" => "joedoe",
+        "linkedin" => "joedoe",
+        "somesocial" => "joedoe",
+    ];
+    $this->user->setSocial($social);
+    $this->user->setPhone('123-456-7890');
+    $this->user->setWhatsapp('987-654-3210');
+    $this->user->setEmail('john@example.com');
+    $this->user->setCreatedAt(date("U"));
+    $this->user->setStatus('active');
+
+    // Call the getInsertData function
+    $insertData = $this->user->getInsertData('user_id');
+
+    // Assertion checks
+    $this->assertIsArray($insertData);
+    $this->assertArrayHasKey('user_id', $insertData);
+    $this->assertEquals('123', $insertData['user_id']);
+    $this->assertEquals('2', $insertData['role_id']);
+    $this->assertEquals('{"key":"value"}', $insertData['metadata']);
+    $this->assertEquals('John', $insertData['FirstName']);
+    $this->assertEquals('Doe', $insertData['LastName']);
+    $this->assertEquals('123 Main St', $insertData['Address']);
+    $this->assertEquals('https://example.com', $insertData['WebSite']);
+    $this->assertEquals('{"facebook":"joedoe","instagram":"joedoe","twitter":"joedoe","linkedin":"joedoe","somesocial":"joedoe"}', $insertData['Social']);
+    $this->assertEquals('123-456-7890', $insertData['Phone']);
+    $this->assertEquals('987-654-3210', $insertData['Whatsapp']);
+    $this->assertEquals('john@example.com', $insertData['UserEmail']);
+    $this->assertIsInt((int)$insertData['created_at']);
+    $this->assertEquals('active', $insertData['status']);
+}
+
 }
 ?>

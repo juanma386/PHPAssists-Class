@@ -95,9 +95,9 @@ class User extends AbstractUser implements InterfaceUser {
     /**
      * The unique identifier for the user.
      *
-     * @var ?string $status
+     * @var ?object $social
      */
-     private ?string $social = null;
+     private ?object $social = null;
  
     /**
      * The unique identifier for the user.
@@ -214,9 +214,9 @@ class User extends AbstractUser implements InterfaceUser {
     /**
      * Get the social details of the user.
      *
-     * @return mixed The user's social details.
+     * @return ?object The user's social details.
      */
-    public function getSocial()  : ?string {
+    public function getSocial()  : ?object {
         return $this->social;
     }
 
@@ -265,9 +265,14 @@ class User extends AbstractUser implements InterfaceUser {
         return $this->status;
     }
 
-    public function getInsertData() : ? array {
-        return [
-            self::user_id => $this->getId(),
+    /**
+     * Get the Insert Data of the user.
+     *
+     * @return ?array The user's Data.
+     */
+    public function getInsertData( ?string $user_id_name ) : ? array {
+        return isset($user_id_name) && !empty($user_id_name) && is_string($user_id_name) ? [
+            $user_id_name => $this->getId(),
             "role_id"      => $this->getRole(),
             "metadata" => json_encode(
                 $this->getMetadata()
@@ -284,7 +289,7 @@ class User extends AbstractUser implements InterfaceUser {
             "UserEmail" => $this->getEmail(),
             "created_at" => $this->getCreatedAt(),
             "status" => $this->getStatus(),
-        ];
+        ] : [];
     }
 
     // Setters
@@ -387,10 +392,20 @@ class User extends AbstractUser implements InterfaceUser {
     /**
      * Set the social details for the user.
      *
-     * @param ?string $social The social details to set for the user.
+     * @param ?array $social The social details to set for the user.
+     * 
      */
-    public function setSocial(?string $social) : void {
-        $this->social = $social;
+    public function setSocial(?array $social): void {
+        $socialObject = new \stdClass();
+    
+        if (is_array($social))
+        foreach ($social as $key => $value) {
+            if (!empty($value)) {
+                $socialObject->$key = $value;
+            }
+        }
+    
+        $this->social = $socialObject;
     }
 
     /**
