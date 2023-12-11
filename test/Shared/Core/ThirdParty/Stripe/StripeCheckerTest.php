@@ -6,7 +6,7 @@ namespace PHPAssistsTest\Shared\Core\ThirdParty\Stripe;
  * This class defines the possible Functions for the PHPAssists Stripe API Test.
  *
  * @link       https://hexome.com.ar
- * @since      0.0.1
+ * @since      0.0.5
  *
  * @package    PHPAssistsTest
  * @subpackage PHPAssistsTest\Shared\Core\ThirdParty\Stripe
