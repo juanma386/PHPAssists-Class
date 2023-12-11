@@ -1,4 +1,4 @@
-<?php
+<?php namespace PHPAssists\Shared\Core\ThirdParty\Stripe;
 /**
  * PHPAssists Stripe API
  *
