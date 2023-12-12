@@ -19,8 +19,34 @@
 
 class StripeEntity {
     private ?string $stripeApiKey;
-    public function __construct(?string $stripeApiKey) {
+    private ?string $currentDir = null;
+    private ?string $filePath;
+    private ?string $fileName;
+    private ?string $file;
+    
+    
+    
+    public function __construct(?string $stripeApiKey,?string $currentDir) {
+        $this->setCurrentDir($currentDir);
         $this->setKeySecret((string) $stripeApiKey);
+    }
+
+    private function inicializate() : void {
+        $this->file = $this->currentDir . DIRECTORY_SEPARATOR . ($this->fileName ?? null);
+    }
+
+    private function getFile() : ?string {
+        return $this->file;
+    }
+
+    public function getCurrentDir() : ?string {
+        return $this->currentDir;
+    }
+
+    private function setCurrentDir(?string $currentDir) : void {
+        if(!$this->getCurrentDir()) {
+            $this->currentDir = $currentDir;
+        }
     }
 
     private function getKeySecret() : ? string {
@@ -32,6 +58,8 @@ class StripeEntity {
     }
 
     function verifyIdInCSV($paymentIntentId, ?string $filePath) : bool {
+        $this->checkFileExistsAndCreateIfNotExists($filePath);
+        $filePath = $this->getFile();
         // Open the file in read mode
         $file = fopen($filePath, 'r');
 
@@ -62,10 +90,54 @@ class StripeEntity {
         return $object;
     }
 
+    private function setFileName(?string $fileName) : void {
+        $this->fileName = $fileName;
+    }
+
+    public function getFileName() : ?string {
+        return $this->fileName;
+    }
+
+    function checkFileExistsAndCreateIfNotExists(?string $fileName) : void
+    {
+        $this->setFileName($fileName);
+        $this->inicializate();
+        $filePath = $this->getFile();
+        if (!file_exists($filePath)) {
+            $directoryPath = $this->getCurrentDir();
+            echo $directoryPath;
+            if (!file_exists($directoryPath)) {
+                mkdir($directoryPath, 0755, true);
+            }
+            $destine = $fileName . DIRECTORY_SEPARATOR . $filePath;
+            touch($destine);
+        }
+    }
+
+
+    function removeDuplicates($string)
+    {
+        // Convertir el string a un array
+        $array = explode('/', $string);
+
+        // Eliminar los duplicados del array
+        $array = array_unique($array, function ($value) {
+            return !in_array($value, $array);
+        });
+
+        // Convertir el array de nuevo a un string
+        $string = implode('/', $array);
+
+        return $string;
+    }
 
     function searchCustomer(?string $filePath,?string $customer_id) {
         // Open the file in read mode
+        $this->checkFileExistsAndCreateIfNotExists($filePath);
+        $filePath = $this->getFile();
+
         $file = fopen($filePath, 'r');
+        
 
         // Iterate over the lines in the file
         while (($line = fgets($file)) !== false) {
@@ -88,6 +160,8 @@ class StripeEntity {
 
 
     function verifyExistenceFields(?string $filePath,?string $customer_id) {
+        $this->checkFileExistsAndCreateIfNotExists($filePath);
+        $filePath = $this->getFile();
         // Open the file in read mode
         $file = fopen($filePath, 'r');
 
@@ -110,6 +184,8 @@ class StripeEntity {
 
 
     function storePaymentInCSV($paymentIntentJSON, ?string $filePath) : bool {
+        $this->checkFileExistsAndCreateIfNotExists($filePath);
+        $filePath = $this->getFile();
         if (isset($paymentIntentJSON) &&
         isset($paymentIntentJSON->status) &&
         isset($paymentIntentJSON->id) &&
@@ -123,7 +199,7 @@ class StripeEntity {
                 $customerId,
             ];
 
-            if(!verifyExistenceFields($filePath,$customerId)) {
+            if(!$this->verifyExistenceFields($filePath,$customerId)) {
                 // Open the file in write mode (if it does not exist, it creates it)
                 $file = fopen($filePath, 'a');
 
@@ -142,6 +218,8 @@ class StripeEntity {
 
     function compareWithPaymentIntents($fileName) : void
     {
+        $this->checkFileExistsAndCreateIfNotExists($filePath);
+        $filePath = $this->getFile();
         $file = fopen($fileName, 'r'); 
 
         $stripeApiKey = $this->getKeySecret();
@@ -157,7 +235,7 @@ class StripeEntity {
                 $customer_id = $paymentIntent->customer;
                 if ($customer_id === $customer_id_file ) {
                     $filePayments = "payments.txt";
-                    storePaymentInCSV($paymentIntent, $filePayments);    
+                    $this->storePaymentInCSV($paymentIntent, $filePayments);    
                 }
             }
         }
