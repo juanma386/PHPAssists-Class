@@ -104,13 +104,7 @@ class StripeEntity {
         $this->inicializate();
         $filePath = $this->getFile();
         if (!file_exists($filePath)) {
-            $directoryPath = $this->getCurrentDir();
-            echo $directoryPath;
-            if (!file_exists($directoryPath)) {
-                mkdir($directoryPath, 0755, true);
-            }
-            $destine = $fileName . DIRECTORY_SEPARATOR . $filePath;
-            touch($destine);
+            touch($filePath);
         }
     }
 
