@@ -5,6 +5,8 @@
  * This class defines the possible Functions for the PHPAssists gAPI.
  *
  * @link       https://hexome.com.ar
+ * @link       https://hexome.cloud
+ * @link       https://hexome.es
  * @since      0.0.1
  *
  * @package    PHPAssists

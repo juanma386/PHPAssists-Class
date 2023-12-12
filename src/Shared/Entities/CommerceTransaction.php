@@ -11,6 +11,8 @@ use PHPAssists\Shared\Entities\Interfaces\InterfaceCommerceTransaction;
  * It manages information related to financial transactions made at commerce locations.
  *
  * @link       https://hexome.com.ar
+ * @link       https://hexome.cloud
+ * @link       https://hexome.es
  * @since      0.0.1
  *
  * @package    PHPAssosts

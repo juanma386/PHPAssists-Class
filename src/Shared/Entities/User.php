@@ -6,6 +6,8 @@ namespace PHPAssists\Shared\Entities;
  * This class defines the possible Functions for the PHPAssists User API Test.
  *
  * @link       https://hexome.com.ar
+ * @link       https://hexome.cloud
+ * @link       https://hexome.es
  * @since      0.0.4
  *
  * @package    PHPAssistsTest

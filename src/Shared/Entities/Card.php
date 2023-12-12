@@ -11,6 +11,8 @@ use PHPAssists\Shared\Entities\Interfaces\InterfaceCard;
  * It manages information related to credit or debit cards.
  *
   * @link       https://hexome.com.ar
+ * @link       https://hexome.cloud
+ * @link       https://hexome.es
  * @since      0.0.1
  *
  * @package    PHPAssists

@@ -6,6 +6,8 @@
  * It represents a template for managing bank account information.
  *
  * @link       https://hexome.com.ar
+ * @link       https://hexome.cloud
+ * @link       https://hexome.es
  * @since      0.0.1
  *
  * @package    PHPAssists

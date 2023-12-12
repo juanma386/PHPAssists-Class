@@ -8,6 +8,8 @@ namespace PHPAssists\Shared\Entities;
  * It manages information related to Product Price used by the system.
  *
  * @link       https://hexome.com.ar
+ * @link       https://hexome.cloud
+ * @link       https://hexome.es
  * @since      0.0.1
  *
  * @package    PHPAssists

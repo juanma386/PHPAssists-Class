@@ -11,6 +11,8 @@ use PHPAssists\Shared\Entities\Interfaces\InterfaceExpenseCategory;
  * It manages information related to expense categories.
  *
  * @link       https://hexome.com.ar
+ * @link       https://hexome.cloud
+ * @link       https://hexome.es
  * @since      0.0.1
  *
  * @package    PHPAssists

@@ -6,6 +6,8 @@
  * This PHPUnit class defines the possible Languages API codes for the PHPAssistsTest FileLogger API.
  *
  * @link       https://hexome.com.ar
+ * @link       https://hexome.cloud
+ * @link       https://hexome.es
  * @since      0.0.4
  *
  * @package    PHPAssistsTest

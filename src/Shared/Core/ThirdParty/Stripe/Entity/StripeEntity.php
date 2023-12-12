@@ -5,6 +5,8 @@
  * This class defines the possible Stripe API algo for the PHPAssists Stripe API.
  *
  * @link       https://hexome.com.ar
+ * @link       https://hexome.cloud
+ * @link       https://hexome.es
  * @since      0.0.5
  *
  * @package    PHPAssists

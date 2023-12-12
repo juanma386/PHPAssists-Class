@@ -6,6 +6,8 @@
  * This class defines the possible HTTP API codes for the PHPAssists HTTP API.
  *
  * @link       https://hexome.com.ar
+ * @link       https://hexome.cloud
+ * @link       https://hexome.es
  * @since      0.0.1
  *
  * @package    PHPAssists
