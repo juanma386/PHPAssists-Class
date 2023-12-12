@@ -12,6 +12,8 @@ namespace PHPAssistsTest\Shared\Core\Response;
  * @subpackage PHPAssistsTest\Shared\Core\Response
  *
  * @author     Hexome Cloud <hi@hexome.cloud>
+ * @link https://packagist.org/packages/juanma386/php-assists-class
+ *
  */
 
 use PHPUnit\Framework\TestCase;

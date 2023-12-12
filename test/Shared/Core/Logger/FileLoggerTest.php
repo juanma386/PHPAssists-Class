@@ -12,6 +12,8 @@
  * @subpackage PHPAssistsTest\Shared\Core\Logger
  *
  * @author     Hexome Cloud <hi@hexome.cloud>
+ * @link https://packagist.org/packages/juanma386/php-assists-class
+ *
  */
 
 namespace PHPAssistsTest\Shared\Core\Languages;

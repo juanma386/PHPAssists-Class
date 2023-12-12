@@ -15,6 +15,8 @@ use PHPAssists\Shared\Entities\Interfaces\InterfaceExpense;
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Entities
  * @author     Hexome Cloud <hi@hexome.cloud>
+ * @link https://packagist.org/packages/juanma386/php-assists-class
+ *
  */
 class Expense extends AbstractExpense implements InterfaceExpense {
     

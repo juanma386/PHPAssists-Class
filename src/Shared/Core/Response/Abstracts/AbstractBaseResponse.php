@@ -13,6 +13,8 @@ namespace PHPAssists\Shared\Core\Response\Abstracts;
  * @subpackage PHPAssists\Shared\Core\Response\Abstracts
  *
  * @author     Hexome Cloud <hi@hexome.cloud>
+ * @link https://packagist.org/packages/juanma386/php-assists-class
+ *
  */
 
 use PHPAssists\Shared\Core\Response\Traits\TraitHttpResponse;

@@ -12,6 +12,8 @@
  * @subpackage PHPAssists\Shared\Core\Response
  *
  * @author     Hexome Cloud <hi@hexome.cloud>
+ * @link https://packagist.org/packages/juanma386/php-assists-class
+ *
  */
 
 namespace PHPAssists\Shared\Core\Response;

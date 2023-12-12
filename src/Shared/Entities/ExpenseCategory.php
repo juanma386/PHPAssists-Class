@@ -16,6 +16,8 @@ use PHPAssists\Shared\Entities\Interfaces\InterfaceExpenseCategory;
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Entities
  * @author     Hexome Cloud <hi@hexome.cloud>
+ * @link https://packagist.org/packages/juanma386/php-assists-class
+ *
  */
 class ExpenseCategory extends AbstractExpenseCategory implements InterfaceExpenseCategory {
     // Properties

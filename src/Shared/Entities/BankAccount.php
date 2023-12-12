@@ -11,6 +11,8 @@
  * @package    PHPAssosts
  * @subpackage PHPAssists\Shared\Core\Entities
  * @author     Hexome Cloud <hi@hexome.cloud>
+ * @link https://packagist.org/packages/juanma386/php-assists-class
+ *
  */
 
 namespace PHPAssists\Shared\Entities;

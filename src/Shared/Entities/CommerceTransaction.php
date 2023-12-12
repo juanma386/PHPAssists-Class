@@ -16,6 +16,8 @@ use PHPAssists\Shared\Entities\Interfaces\InterfaceCommerceTransaction;
  * @package    PHPAssosts
  * @subpackage PHPAssosts\Shared\Core\Entities
  * @author     Hexome Cloud <hi@hexome.cloud>
+ * @link https://packagist.org/packages/juanma386/php-assists-class
+ *
  */
 class CommerceTransaction extends AbstractCommerceTransaction implements InterfaceCommerceTransaction {
     // Properties

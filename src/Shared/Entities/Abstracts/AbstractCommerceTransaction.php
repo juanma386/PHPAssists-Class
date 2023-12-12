@@ -15,6 +15,8 @@ use PHPAssists\Shared\Core\ClassInvocationProcessor;
  * @package    PHPAssists
  * @subpackage PHPAssists\Shared\Abstract
  * @author     Hexome Cloud <hi@hexome.cloud>
+ * @link https://packagist.org/packages/juanma386/php-assists-class
+ *
  */
 class AbstractCommerceTransaction extends ClassInvocationProcessor {
     
