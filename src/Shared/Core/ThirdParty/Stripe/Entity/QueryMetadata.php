@@ -21,6 +21,8 @@ class QueryMetadata {
     public ?string $query;
     public ?string $metadataKey;
     public ?string $metadataValue;
+    // Check last number card credit|| debit || card other
+    public ?string $last;
 
     private function setMetadataKey($metadataKey) {
         $this->metadataKey = $metadataKey;
@@ -58,5 +60,30 @@ class QueryMetadata {
         } else {
             return null;
         }
+    }
+
+    private function setLast(?int $last) : void {
+        $this->last = $last;
+    }
+
+    private function getLast() :? int {
+        return $this->last;
+    }
+
+    private function checkLength() : bool {
+        return (
+            [
+                $a = strval($this->last),
+                $b = strlen($a),
+            ] AND $b===4
+        ) ? true : false;
+    }
+
+    public function getLastNumber(?int $last) : ? string {
+        return (
+            [
+                $this->setLast($last),        
+            ] AND $this->checkLength()
+        ) ? "payment_method_details.card.last4:". $this->getLast() : null;
     }
 }

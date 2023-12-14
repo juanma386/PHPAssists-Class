@@ -46,4 +46,22 @@ class QueryMetadataTest extends TestCase {
         $actualResult = $queryMetadata->generateQueryStringMetadata($metadataValue, $metadataKey);
         $this->assertEquals($expectedResult, $actualResult);
     }
+
+    public function testGetLastNumberWithValidLength() {
+        $queryMetadata = new QueryMetadata();
+        $validLastNumber = 1234; // Número válido con 4 dígitos
+
+        $result = $queryMetadata->getLastNumber($validLastNumber);
+
+        $this->assertEquals('payment_method_details.card.last4:1234', $result);
+    }
+
+    public function testGetLastNumberWithInvalidLength() {
+        $queryMetadata = new QueryMetadata();
+        $invalidLastNumber = 123; // Número inválido con menos de 4 dígitos
+
+        $result = $queryMetadata->getLastNumber($invalidLastNumber);
+
+        $this->assertNull($result);
+    }
 }
