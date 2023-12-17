@@ -208,12 +208,11 @@ class StripeAPI {
      */
 
     public function createPaymentIntent(?int $amount, ?string $currency, bool $automatic_payment = false) {
-        $fields = [
+        return $this->stripe->paymentIntents->create([
             'amount' => $amount,
             'currency' => $currency,
             'automatic_payment_methods' => ['enabled' => $automatic_payment],
-        ];
-        return $this->stripe->paymentIntents->create($fields);
+        ]);
     }
 
     /**

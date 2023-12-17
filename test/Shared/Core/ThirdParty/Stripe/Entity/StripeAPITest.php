@@ -124,6 +124,22 @@ class StripeAPITest extends TestCase
         $productId = $product->id;
 
         $price = $this->stripeAPI->createPrice($amount, $currency, $productId);
+        
         $this->assertNotNull($price);
+        $this->assertInstanceOf('Stripe\Price', $price);
+
     }
+    
+
+    public function testPaymentIntent(): void {
+        
+        $amount = 2000; $currency = "usd";
+        $paymentIntent = $this->stripeAPI->createPaymentIntent($amount, $currency, true);
+        $this->assertInstanceOf('Stripe\PaymentIntent', $paymentIntent);
+
+        // Assertions
+        $this->assertNotNull($paymentIntent);
+        $this->assertEquals( "requires_payment_method", $paymentIntent->status);
+    }
+    
 }
