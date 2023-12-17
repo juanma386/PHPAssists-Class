@@ -23,6 +23,9 @@ class QueryMetadata {
     public ?string $metadataValue;
     // Check last number card credit|| debit || card other
     public ?string $last;
+    // customer
+    private ?string $email;
+
 
     private function setMetadataKey($metadataKey) {
         $this->metadataKey = $metadataKey;
@@ -62,6 +65,8 @@ class QueryMetadata {
         }
     }
 
+    // Last number credit card
+
     private function setLast(?int $last) : void {
         $this->last = $last;
     }
@@ -86,4 +91,50 @@ class QueryMetadata {
             ] AND $this->checkLength()
         ) ? "payment_method_details.card.last4:". $this->getLast() : null;
     }
+
+    // customer search
+
+    private function setEmail(?string $email) : void {
+        $this->email = $email;
+    }
+
+    private function getEmail() :? string {
+        return $this->email;
+    }
+
+    public function getEmailCustommer(?string $email) : ? string {
+        return (
+            [
+                $this->setEmail($email),        
+            ] AND $this->validEmail()
+        ) ? 'email:\'' . $this->getEmail() .  '\''  : null;
+    }
+
+    private function validEmail() {
+            return is_string($this->email) && !empty($this->email) && filter_var($this->email, FILTER_VALIDATE_EMAIL);
+    }
+
+    public function buildSearchQuery(array $fields = []): string {
+        $query = '';
+    
+        foreach ($fields as $field => $value) {
+            // Si el valor es un array, conviértelo en una cadena separada por comas
+            if (is_array($value)) {
+                $value = implode(',', $value);
+            }
+    
+            // Escapar comillas dentro de las comillas
+            $value = str_replace('"', '\"', $value);
+    
+            // Construir la parte de la consulta para cada campo y valor
+            if ($query !== '') {
+                $query .= ' AND ';
+            }
+    
+            $query .= $field . ':"' . $value . '"';
+        }
+    
+        return $query;
+    }
+    
 }

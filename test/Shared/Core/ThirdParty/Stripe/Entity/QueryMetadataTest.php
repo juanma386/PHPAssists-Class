@@ -22,24 +22,30 @@ use PHPUnit\Framework\TestCase;
 use PHPAssists\Shared\Core\ThirdParty\Stripe\Entity\QueryMetadata;
 
 class QueryMetadataTest extends TestCase {
-    public function testGenerateQueryStringMetadata(): void {
-        $queryMetadata = new QueryMetadata();
 
-        // Caso de prueba 1: metadataValue y metadataKey son válidos
+    private QueryMetadata $queryMetadata;
+
+
+    protected function setUp(): void {
+        parent::setUp();
+        $this->queryMetadata = new QueryMetadata();
+    }
+    public function testGenerateQueryStringMetadata(): void {
+        $queryMetadata = $this->queryMetadata;
+
         $metadataValue = 'value';
         $metadataKey = 'key';
         $expectedResult = "metadata['key']: 'value'";
         $actualResult = $queryMetadata->generateQueryStringMetadata($metadataValue, $metadataKey);
         $this->assertEquals($expectedResult, $actualResult);
 
-        // Caso de prueba 2: metadataValue o metadataKey son nulos
         $metadataValue = null;
         $metadataKey = 'key';
         $expectedResult = null;
         $actualResult = $queryMetadata->generateQueryStringMetadata($metadataValue, $metadataKey);
         $this->assertEquals($expectedResult, $actualResult);
 
-        // Caso de prueba 3: metadataValue y metadataKey son nulos
+        
         $metadataValue = null;
         $metadataKey = null;
         $expectedResult = null;
@@ -48,8 +54,8 @@ class QueryMetadataTest extends TestCase {
     }
 
     public function testGetLastNumberWithValidLength() {
-        $queryMetadata = new QueryMetadata();
-        $validLastNumber = 1234; // Número válido con 4 dígitos
+        $queryMetadata = $this->queryMetadata;
+        $validLastNumber = 1234; 
 
         $result = $queryMetadata->getLastNumber($validLastNumber);
 
@@ -57,11 +63,86 @@ class QueryMetadataTest extends TestCase {
     }
 
     public function testGetLastNumberWithInvalidLength() {
-        $queryMetadata = new QueryMetadata();
-        $invalidLastNumber = 123; // Número inválido con menos de 4 dígitos
+        $queryMetadata = $this->queryMetadata;
+        $invalidLastNumber = 123; 
 
         $result = $queryMetadata->getLastNumber($invalidLastNumber);
 
         $this->assertNull($result);
     }
+
+    // Custommer email
+
+    public function testGetEmailCustomerWithValidEmail() {
+        $customerSearch = $this->queryMetadata;
+        $validEmail = 'test@example.com';
+
+        $result = $customerSearch->getEmailCustommer($validEmail);
+
+        $this->assertEquals("email:'$validEmail'", $result);
+    }
+
+    public function testGetEmailCustomerWithInvalidEmail() {
+        $customerSearch = $this->queryMetadata;
+        $invalidEmail = 'invalidemail'; // Este no es un correo electrónico válido
+
+        $result = $customerSearch->getEmailCustommer($invalidEmail);
+
+        $this->assertNull($result);
+    }
+
+    public function testBuildSearchQuery(): void {
+
+        $queryMetadata = $this->queryMetadata;
+
+        // Arrange
+        $fields = [
+            'currency' => 'eur',
+            'status' => 'active',
+            'amount' => '500',
+        ];
+
+        $expectedQuery = 'currency:"eur" AND status:"active" AND amount:"500"';
+
+        // Act
+        $searchQuery = $queryMetadata->buildSearchQuery($fields);
+
+        // Assert
+        $this->assertEquals($expectedQuery, $searchQuery);
+    }
+
+    public function testBuildSearchQueryWithArrayValue(): void {
+        $queryMetadata = $this->queryMetadata;
+        // Arrange
+        $fields = [
+            'currency' => 'eur',
+            'status' => 'active',
+            'amount' => ['500', '700'],
+        ];
+
+        $expectedQuery = 'currency:"eur" AND status:"active" AND amount:"500,700"';
+
+        // Act
+        $searchQuery = $queryMetadata->buildSearchQuery($fields);
+
+        // Assert
+        $this->assertEquals($expectedQuery, $searchQuery);
+    }
+
+    public function testBuildSearchQueryWithEscapeQuotes(): void {
+        $queryMetadata = $this->queryMetadata;
+        // Arrange
+        $fields = [
+            'description' => 'the story called "The Sky and the Sea."',
+        ];
+
+        $expectedQuery = 'description:"the story called \"The Sky and the Sea.\""';
+
+        // Act
+        $searchQuery = $queryMetadata->buildSearchQuery($fields);
+
+        // Assert
+        $this->assertEquals($expectedQuery, $searchQuery);
+    }
+
 }

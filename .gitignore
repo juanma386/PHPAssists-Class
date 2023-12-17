@@ -2,3 +2,4 @@
 composer.lock
 /test/*.json
 .phpunit.result.cache
+*.csv
