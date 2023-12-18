@@ -99,8 +99,6 @@ abstract class AbstractLicence {
      protected static function sendLicenseRequest($url): bool {
         $curl = curl_init();
 
-        echo "\n" . $url . "\n";
-    
         curl_setopt_array($curl, array(
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
