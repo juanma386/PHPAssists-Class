@@ -8,7 +8,7 @@
  * @link       https://hexome.com.ar
  * @link       https://hexome.cloud
  * @link       https://hexome.es
- * @since      0.0.4
+ * @since      0.0.5
  *
  * @package    PHPAssistsTest
  * @subpackage PHPAssistsTest\Shared\Core\Licences
