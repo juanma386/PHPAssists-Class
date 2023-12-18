@@ -10,7 +10,7 @@
  * @since      0.0.5
  *
  * @package    PHPAssists
- * @subpackage PHPAssists\Shared\Core\ThirdParty\Stripe
+ * @subpackage PHPAssists\Shared\Core\ThirdParty\Stripe\Entity
  *
  * @author     Hexome Cloud <hi@hexome.cloud>
  * @link https://packagist.org/packages/juanma386/php-assists-class
