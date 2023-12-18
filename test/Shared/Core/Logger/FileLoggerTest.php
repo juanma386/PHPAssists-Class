@@ -18,7 +18,7 @@
  *
  */
 
-namespace PHPAssistsTest\Shared\Core\Languages;
+namespace PHPAssistsTest\Shared\Core\Logger;
 
 use PHPUnit\Framework\TestCase;
 use PHPAssists\Shared\Core\Logger\FileLogger;
